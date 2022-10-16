@@ -1,0 +1,7 @@
+[user]
+	name = diego-gv
+	email = diegosalvador.gv@gmail.com
+[credential]
+        helper = cache
+[core]
+	editor = vim
