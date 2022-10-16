@@ -1,7 +1,5 @@
 # diego-gv's dotfiles
 
-[![Build Status](https://github.com/diego-gv/dotfiles/actions/workflows/test.yaml/badge.svg)](https://github.com/diego-gv/dotfiles/actions/workflows/test.yaml)
-
 ## Original project
 https://github.com/georgijd/dotfiles
 
