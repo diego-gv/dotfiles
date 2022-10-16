@@ -13,6 +13,7 @@ do_install() {
 		build-essential
 		cmake
 		curl
+		fontconfig
 		git
 		htop
 		vim
@@ -21,8 +22,8 @@ do_install() {
 	)
 
 	info "[system] Install packages"
-	# export DEBIAN_FRONTEND=noninteractive
-	# sudo apt-add-repository -y ppa:git-core/ppa
+	export DEBIAN_FRONTEND=noninteractive
+	sudo apt-add-repository -y ppa:git-core/ppa
 	sudo apt-get update -qq
 	sudo apt-get install -qq -y "${packages[@]}"
 }
