@@ -3,7 +3,7 @@ include test.mk
 .DEFAULT_GOAL := all
 .PHONY: git
 
-all: system git terminal tools ## Install and configure everything (default)
+all: system git containers terminal tools ## Install and configure everything (default)
 help: ## Display help
 	@grep -hE '^[a-zA-Z_0-9%-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -16,6 +16,18 @@ git: ## Configure git
 	@./scripts/git.sh configure
 gnome-terminal: ## Install themes for gnome-terminal
 	@./scripts/gnome-terminal.sh configure
+
+containers: docker docker-compose ## Setup docker and docker-compose
+docker: docker-install docker-configure ## Install and configure
+docker-install: ## Install docker packages
+	@./scripts/docker.sh install
+docker-configure: ## Configure docker
+	@./scripts/docker.sh configure
+docker-compose: docker-compose-install docker-compose-configure ## Install and configure
+docker-compose-install: ## Install docker-compose packages
+	@./scripts/docker-compose.sh install
+docker-compose-configure: ## Configure docker-compose
+	@./scripts/docker-compose.sh configure
 
 terminal: zsh ohmyzsh fzf ## Setup the terminal
 zsh: ## Configure zsh

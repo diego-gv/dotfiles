@@ -34,13 +34,13 @@ do_configure() {
 	info "[system][configure][directories] Repositories"
 	sudo install -d -m 0755 -o "${USER}" -g "${USER}" /repos
 
-	info "[system][configure][directories] Java workspace"
-	install -d -m 0755 -o "${USER}" -g "${USER}" "$HOME/java/workspace"
+	info "[system][configure][directories] Workspace"
+	install -d -m 0755 -o "${USER}" -g "${USER}" "$HOME/workspace"
 
 	info "[system][configure][directories] User Fonts"
 	install -d -m 0755 -o "${USER}" -g "${USER}" "${FONTS_DIR}"
 
-	info "[system][configure][directories] User binaries directory"
+	info "[system][configure][directories] User binaries"
 	install -d -m 0755 -o "${USER}" -g "${USER}" "$HOME/bin"
 
 	# Font: MesloLGL Nerd Font Mono
