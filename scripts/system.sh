@@ -57,6 +57,20 @@ do_configure() {
 	sudo fc-cache -f
 }
 
+do_reboot() {
+	info "[system] Reboot"
+	while true; do
+		read -p "[system][reboot] Do you want to reboot the system to apply all changes? [Y/n] " action
+		action=${action:-Y}
+		case $action in
+			[Yy]* ) reboot ;;
+			[Nn]* ) warn "[system][reboot] Some changes will not be applied until the system is restarted" ; exit ;;
+			* ) warn "[system][reboot] Please answer yes or no" ;;
+		esac
+	done
+
+}
+
 main() {
 	command=$1
 	case $command in
@@ -67,6 +81,10 @@ main() {
 	"configure")
 		shift
 		do_configure "$@"
+		;;
+	"reboot")
+		shift
+		do_reboot "$@"
 		;;
 	*)
 		error "$(basename "$0"): '$command' is not a valid command"
