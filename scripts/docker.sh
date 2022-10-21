@@ -22,7 +22,7 @@ do_install() {
 
 do_configure() {
 	info "[docker] Configure"
-	info "[zsh][configure] Add user to docker group"
+	info "[docker][configure] Add user to docker group"
 	sudo usermod -aG docker ${USER}
 }
 

@@ -6,14 +6,23 @@ DOTFILES_DIR="${DOTFILES_DIR:=${PWD}}"
 # shellcheck disable=SC1090
 source "${DOTFILES_DIR}/scripts/util.sh"
 
+COMPOSE_VERSION="${COMPOSE_VERSION:=v2.3.3}"
+
 do_install() {
+	if [[ "$(docker compose --version 2>/dev/null)" == *"${COMPOSE_VERSION}"* ]]; then
+		info "[docker-compose] ${COMPOSE_VERSION} already installed"
+		return
+	fi
+
 	info "[docker-compose] Install"
-	# TODO
+	mkdir -p ~/.docker/cli-plugins/
+	curl -SL https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 }
 
 do_configure() {
 	info "[docker-compose] Configure"
-	# TODO
+	chmod +x ~/.docker/cli-plugins/docker-compose
+	docker compose version
 }
 
 main() {
