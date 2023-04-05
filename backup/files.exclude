@@ -1,0 +1,21 @@
+# Regular Folders
+Descargas
+Documentos
+Escritorio
+Imágenes
+Música
+Plantillas
+Público
+Vídeos
+snap
+
+# Hidden Folders
+.cache
+.config/Code/Service Worker/CacheStorage
+.config/Code/User/History
+.config/Code/logs
+
+# Regular Expressions
+*.log
+*/*Cache*
+*/[Tt]rash

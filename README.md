@@ -66,3 +66,4 @@ flexibility and out-of-the-box experience.
 
 1. [Original Project: Georgi's dotfiles](https://github.com/georgijd/dotfiles)
 2. [Setup multiple git identities & git user informations](https://gist.github.com/bgauduch/06a8c4ec2fec8fef6354afe94358c89e)
+3. [Makefile help version](https://gist.github.com/prwhite/8168133?permalink_comment_id=2833138#gistcomment-2833138)
