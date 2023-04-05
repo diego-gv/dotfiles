@@ -1,6 +1,7 @@
-[user]
-	name = diego-gv
-	email = diegosalvador.gv@gmail.com
+[includeIf "gitdir:~/personal/**/.git"]
+	path = .gitconfig-personal
+[includeIf "gitdir:~/workspace/**/.git"]
+	path = .gitconfig-workspace
 [credential]
         helper = cache
 [core]

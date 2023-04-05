@@ -10,6 +10,8 @@ do_configure() {
 	info "[git] Configure"
 	info "[git][configure] Create config file symlink"
 	ln -fs "${DOTFILES_DIR}/git/gitconfig" "${HOME}/.gitconfig"
+	ln -fs "${DOTFILES_DIR}/git/gitconfig-personal" "${HOME}/.gitconfig-personal"
+	ln -fs "${DOTFILES_DIR}/git/gitconfig-workspace" "${HOME}/.gitconfig-workspace"
 
 	info "[git][configure] Create a commit-template file"
 	touch "${DOTFILES_DIR}/git/commit-template"
