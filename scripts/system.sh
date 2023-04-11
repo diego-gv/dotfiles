@@ -66,13 +66,12 @@ do_backup() {
 	info "[system][backup] Backup directory in ${BACKUP_DIR}"
 	sudo install -d -m 0755 -o "${USER}" -g "${USER}" "${BACKUP_DIR}"
 	info "[system][backup] Copying files from $HOME to $BACKUP_DIR"
-	sleep .5
-	rsync -arv "$HOME/" "$BACKUP_DIR" --include-from="${DOTFILES_DIR}/backup/files.include" --exclude-from="${DOTFILES_DIR}/backup/files.exclude" 
+	rsync -arv "$HOME/" "$BACKUP_DIR/" --include-from="${DOTFILES_DIR}/backup/files.include" --exclude-from="${DOTFILES_DIR}/backup/files.exclude" 
 }
 
 do_restore() {
 	info "[system] Restore backup"
-	sudo rsync -arv "$BACKUP_DIR/" "$HOME"
+	sudo rsync -arv "$BACKUP_DIR/" "$HOME/"
 }
 
 do_reboot() {

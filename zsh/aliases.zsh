@@ -1,7 +1,17 @@
 #!/usr/bin/env zsh
 # vim: set filetype=zsh
+function cmd_path () {
+    if [[ ${ZSH_VERSION} ]]; then
+        whence -cp "$1" > /dev/null 2>&1
+    else  # bash
+        type -P "$1" > /dev/null 2>&1
+    fi
+}
 
-# misc
+###########
+# ALIAS
+###########
+# LSD
 if cmd_path lsd; then
     LS_OPTS="--color=always --long --group-dirs first"
     alias ls="lsd ${LS_OPTS}"
@@ -15,23 +25,18 @@ else
 fi
 alias ll='ls'
 
+# Bat
+alias cat='bat'
+
+# Grep
 alias grepi="grep -i"
+
+# Update
 alias up="${HOME}/dotfiles/scripts/update.sh"
 
-# git
-# alias ggrep="git grep -n -I --break --heading -B0 -A0"
-# alias ggrepi="ggrep --ignore-case"
-# alias gu="git stash && git pull && git stash pop || true"
-
-# docker
-docker-clean() {
-    docker container prune -f && docker volume prune -f && docker network prune -f
-}
-
-# tldr
-# npm install -g tldr
-# alias tldr="tldr --theme=base16"
-
+###########
+# UNALIAS
+###########
 # z with fzf
 unalias z 2> /dev/null
 z() {

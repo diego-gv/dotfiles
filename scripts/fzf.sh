@@ -26,12 +26,23 @@ do_install() {
 	fi
 }
 
+do_configure() {
+	info "[fzf] Configure"
+	info "[fzf][configure] Create config file symlink"
+	mkdir -p "${XDG_CONFIG_HOME}/fzf"
+	ln -fs "${DOTFILES_DIR}/fzf/fzf.zsh" "${XDG_CONFIG_HOME}/fzf/fzf.zsh"
+}
+
 main() {
 	command=$1
 	case $command in
 	"install")
 		shift
 		do_install "$@"
+		;;
+	"configure")
+		shift
+		do_configure "$@"
 		;;
 	*)
 		error "$(basename "$0"): '$command' is not a valid command"

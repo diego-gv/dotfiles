@@ -35,7 +35,13 @@ reboot
 ## TODO
 
 - backup - pending :clock130:
-- zsh - installed :heavy_check_mark: but not configured :gear:
+- zsh - installed :heavy_check_mark:
+- oh-my-zsh - installed :heavy_check_mark:
+- starship - installed :heavy_check_mark: but not configured :gear:
+- fzf - installed :heavy_check_mark: maybe replace by zoxide :clock130:
+- zoxide - pending :clock130:
+- bat - installed :heavy_check_mark:
+- lsd - installed :heavy_check_mark: but not configured :gear:
 - docker - works :heavy_check_mark:
 - docker-compose - pending :clock130:
 - flameshot - pending :clock130:
@@ -45,6 +51,13 @@ reboot
 **Last packages to configure**
 - vscode - pending :clock130:
 - timeshift - pending :clock130:
+- postman - pending :clock130:
+
+**Other tasks**
+- Move installers to the .local folder
+  - fzf - pending :clock130:
+  - starship - pending :clock130:
+  - others - pending :clock130:
 
 ## Useful Links
 

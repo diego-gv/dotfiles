@@ -11,11 +11,10 @@ ZSH_CUSTOM="${ZSH}/custom"
 
 declare -A ZSH_CUSTOM_PLUGINS=(
 	["plugins/F-Sy-H"]="https://github.com/z-shell/F-Sy-H"
-	["plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
-	["plugins/zsh-completions"]="https://github.com/zsh-users/zsh-completions"
 	["plugins/fzf-tab"]="https://github.com/Aloxaf/fzf-tab"
 	["plugins/you-should-use"]="https://github.com/MichaelAquilina/zsh-you-should-use"
-	["themes/powerlevel10k"]="https://github.com/romkatv/powerlevel10k"
+	["plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
+	["plugins/zsh-completions"]="https://github.com/zsh-users/zsh-completions"
 )
 
 do_install() {
@@ -31,26 +30,31 @@ do_install() {
 do_configure() {
 	info "[ohmyzsh] Configure"
 	info "[ohmyzsh][configure] Download plugins"
-	for path in "${!ZSH_CUSTOM_PLUGINS[@]}"; do
-		if [[ ! -d "${ZSH_CUSTOM}/$path" ]]; then
-			git clone --quiet "${ZSH_CUSTOM_PLUGINS[$path]}" "${ZSH_CUSTOM}/$path"
+	for name in "${!ZSH_CUSTOM_PLUGINS[@]}"; do
+		repo=${ZSH_CUSTOM_PLUGINS[$name]}
+		if [[ ! -d "${ZSH_CUSTOM}/$name" ]]; then
+			{
+				info "[ohmyzsh][configure] Cloning the $repo repository"
+				git clone --quiet "$repo" "${ZSH_CUSTOM}/$name"
+			}
 		fi
 	done
 
 	info "[ohmyzsh][configure] Create symlinks"
-	ln -fs "${DOTFILES_DIR}/zsh/p10k/p10k.zsh" "${ZSH_CUSTOM}/p10k.zsh"
 	ln -fs "${DOTFILES_DIR}/zsh/aliases.zsh" "${ZSH_CUSTOM}/aliases.zsh"
 	ln -fs "${DOTFILES_DIR}/zsh/zshrc" "${HOME}/.zshrc"
 	ln -fs "${DOTFILES_DIR}/zsh/zshenv" "${HOME}/.zshenv"
+	ln -fs "${DOTFILES_DIR}/zsh/zshopt" "${HOME}/.zshopt"
 }
 
 do_update_plugins() {
 	info "[ohmyzsh] Update plugins"
-	for path in "${!ZSH_CUSTOM_PLUGINS[@]}"; do
-		if [[ -d "${ZSH_CUSTOM}/$path" ]]; then
+	for name in "${!ZSH_CUSTOM_PLUGINS[@]}"; do
+		repo=${ZSH_CUSTOM_PLUGINS[$name]}
+		if [[ -d "${ZSH_CUSTOM}/$name" ]]; then
 			{
-				info "[ohmyzsh][update] Update $path"
-				cd "${ZSH_CUSTOM}/$path" && git pull --quiet
+				info "[ohmyzsh][update] Updating the $repo repository"
+				git -C "${ZSH_CUSTOM}/$name" pull --quiet
 			}
 		fi
 	done
