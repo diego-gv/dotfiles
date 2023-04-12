@@ -9,15 +9,15 @@ source "${DOTFILES_DIR}/scripts/util.sh"
 do_install() {
 	info "[docker] Install"
 	info "[docker][install] Install dependences"
-	sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -qq -y
 	info "[docker][install] Configure docker repository"
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	info "[docker][install] Update list packages availables"
-	sudo apt update
+	sudo apt-get update -qq
 	info "[docker][install] Install docker package"
 	apt-cache policy docker-ce
-	sudo apt install docker-ce -y
+	sudo apt-get install docker-ce -qq -y
 }
 
 do_configure() {

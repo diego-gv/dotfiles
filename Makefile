@@ -2,10 +2,10 @@ include test.mk
 include colors.mk
 
 .DEFAULT_GOAL := all
-.PHONY: git zsh starship fzf lsd bat docker docker-compose
+.PHONY: git zsh starship fzf lsd bat docker docker-compose gnome-terminal
 
 ##@ Commands
-all: system git terminal tools # containers system-reboot ## Install and configure everything (default)
+all: system git terminal tools containers # system-reboot ## Install and configure everything (default)
 help: ## Display help
 	@awk 'BEGIN {FS = ":.*##"; printf "${BNC}Usage${NC}: make ${CYAN}<target>${NC}\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  ${CYAN}%-20s${NC} %s\n", $$1, $$2 } /^##@/ { printf "\n${BYELLOW}%s${NC}\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
@@ -27,7 +27,7 @@ git: ## Configure git (already install with system)
 	@./scripts/git.sh configure
 
 ##@ Terminal
-terminal: zsh ohmyzsh starship ## Setup the terminal (zsh+ohmyzsh+starship)
+terminal: gnome-terminal zsh ohmyzsh starship ## Setup the terminal (zsh+ohmyzsh+starship)
 gnome-terminal: ## ├ Configure gnome-terminal (install themes)
 	@./scripts/gnome-terminal.sh configure
 zsh: ## ├ Configure zsh (already install with system)
