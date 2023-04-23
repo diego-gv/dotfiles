@@ -95,5 +95,8 @@ zle_highlight=('paste:none')
 # Reload the completions (uncomment if zsh-completions don't work)
 # autoload -U compinit && compinit
 
+# Set Spanish keyboard layout by default
+setxkbmap -layout es
+
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 eval "$(starship init zsh)"

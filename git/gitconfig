@@ -3,6 +3,6 @@
 [includeIf "gitdir:~/workspace/**/.git"]
 	path = .gitconfig-workspace
 [credential]
-        helper = cache
+    helper = cache
 [core]
 	editor = vim
