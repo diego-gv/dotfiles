@@ -34,46 +34,39 @@ reboot
 
 ## TODO
 
-- backup - pending :clock130:
-- zsh - installed :heavy_check_mark:
-- oh-my-zsh - installed :heavy_check_mark:
-- starship - installed :heavy_check_mark: but not configured :gear:
-- fzf - installed :heavy_check_mark: maybe replace by zoxide :clock130:
-- zoxide - pending :clock130:
-- bat - installed :heavy_check_mark:
-- lsd - installed :heavy_check_mark: but not configured :gear:
+**Basic features**
+- zsh - works :heavy_check_mark:
+- oh-my-zsh - works :heavy_check_mark:
+- starship - works :heavy_check_mark: but not configured :o:
+- fzf - works :heavy_check_mark: but not configured :o:
+- bat - works :heavy_check_mark:
+- lsd - works :heavy_check_mark: but not configured :o:
 - docker - works :heavy_check_mark:
-- docker-compose - pending :clock130:
-- flameshot - pending :clock130:
-- diodon - pending :clock130:
-- ubuntu extensions - pending :clock130:
+- docker-compose - works :heavy_check_mark:
 
-**Last packages to configure**
-- vscode - pending :clock130:
-- timeshift - pending :clock130:
-- postman - pending :clock130:
+**Other features**
+- backup - to remove :heavy_minus_sign:
 
-**Other tasks**
-- Move installers to the .local folder
-  - fzf - pending :clock130:
-  - starship - pending :clock130:
-  - others - pending :clock130:
+**Last packages to try to set up**
+- zoxide - pending :heavy_plus_sign: maybe replace fzf :x:
+- timeshift - pending :heavy_plus_sign:
+- flameshot - pending :heavy_plus_sign:
+- diodon - pending :heavy_plus_sign:
+- ubuntu extensions - pending :heavy_plus_sign:
+
+**List of packages that require manual configuration**
+- vscode - manual login :interrobang:
+- postman - manual login :interrobang:
+- chrome - manual login :interrobang:
+
+_**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_minus_sign: | _Pending_ :heavy_plus_sign: | _Discarded_ :x: | _Non-programmatic_ :interrobang:
 
 ## Useful Links
 
-- [ohmyzsh] Oh My Zsh is an open source, community-driven
-framework for managing your zsh configuration.
 - [powerlevel10k] Powerlevel10k is a theme for Zsh. It emphasizes speed,
 flexibility and out-of-the-box experience.
-- [fzf] A command-line fuzzy finder
-- [bat] A cat(1) clone with wings.
-- [lsd] The next gen ls command
 
-[ohmyzsh]: https://github.com/ohmyzsh/ohmyzsh "Oh My Zsh"
 [powerlevel10k]: https://github.com/romkatv/powerlevel10k "Powerlevel10k"
-[fzf]: https://github.com/junegunn/fzf "FZF"
-[bat]: https://github.com/sharkdp/bat "Bat"
-[lsd]: https://github.com/Peltoche/lsd "lsd"
 
 ### References
 
