@@ -6,5 +6,15 @@
 	path = .gitconfig-workspace
 [credential]
     helper = store
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[tag]
+	forceSignAnnotated = false
 [core]
 	editor = vim
