@@ -10,6 +10,8 @@
 	program = gpg
 [commit]
 	gpgSign = false
+[init]
+        defaultBranch = master
 [pull]
 	rebase = false
 [push]
