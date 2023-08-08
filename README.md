@@ -37,7 +37,7 @@ reboot
 **Basic features**
 - zsh - works :heavy_check_mark:
 - oh-my-zsh - works :heavy_check_mark:
-- starship - works :heavy_check_mark: but not configured :o:
+- starship - works :heavy_check_mark:
 - fzf - works :heavy_check_mark: but not configured :o:
 - bat - works :heavy_check_mark:
 - lsd - works :heavy_check_mark: but not configured :o:
