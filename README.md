@@ -58,10 +58,7 @@ _**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_m
 
 ## Useful Links
 
-- [powerlevel10k] Powerlevel10k is a theme for Zsh. It emphasizes speed,
-flexibility and out-of-the-box experience.
-
-[powerlevel10k]: https://github.com/romkatv/powerlevel10k "Powerlevel10k"
+- ...
 
 ### References
 
