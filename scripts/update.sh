@@ -11,6 +11,7 @@ source "${DOTFILES_DIR}/scripts/util.sh"
 function main() {
 	system
 	omz
+	snap_packages
 }
 
 function system() {
@@ -36,6 +37,15 @@ function omz() {
 		./scripts/ohmyzsh.sh update_plugins
 	)
 	zsh -c 'source ${HOME}/.zshrc && omz update && exit'
+}
+
+function snap_packages() {
+	local funcname="${FUNCNAME[0]}"
+	info "[${funcname}] Retrieve new lists of packages"
+	sudo snap refresh --list
+
+	info "[${funcname}] Upgrade packages"
+	sudo snap refresh
 }
 
 main

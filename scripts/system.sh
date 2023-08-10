@@ -13,25 +13,31 @@ FONTS_DIR="$HOME/.local/share/fonts"
 USER_BINARIES="$HOME/bin"
 
 do_install() {
-	local packages=(
-		build-essential
-		cmake
-		curl
-		fontconfig
-		alacritty
-		git
-		htop
-		vim
-		wget
-		zsh
-	)
+	# local packages=(
+	# 	build-essential
+	# 	cmake
+	# 	curl
+	# 	fontconfig
+	# 	alacritty
+	# 	git
+	# 	htop
+	# 	vim
+	# 	wget
+	# 	zsh
+	# )
 
-	info "[system] Install packages"
-	export DEBIAN_FRONTEND=noninteractive
-	sudo apt-add-repository -y ppa:git-core/ppa	# git repository
-	sudo add-apt-repository -y ppa:aslatter/ppa # alacritty repository
-	sudo apt-get update -qq
-	sudo apt-get install -qq -y "${packages[@]}"
+	# info "[system] Install packages"
+	# info "[system][apt] Add ppa repositories"
+	# export DEBIAN_FRONTEND=noninteractive
+	# sudo apt-add-repository -y ppa:git-core/ppa	# git repository
+	# sudo add-apt-repository -y ppa:aslatter/ppa # alacritty repository
+	# sudo apt-get update -qq
+	# info "[system][apt] Install apt packages"
+	# sudo apt-get install -qq -y "${packages[@]}"
+
+	info "[system][snap] Install snap packages"
+	sudo snap install --classic code
+	sudo snap install postman
 }
 
 do_configure() {
