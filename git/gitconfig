@@ -1,22 +1,29 @@
-[includeIf "gitdir:~/dotfiles/.git"]
-	path = .gitconfig-personal
-[includeIf "gitdir:~/personal/**/.git"]
-	path = .gitconfig-personal
-[includeIf "gitdir:~/workspace/**/.git"]
-	path = .gitconfig-workspace
+[include]
+  	path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/workspace/"]
+  	path = ~/.gitconfig-workspace
+
 [credential]
     helper = store
+
 [gpg]
 	program = gpg
+
 [commit]
 	gpgSign = false
+
 [init]
-        defaultBranch = master
+    defaultBranch = master
+
 [pull]
 	rebase = false
+
 [push]
 	autoSetupRemote = true
+
 [tag]
 	forceSignAnnotated = false
+
 [core]
 	editor = vim
