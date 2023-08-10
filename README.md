@@ -42,7 +42,6 @@ reboot
 - postman - works :heavy_check_mark: but not configured :o:
 
 **Other features**
-- backup - to remove :heavy_minus_sign:
 - gnome-terminal - to remove :heavy_minus_sign:
 
 **Last packages to try to set up**

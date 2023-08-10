@@ -15,10 +15,6 @@ system-install:
 	@./scripts/system.sh install
 system-configure:
 	@./scripts/system.sh configure
-system-backup: ## Create backup
-	@./scripts/system.sh backup
-system-restore:	## Restore backup
-	@./scripts/system.sh restore
 system-reboot: ## Reboot system
 	@./scripts/system.sh reboot
 
