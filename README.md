@@ -29,6 +29,8 @@ reboot
 **Basic features**
 - git - works :heavy_check_mark:
 - zsh - works :heavy_check_mark:
+- alacritty - works :heavy_check_mark:
+- tmux - works :heavy_check_mark: but not configured :o:
 - oh-my-zsh - works :heavy_check_mark:
 - starship - works :heavy_check_mark:
 - fzf - works :heavy_check_mark: but not configured :o:
@@ -42,7 +44,7 @@ reboot
 - postman - works :heavy_check_mark: but not configured :o:
 
 **Other features**
-- gnome-terminal - to remove :heavy_minus_sign:
+- ...
 
 **Last packages to try to set up**
 - zoxide - pending :heavy_plus_sign: maybe replace fzf :x:
