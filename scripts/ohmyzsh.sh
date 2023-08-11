@@ -15,7 +15,7 @@ declare -A ZSH_CUSTOM_PLUGINS=(
 	["plugins/you-should-use"]="https://github.com/MichaelAquilina/zsh-you-should-use"
 	["plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
 	["plugins/zsh-completions"]="https://github.com/zsh-users/zsh-completions"
-	["plugins/zsh-direnv"]="https://github.com/ptavares/zsh-direnv.git"
+	["plugins/zsh-direnv"]="https://github.com/ptavares/zsh-direnv"
 )
 
 do_install() {
