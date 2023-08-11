@@ -54,7 +54,7 @@ reboot
 - ubuntu extensions - pending :heavy_plus_sign:
 
 **List of packages that require manual installation and/or configuration**
-- chrome - manual login :interrobang:
+- chrome - manual installation :interrobang:
 
 _**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_minus_sign: | _Pending_ :heavy_plus_sign: | _Discarded_ :x: | _Non-programmatic_ :interrobang:
 
