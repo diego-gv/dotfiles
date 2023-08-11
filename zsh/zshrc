@@ -98,6 +98,7 @@ zle_highlight=('paste:none')
 
 # Set Spanish keyboard layout by default
 setxkbmap -layout es
+setxkbmap -option
 
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 eval "$(starship init zsh)"
