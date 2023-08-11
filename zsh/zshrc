@@ -22,6 +22,8 @@ plugins=(
     you-should-use
     sudo
     zsh-autosuggestions
+    tmux
+    zsh-direnv
 )
 
 # Use case-sensitive completion
@@ -102,3 +104,6 @@ setxkbmap -option
 
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 eval "$(starship init zsh)"
+
+eval "$(direnv hook zsh)"
+if [ "$TMUX" = "" ]; then tmux kill-server ; tmux ; fi
