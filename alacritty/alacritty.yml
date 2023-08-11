@@ -1,99 +1,27 @@
+# Import files (Colors, Fonts, Schemes, Etc)
+import:
+    - ~/.config/alacritty/schemes.yml
+    - ~/.config/alacritty/fonts.yml
+
 window:
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
-  padding:
-    x: 0
-    y: 0
-  opacity: 0.99
-  dynamic_padding: true
-  decorations_theme_variant: Dark
+    # Blank space added around the window in pixels. This padding is scaled
+    # by DPI and the specified value is always added at both opposing sides.
+    padding:
+        x: 0
+        y: 0
+    opacity: 0.99
+    dynamic_padding: true
+    decorations_theme_variant: Dark
 
 scrolling:
-  # Specifying '0' will disable scrolling.
-  history: 100000
-  # Number of lines the viewport will move for every line scrolled when
-  # scrollback is enabled (history > 0).
-  multiplier: 3
-
-font:
-  normal:
-    family: MesloLGS Nerd Font Mono
-    style: Regular
-  bold:
-    family: MesloLGS Nerd Font Mono
-    style: Bold
-  italic:
-    family: MesloLGS Nerd Font Mono
-    style: Italic
-  bold_italic:
-    family: MesloLGS Nerd Font Mono
-    style: Bold Italic
-  size: 10
+    # Specifying '0' will disable scrolling.
+    history: 100000
+    # Number of lines the viewport will move for every line scrolled when
+    # scrollback is enabled (history > 0).
+    multiplier: 3
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-
-schemes:
-  # Tokyo Night theme, based on both:
-  #   https://github.com/ghifarit53/tokyonight-vim
-  #   https://github.com/enkia/tokyo-night-vscode-theme
-  tokyo-night: &tokyo-night
-    # Default colors
-    primary:
-      background: '#1a1b26'
-      foreground: '#a9b1d6'
-
-    # Normal colors
-    normal:
-      black:   '#32344a'
-      red:     '#f7768e'
-      green:   '#9ece6a'
-      yellow:  '#e0af68'
-      blue:    '#7aa2f7'
-      magenta: '#ad8ee6'
-      cyan:    '#449dab'
-      white:   '#787c99'
-
-    # Bright colors
-    bright:
-      black:   '#444b6a'
-      red:     '#ff7a93'
-      green:   '#b9f27c'
-      yellow:  '#ff9e64'
-      blue:    '#7da6ff'
-      magenta: '#bb9af7'
-      cyan:    '#0db9d7'
-      white:   '#acb0d0'
-
-  tokyo-night-storm: &tokyo-night-storm
-    # Default colors
-    primary:
-      background: '#24283b'
-      foreground: '#a9b1d6'
-
-    # Normal colors
-    normal:
-      black:   '#32344a'
-      red:     '#f7768e'
-      green:   '#9ece6a'
-      yellow:  '#e0af68'
-      blue:    '#7aa2f7'
-      magenta: '#ad8ee6'
-      cyan:    '#449dab'
-      white:   '#9699a8'
-
-    # Bright colors
-    bright:
-      black:   '#444b6a'
-      red:     '#ff7a93'
-      green:   '#b9f27c'
-      yellow:  '#ff9e64'
-      blue:    '#7da6ff'
-      magenta: '#bb9af7'
-      cyan:    '#0db9d7'
-      white:   '#acb0d0'
-
-colors: *tokyo-night
 
 # Specifying a `duration` of `0` will disable the visual bell.
 # bell:
@@ -102,41 +30,43 @@ colors: *tokyo-night
 #   color: '0xffffff'
 
 selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: true
+    # This string contains all characters that are used as separators for
+    # "semantic words" in Alacritty.
+    semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+    # When set to `true`, selected text will be copied to the primary clipboard.
+    save_to_clipboard: true
 
 # Allow terminal applications to change Alacritty’s window title.
 window.dynamic_title: false
 
 # Cursor style
 cursor:
-  style: Block
-  unfocused_hollow: true
+    style:
+        shape: Block
+    unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
 
 # Tell Alacritty that we’re using fish here
 shell:
-  program: /usr/bin/zsh
-  args:
-    - --login
+    program: /usr/bin/zsh
+    args:
+        - --login
 
 # Enable clickable URLs
 mouse:
-  hints:
-    launcher:
-      program: open
-    modifiers: Command
+    hints:
+        launcher:
+            program: open
+        modifiers: Command
 
 # Map the keys
 key_bindings:
-  - { key: V, mods: Control, action: Paste }
-  - { key: C, mods: Control, action: Copy }
-  - { key: L, mods: Control, chars: "\x0c" }  # clear
-  - { key: D, mods: Control, chars: "\x03" }  # stop process
-  - { key: N, mods: Control, action: SpawnNewInstance }
-  - { key: T, mods: Control, chars: "\x02c" }  # new tab
+    - { key: V, mods: Control, action: Paste }
+    - { key: C, mods: Control, action: Copy }
+    - { key: W, mods: Control, action: Quit }
+    - { key: L, mods: Control, chars: "\x0c" } # clear
+    - { key: D, mods: Control, chars: "\x03" } # stop process
+    - { key: N, mods: Control, action: SpawnNewInstance } # new window
+    - { key: T, mods: Control, chars: "\x02c" } # new tab

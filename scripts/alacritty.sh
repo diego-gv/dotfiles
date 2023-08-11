@@ -11,6 +11,8 @@ do_configure() {
 	info "[alacritty][configure] Create config file symlink"
 	mkdir -p $XDG_CONFIG_HOME/alacritty
 	ln -fs "${DOTFILES_DIR}/alacritty/alacritty.yml" "${XDG_CONFIG_HOME}/alacritty/alacritty.yml"
+	ln -fs "${DOTFILES_DIR}/alacritty/fonts.yml" "${XDG_CONFIG_HOME}/alacritty/fonts.yml"
+	ln -fs "${DOTFILES_DIR}/alacritty/schemes.yml" "${XDG_CONFIG_HOME}/alacritty/schemes.yml"
 }
 
 main() {
