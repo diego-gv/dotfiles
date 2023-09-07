@@ -10,8 +10,8 @@ source "${DOTFILES_DIR}/scripts/util.sh"
 
 function main() {
 	system
-	omz
 	snap_packages
+	omz
 }
 
 function system() {
