@@ -1,4 +1,4 @@
-# Don't print a new line at the start of the prompt
+# Inserts a blank line between shell prompts
 add_newline = true
 
 # Change command timeout from 500 to 1000 ms
@@ -7,18 +7,23 @@ command_timeout = 1000
 ####################
 # Prompt format
 ####################
-format = """$all"""
-
-[line_break]
-disabled = false
+format = """\
+[╭╴](238)$env_var\
+$all[╰─](238)$character"""
 
 [character]
+# old config
 success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](white)'
+variable = "STARSHIP_DISTRO"
+disabled = false
+
 [username]
-style_user = "green"
-style_root = "red"
+style_user = "white"
+style_root = "white"
 format = "[$user]($style) "
 disabled = false
 show_always = true
@@ -83,7 +88,7 @@ disabled = true
 # Programming languages
 ####################
 [python]
-format = "via [󰌠 $version]($style) "
+format = "via [󰌠 $version](bold green) "
 python_binary = "python3"
 disabled = false
 
