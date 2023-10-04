@@ -37,6 +37,7 @@ do_install() {
 
 	info "[system][snap] Install snap packages"
 	sudo snap install --classic code
+	sudo snap install --classic code-insiders
 	sudo snap install postman
 }
 
