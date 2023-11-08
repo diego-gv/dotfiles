@@ -64,6 +64,11 @@ workon() {
     cd $dest
 }
 
+# Work Aliases
+alias dps="docker ps"
+alias dsp!="docker system prune -a -f --volumes"
+alias dpsi="docker images"
+
 ###########
 # UNALIAS
 ###########
