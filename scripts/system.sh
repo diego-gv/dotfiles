@@ -39,6 +39,8 @@ do_install() {
 	sudo snap install --classic code
 	sudo snap install --classic code-insiders
 	sudo snap install postman
+	sudo snap install spotify
+	sudo snap install dbeaver-c
 }
 
 do_configure() {
