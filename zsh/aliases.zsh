@@ -68,6 +68,7 @@ workon() {
 alias dps="docker ps"
 alias dsp!="docker system prune -a -f --volumes"
 alias dpsi="docker images"
+alias reinstall_forti="sudo apt uninstall forticlient ; sudo apt remove forticlient ; sudo apt install forticlient"
 
 ###########
 # UNALIAS
