@@ -11,7 +11,7 @@ RUN apt-get update \
     build-essential \
     software-properties-common \
     && apt-get update \
-    && apt-get --no-install-recommends -y install apt-utils git rsync gpg-agent \
+    && apt-get --no-install-recommends -y install apt-utils git rsync gpg-agent snapd \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Set disable_coredump false" >> /etc/sudo.conf
