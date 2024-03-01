@@ -29,7 +29,6 @@ reboot
 **Basic features**
 - git - works :heavy_check_mark:
 - zsh - works :heavy_check_mark:
-- alacritty - works :heavy_check_mark:
 - oh-my-zsh - works :heavy_check_mark:
 - starship - works :heavy_check_mark:
 - fzf - works :heavy_check_mark: but not configured :o:
@@ -54,6 +53,7 @@ reboot
 
 **List of packages that require manual installation and/or configuration**
 - chrome - manual installation :interrobang:
+- brave - manual installation :interrobang:
 
 _**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_minus_sign: | _Pending_ :heavy_plus_sign: | _Discarded_ :x: | _Non-programmatic_ :interrobang:
 
