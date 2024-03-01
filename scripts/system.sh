@@ -24,6 +24,7 @@ do_install() {
 		zsh
 		flameshot
 		diodon
+		gnome-tweaks
 	)
 
 	info "[system] Install packages"

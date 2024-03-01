@@ -38,6 +38,7 @@ reboot
 - docker-compose - works :heavy_check_mark:
 - flameshot - works :heavy_check_mark: but not configured :o:
 - diodon - works :heavy_check_mark: but not configured :o:
+- gnome-tweaks - works :heavy_check_mark: but not configured :o:
 - StartUp Apps - pending :heavy_plus_sign: (diodon,flameshot,etc)
 
 **Snap packages**:
