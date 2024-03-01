@@ -23,12 +23,14 @@ do_install() {
 		wget
 		zsh
 		flameshot
+		diodon
 	)
 
 	info "[system] Install packages"
 	info "[system][apt] Add ppa repositories"
 	export DEBIAN_FRONTEND=noninteractive
 	sudo apt-add-repository -y ppa:git-core/ppa	# git repository
+	sudo apt-add-repository -y ppa:diodon-team/stable	# git repository
 	sudo apt-get update -qq
 	info "[system][apt] Install apt packages"
 	sudo apt-get install -qq -y "${packages[@]}"
