@@ -38,6 +38,7 @@ do_install() {
 	sudo snap install postman
 	sudo snap install spotify
 	sudo snap install dbeaver-ce
+	sudo snap install brave
 }
 
 do_configure() {
