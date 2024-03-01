@@ -25,6 +25,7 @@ do_install() {
 		flameshot
 		diodon
 		gnome-tweaks
+		timeshift
 	)
 
 	info "[system] Install packages"

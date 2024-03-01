@@ -39,6 +39,7 @@ reboot
 - flameshot - works :heavy_check_mark: but not configured :o:
 - diodon - works :heavy_check_mark: but not configured :o:
 - gnome-tweaks - works :heavy_check_mark: but not configured :o:
+- timeshift - works :heavy_check_mark: but not configured :o:
 - StartUp Apps - pending :heavy_plus_sign: (diodon,flameshot,etc)
 
 **Snap packages**:
@@ -52,7 +53,6 @@ reboot
 
 **Last packages to try to set up**
 - zoxide - pending :heavy_plus_sign: maybe replace fzf :x:
-- timeshift - pending :heavy_plus_sign:
 - ubuntu extensions - pending :heavy_plus_sign:
 
 **List of packages that require manual installation and/or configuration**
