@@ -1,16 +1,19 @@
 # diego-gv's dotfiles
 
 ## Compatibility
+
 - Ubuntu 22.04.2
 
 ## How to install
 
 **Requirements**
+
 ```
 apt install make git
 ```
 
 **Installation**
+
 ```sh
 git clone https://github.com/diego-gv/dotfiles.git ~/dotfiles
 cd ~/dotfiles
@@ -18,6 +21,7 @@ make
 ```
 
 **Reboot**
+
 ```sh
 reboot
 ```
@@ -27,6 +31,7 @@ reboot
 ## TODO
 
 **Basic features**
+
 - git - works :heavy_check_mark:
 - zsh - works :heavy_check_mark:
 - oh-my-zsh - works :heavy_check_mark:
@@ -43,19 +48,23 @@ reboot
 - StartUp Apps - pending :heavy_plus_sign: (diodon,flameshot,etc)
 
 **Snap packages**:
+
 - brave - works :heavy_check_mark: but not configured :o:
 - vscode - works :heavy_check_mark: but not configured :o:
 - postman - works :heavy_check_mark: but not configured :o:
 - dbeaver-ce - works :heavy_check_mark:
 
 **Other features**
+
 - ...
 
 **Last packages to try to set up**
+
 - zoxide - pending :heavy_plus_sign: maybe replace fzf :x:
 - ubuntu extensions - pending :heavy_plus_sign:
 
 **List of packages that require manual installation and/or configuration**
+
 - chrome - manual installation :interrobang:
 
 _**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_minus_sign: | _Pending_ :heavy_plus_sign: | _Discarded_ :x: | _Non-programmatic_ :interrobang:
