@@ -24,8 +24,9 @@ do_install() {
 		zsh
 		flameshot
 		diodon
-		gnome-tweaks
 		timeshift
+		gnome-tweaks
+		gnome-shell-extension-manager
 	)
 
 	info "[system] Install packages"

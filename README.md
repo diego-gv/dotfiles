@@ -43,9 +43,9 @@ reboot
 - docker-compose - works :heavy_check_mark:
 - flameshot - works :heavy_check_mark: but not configured :o:
 - diodon - works :heavy_check_mark: but not configured :o:
-- gnome-tweaks - works :heavy_check_mark: but not configured :o:
 - timeshift - works :heavy_check_mark: but not configured :o:
-- StartUp Apps - pending :heavy_plus_sign: (diodon,flameshot,etc)
+- gnome-tweaks - works :heavy_check_mark: but not configured :o:
+- gnome-shell-extension-manager - works :heavy_check_mark: but not configured :o:
 
 **Snap packages**:
 
@@ -66,6 +66,10 @@ reboot
 **List of packages that require manual installation and/or configuration**
 
 - chrome - manual installation :interrobang:
+
+**Configurations**
+
+- StartUp Apps - pending :heavy_plus_sign: (diodon,flameshot,etc)
 
 _**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_minus_sign: | _Pending_ :heavy_plus_sign: | _Discarded_ :x: | _Non-programmatic_ :interrobang:
 
