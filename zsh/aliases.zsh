@@ -28,6 +28,9 @@ alias ll='ls'
 # Bat
 alias cat='bat'
 
+# Bashtop
+alias top='bashtop'
+
 # Grep
 alias grepi="grep -i"
 

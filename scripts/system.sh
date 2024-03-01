@@ -18,7 +18,7 @@ do_install() {
 		curl
 		fontconfig
 		git
-		htop
+		bashtop
 		vim
 		wget
 		zsh
