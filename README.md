@@ -30,7 +30,6 @@ reboot
 - git - works :heavy_check_mark:
 - zsh - works :heavy_check_mark:
 - alacritty - works :heavy_check_mark:
-- tmux - works :heavy_check_mark: but not configured :o:
 - oh-my-zsh - works :heavy_check_mark:
 - starship - works :heavy_check_mark:
 - fzf - works :heavy_check_mark: but not configured :o:

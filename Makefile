@@ -2,7 +2,7 @@ include test.mk
 include colors.mk
 
 .DEFAULT_GOAL := all
-.PHONY: git zsh starship fzf lsd bat docker docker-compose alacritty tmux
+.PHONY: git zsh starship fzf lsd bat docker docker-compose alacritty
 
 ##@ Commands
 all: system git terminal tools containers system-reboot ## Install and configure everything (default)
@@ -23,11 +23,9 @@ git: ## Configure git (already install with system)
 	@./scripts/git.sh configure
 
 ##@ Terminal
-terminal: alacritty tmux zsh ohmyzsh starship ## Setup the terminal (zsh+ohmyzsh+starship)
+terminal: alacritty zsh ohmyzsh starship ## Setup the terminal (zsh+ohmyzsh+starship)
 alacritty: ## ├ Configure alacritty (already install with system)
 	@./scripts/alacritty.sh configure
-tmux: ## ├ Configure tmux (already install with system)
-	@./scripts/tmux.sh configure
 zsh: ## ├ Configure zsh (already install with system)
 	@./scripts/zsh.sh configure
 ohmyzsh: ohmyzsh-install ohmyzsh-configure ## ├ Install and configure Oh My Zsh

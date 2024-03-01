@@ -18,7 +18,6 @@ do_install() {
 		curl
 		fontconfig
 		alacritty
-		tmux
 		git
 		htop
 		vim

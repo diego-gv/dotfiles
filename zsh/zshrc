@@ -22,7 +22,6 @@ plugins=(
     you-should-use
     sudo
     zsh-autosuggestions
-    tmux
     zsh-direnv
 )
 
@@ -106,12 +105,5 @@ zle_highlight=('paste:none')
 # Reload the completions (uncomment if zsh-completions don't work)
 # autoload -U compinit && compinit
 
-
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 eval "$(starship init zsh)"
-
-# If the terminal is created in VSCode, the TMUX is not started.
-if [[ $(printenv | grep -c "VSCODE_") -gt 0 ]]; then return; fi
-
-eval "$(direnv hook zsh)"
-if [ "$TMUX" = "" ]; then tmux kill-server ; tmux ; fi
