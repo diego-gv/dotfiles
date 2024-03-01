@@ -22,6 +22,7 @@ do_install() {
 		vim
 		wget
 		zsh
+		flameshot
 	)
 
 	info "[system] Install packages"

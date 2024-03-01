@@ -36,10 +36,13 @@ reboot
 - lsd - works :heavy_check_mark: but not configured :o:
 - docker - works :heavy_check_mark:
 - docker-compose - works :heavy_check_mark:
+- flameshot - works :heavy_check_mark: but not configured :o:
 
 **Snap packages**:
+- brave - works :heavy_check_mark: but not configured :o:
 - vscode - works :heavy_check_mark: but not configured :o:
 - postman - works :heavy_check_mark: but not configured :o:
+- dbeaver-ce - works :heavy_check_mark:
 
 **Other features**
 - ...
@@ -47,13 +50,11 @@ reboot
 **Last packages to try to set up**
 - zoxide - pending :heavy_plus_sign: maybe replace fzf :x:
 - timeshift - pending :heavy_plus_sign:
-- flameshot - pending :heavy_plus_sign:
 - diodon - pending :heavy_plus_sign:
 - ubuntu extensions - pending :heavy_plus_sign:
 
 **List of packages that require manual installation and/or configuration**
 - chrome - manual installation :interrobang:
-- brave - manual installation :interrobang:
 
 _**Legend**:_ _OK_ :heavy_check_mark: | _To complete_ :o: | _To Remove_ :heavy_minus_sign: | _Pending_ :heavy_plus_sign: | _Discarded_ :x: | _Non-programmatic_ :interrobang:
 
