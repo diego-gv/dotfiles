@@ -6,7 +6,7 @@ DOTFILES_DIR="${DOTFILES_DIR:=${PWD}}"
 # shellcheck disable=SC1090
 source "${DOTFILES_DIR}/scripts/util.sh"
 
-COMPOSE_VERSION="${COMPOSE_VERSION:=v2.3.3}"
+COMPOSE_VERSION="${COMPOSE_VERSION:=v2.24.7}"
 
 do_install() {
 	if [[ "$(docker compose --version 2>/dev/null)" == *"${COMPOSE_VERSION}"* ]]; then
