@@ -40,7 +40,7 @@ do_install() {
 	sudo apt-add-repository -y ppa:git-core/ppa	# git repository
 	
 	if ! is_wsl ; then
-		sudo apt-add-repository -y ppa:diodon-team/stable	# git repository
+		sudo apt-add-repository -y ppa:diodon-team/stable	# diodon repository
 	fi
 
 	sudo apt-get update -qq
