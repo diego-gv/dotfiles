@@ -23,6 +23,7 @@ USER test
 COPY --chown=test:test . /home/test/dotfiles
 
 ENV USER test
+ENV HOSTNAME docker
 
 ENV PATH="/home/test/bin:${PATH}"
 

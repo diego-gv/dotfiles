@@ -32,10 +32,13 @@ is_docker() {
 }
 
 is_wsl() {
-	if [[ "$(uname -r)" == *"WSL"* ]]; then
-		return 0 # True
+	if [[ "$USER" == "test" && "$HOSTNAME" == "docker" ]]; then
+		return 1 #  False
 	fi
-	return 1
+	if [[ "$(uname -r)" == *"WSL"* ]]; then
+		return 0  # True
+	fi
+	return 1  # False
 }
 
 download() {
