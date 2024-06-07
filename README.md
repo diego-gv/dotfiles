@@ -2,7 +2,8 @@
 
 ## Compatibility
 
-- Ubuntu 22.04.2
+- Ubuntu 22.04
+- Ubuntu 22.04 (WSL)
 
 ## How to install
 

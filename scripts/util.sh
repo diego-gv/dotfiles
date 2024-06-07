@@ -26,9 +26,16 @@ is_installed() {
 
 is_docker() {
 	if [ -f /.dockerenv ]; then
-		return 0
+		return 0  # True
 	fi
-	return 1  # echo "I'm living in real world!";
+	return 1  # False
+}
+
+is_wsl() {
+	if [[ "$(uname -r)" == *"WSL"* ]]; then
+		return 0 # True
+	fi
+	return 1
 }
 
 download() {

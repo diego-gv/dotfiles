@@ -22,29 +22,41 @@ do_install() {
 		vim
 		wget
 		zsh
-		flameshot
-		diodon
-		timeshift
-		gnome-tweaks
-		gnome-shell-extension-manager
 	)
+	
+	if ! is_wsl ; then
+		packages+=(
+			flameshot
+			diodon
+			timeshift
+			gnome-tweaks
+			gnome-shell-extension-manager
+		)
+	fi
 
 	info "[system] Install packages"
 	info "[system][apt] Add ppa repositories"
 	export DEBIAN_FRONTEND=noninteractive
 	sudo apt-add-repository -y ppa:git-core/ppa	# git repository
-	sudo apt-add-repository -y ppa:diodon-team/stable	# git repository
+	
+	if ! is_wsl ; then
+		sudo apt-add-repository -y ppa:diodon-team/stable	# git repository
+	fi
+
 	sudo apt-get update -qq
 	info "[system][apt] Install apt packages"
 	sudo apt-get install -qq -y "${packages[@]}"
 
-	info "[system][snap] Install snap packages"
-	sudo snap install --classic code
-	sudo snap install --classic code-insiders
-	sudo snap install postman
-	sudo snap install spotify
-	sudo snap install dbeaver-ce
-	sudo snap install brave
+	
+	if ! is_wsl ; then
+		info "[system][snap] Install snap packages"
+		sudo snap install --classic code
+		sudo snap install --classic code-insiders
+		sudo snap install postman
+		sudo snap install spotify
+		sudo snap install dbeaver-ce
+		sudo snap install brave
+	fi
 }
 
 do_configure() {
@@ -78,6 +90,11 @@ do_configure() {
 
 do_reboot() {
 	info "[system] Reboot"
+	if is_wsl ; then
+		info "[system][reboot] Restart the WSL environment to apply all changes"
+		return
+	fi
+
 	while true; do
 		read -p "[system][reboot] Do you want to reboot the system to apply all changes? [Y/n] " action
 		action=${action:-Y}

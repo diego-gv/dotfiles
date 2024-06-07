@@ -10,7 +10,9 @@ source "${DOTFILES_DIR}/scripts/util.sh"
 
 function main() {
 	system
-	snap_packages
+	if ! is_wsl ; then
+		snap_packages
+	fi
 	omz
 }
 
