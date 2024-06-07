@@ -1,0 +1,3 @@
+[wsl2]
+memory = 4GB # Limits memory
+processors = 2 # Limits virtual processors
