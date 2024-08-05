@@ -7,23 +7,17 @@
 [credential]
     helper = store
 
-[gpg]
-	program = gpg
-
-[commit]
-	gpgSign = false
+[core]
+	editor = vim
 
 [init]
 	defaultBranch = main
 
-[pull]
-	rebase = false
-
 [push]
 	autoSetupRemote = true
 
-[tag]
-	forceSignAnnotated = false
+[pull]
+	ff = only
 
-[core]
-	editor = vim
+[merge]
+	ff = false
