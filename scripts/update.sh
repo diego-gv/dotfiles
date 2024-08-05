@@ -18,11 +18,13 @@ function main() {
 
 function system() {
 	local funcname="${FUNCNAME[0]}"
+	sudo apt-get check >/dev/null
+	
 	info "[${funcname}] Retrieve new lists of packages"
 	sudo apt-get update -qq
 
 	info "[${funcname}] Upgrade packages"
-	sudo apt-get upgrade -y
+	sudo apt-get upgrade -y --fix-missing
 
 	info "[${funcname}] Remove unused packages"
 	sudo apt-get autoclean -y
@@ -43,6 +45,8 @@ function omz() {
 
 function snap_packages() {
 	local funcname="${FUNCNAME[0]}"
+	sudo snap list >/dev/null
+
 	info "[${funcname}] Retrieve new lists of packages"
 	sudo snap refresh --list
 
