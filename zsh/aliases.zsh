@@ -37,36 +37,6 @@ alias grepi="grep -i"
 # Update
 alias up="${HOME}/dotfiles/scripts/update.sh"
 
-# Workon
-__find_work_directory() {
-    local target=$1
-    find $HOME/workspace $HOME/personal -type d -name $target -print 2>/dev/null
-}
-
-workon() {
-    local target=$1
-    local dest=$(__find_work_directory $target)
-    local n_results=$(echo $dest | wc -l)
-    local current=$(pwd)
-
-    [ -z $target ] && return
-
-    if [ $n_results -gt 1 ]
-    then
-        echo "${fg[red]}Too many options:"
-        echo "$reset_color$dest"
-        echo "${fg[yellow]}Use the ${fg[magenta]}cd ${fg[yellow]}command to go to the chosen directory"
-        return
-    fi
-
-    [ -z $dest ] && echo "${fg[red]}Working directory ${fg[magenta]}$target ${fg[red]}not found" && return
-
-    [ "$current" = "$dest" ] && echo "${fg[red]}It is already the working directory" && return
-
-    echo "${fg[yellow]}Changing working directory to ${fg[magenta]}$dest"
-    cd $dest
-}
-
 # Work Aliases
 alias dps="docker ps"
 alias dsp!="docker system prune -a -f --volumes"
