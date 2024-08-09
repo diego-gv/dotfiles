@@ -107,3 +107,7 @@ zle_highlight=('paste:none')
 
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 eval "$(starship init zsh)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
