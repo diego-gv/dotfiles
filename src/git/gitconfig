@@ -1,0 +1,23 @@
+[include]
+  	path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/workspace/"]
+  	path = ~/.gitconfig-workspace
+
+[credential]
+    helper = store
+
+[core]
+	editor = vim
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
+
+[pull]
+	ff = only
+
+[merge]
+	ff = false
