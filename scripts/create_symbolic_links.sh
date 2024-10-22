@@ -5,14 +5,23 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+declare -r ZSH="${HOME}/.oh-my-zsh"
+declare -r ZSH_CUSTOM="${ZSH}/custom"
 declare -r XDG_CONFIG_HOME="${HOME}/.config"
 
 create_symlinks() {
 
     declare -rA FILES_TO_SYMLINK=(
+        ["zsh/aliases.zsh"]="${ZSH_CUSTOM}/aliases.zsh"
+        ["zsh/zshenv"]="${HOME}/.zshenv"
+        ["zsh/zshopt"]="${HOME}/.zshopt"
+        ["zsh/zshrc"]="${HOME}/.zshrc"
         ["git/gitconfig"]="${HOME}/.gitconfig"
         ["git/gitconfig-personal"]="${HOME}/.gitconfig-personal"
         ["git/gitconfig-workspace"]="${HOME}/.gitconfig-workspace"
+        ["starship/starship.toml"]="${XDG_CONFIG_HOME}/starship/starship.toml"
+        ["fzf/fzf.zsh"]="${XDG_CONFIG_HOME}/fzf/fzf.zsh"
+        ["bat/config"]="${XDG_CONFIG_HOME}/bat/config"
     )
 
     local i=""
