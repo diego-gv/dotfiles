@@ -6,17 +6,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-install_aptitude
-update
-upgrade
-
-./build-essentials.sh
-
-./../fonts.sh
-
-./zsh.sh
-./../vim.sh
-./../git.sh
-./../terminal.sh
-
-./cleanup.sh
+install_package "FZF" "fzf"

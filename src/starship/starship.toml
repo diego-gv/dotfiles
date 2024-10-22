@@ -1,0 +1,145 @@
+# Prompt format
+# ----------------------------
+format = """
+[](#9A348E)\
+$shell\ 
+$os\
+$username\
+[](fg:#9A348E bg:green)\
+$battery\
+[](fg:green bg:#DA627D)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_commit\
+$git_status\
+$git_metrics\
+$git_state\
+[](fg:#FCA17D bg:#30C391)\
+$python\
+[](fg:#30C391 bg:#33658A)\
+$cmd_duration\
+$jobs\
+$time\
+[](fg:#33658A bg:#384d54)\
+$container\
+[ ](fg:#384d54)\
+"""
+
+# Battery alarm
+# ----------------------------
+[battery]
+format = '[( $symbol$percentage )]($style)'
+
+[[battery.display]]
+threshold = 10
+style = 'fg:bold bg:green'
+
+[[battery.display]]
+threshold = 90
+style = 'bg:green'
+
+# Generic configuration
+# ----------------------------
+[shell]
+zsh_indicator = ""
+powershell_indicator = ""
+cmd_indicator = ""
+style = "bg:#9A348E"
+format = '[$indicator ]($style)'
+disabled = false
+
+[os]
+symbols.Ubuntu = ""
+symbols.Windows = ""
+style = "bg:#9A348E"
+format = '[$symbol ]($style)'
+disabled = false
+
+[username]
+style_user = "bg:#9A348E"
+style_root = "bg:#9A348E"
+format = '[$user ]($style)'
+show_always = true
+
+[directory]
+style = "bg:#DA627D"
+format = "[ $path$read_only ]($style)"
+read_only = " "
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = ""
+"Pictures" = ""
+"workspace" = ""
+"personal" = ""
+
+[container]
+symbol = ""
+style = "bg:#384d54 bold"
+format = '[ $symbol $name ]($style)'
+disabled = false
+
+
+# Git configuration
+# ----------------------------
+[git_branch] # show branch name
+symbol = " "
+style = "bg:#FCA17D bold"
+format = '[ $symbol$branch ]($style)'
+
+[git_commit] # show commit hash
+style = "bg:#FCA17D"
+format = '[\($hash$tag\) ]($style)'
+only_detached = false
+
+[git_status] # symbols about state of repo in local
+style = "bg:#FCA17D bold"
+format = '[($all_status$ahead_behind )]($style)'
+
+[git_metrics] # number of changes
+added_style = "fg:#30C391 bg:#FCA17D"
+deleted_style = "fg:red bg:#FCA17D"
+format = '[(([+$added]($added_style))/([-$deleted]($deleted_style)) )](bg:#FCA17D)'
+disabled = false
+
+[git_state] # show if REBASING|MERGIN|etc....
+style = "bg:#FCA17D"
+format = '[\($state( $progress_current/$progress_total)\) ]($style)'
+
+# Programming languages
+# ----------------------------
+[python]
+symbol = "󰌠 "
+style = "bg:#30C391"
+format = "[ $symbol($version) ]($style)"
+python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
+detect_files = []
+detect_extensions = []
+
+# Jobs configuration
+# ----------------------------
+[jobs]
+symbol = ""
+style = "bg:#33658A"
+format = "[ $symbol ]($style)"
+number_threshold = 1
+
+# CMD configuration
+# ----------------------------
+[cmd_duration]
+style = "bg:#33658A"
+format = "[ $duration ]($style)"
+show_milliseconds = true
+
+# Time configuration
+# ----------------------------
+[time]
+style = "bg:#33658A"
+format = '[ $time ]($style)'
+time_range = '08:00:00-17:30:00'
+disabled = false
