@@ -19,6 +19,8 @@ upgrade
 ./../git.sh
 ./../terminal.sh
 
+./misc.sh
+
 ./../docker.sh
 
 ./cleanup.sh
