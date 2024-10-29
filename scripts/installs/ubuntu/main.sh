@@ -22,5 +22,6 @@ upgrade
 ./misc.sh
 
 ./../docker.sh
+./../vscode.sh
 
 ./cleanup.sh
