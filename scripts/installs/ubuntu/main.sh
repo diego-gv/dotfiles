@@ -23,5 +23,6 @@ upgrade
 
 ./../docker.sh
 ./../vscode.sh
+./../devtools.sh
 
 ./cleanup.sh
