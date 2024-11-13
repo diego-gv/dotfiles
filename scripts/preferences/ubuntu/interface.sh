@@ -43,3 +43,5 @@ execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-netwo
 execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-trash true" \
     "Show trash in dock"
 
+execute "gsettings set org.gnome.desktop.background picture-uri 'file://$HOME/.dotfiles/src/backgrounds/ubuntu.jpg'" \
+    "Set background"
