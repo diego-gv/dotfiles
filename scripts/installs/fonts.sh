@@ -11,7 +11,7 @@ declare -rA NERD_FONTS_TO_INSTALL=(
 )
 
 font_is_installed() {
-    test -n $(fc-list :family="${1}" | wc -l) &> /dev/null
+    test $(fc-list :family="${1}" | wc -l) -ne 0 &> /dev/null
 }
 
 install_nerd_fonts() {
