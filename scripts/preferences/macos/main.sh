@@ -4,4 +4,5 @@ cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   in process...\n\n"
+./security_and_privacy.sh  # TODO: Permission denied
+./terminal.sh
