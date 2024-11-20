@@ -1,0 +1,4 @@
+git rebase -i HEAD~X
+# set e commit to change
+g commit --amend --date="Fri Oct 22 21:36:42 2024 +0100" --no-edit
+# https://en.wikipedia.org/wiki/ISO_week_date
