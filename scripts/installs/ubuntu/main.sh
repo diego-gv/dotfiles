@@ -26,4 +26,6 @@ upgrade
 ./../devtools.sh
 ./../browsers.sh
 
+./extensions.sh
+
 ./cleanup.sh
