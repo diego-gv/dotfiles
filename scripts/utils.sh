@@ -227,15 +227,15 @@ print_in_color() {
 }
 
 print_in_green() {
-    print_in_color "$1" 2
+    print_in_color "$1" 71
 }
 
 print_in_purple() {
-    print_in_color "$1" 5
+    print_in_color "$1" 135
 }
 
 print_in_red() {
-    print_in_color "$1" 1
+    print_in_color "$1" 9
 }
 
 print_in_yellow() {
