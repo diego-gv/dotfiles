@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD041 -->
 <div align="center">
     <img src=".github/logo.png" alt="dotfiles" width="128"/>
 </div>
@@ -14,37 +15,28 @@
     <img src="https://img.shields.io/badge/license-MIT-750014.svg?style=flat" alt="license"/>
 </p>
 
-These are the base dotfiles that I start with when I set up a new environment
-(for more specific local needs I use the [`*.local`](#local-settings) files).
+These are the base dotfiles that I start with when I set up a new environment (for more specific local needs I use the [`*.local`](#local-settings) files).
 
 > [!IMPORTANT]
-> This repository (and the dotfiles hosted here) is currently under construction.
-> Therefore, these files may contain errors or may not be fully configured.
+> This repository (and the dotfiles hosted here) is currently under construction. Therefore, these files may contain errors or may not be fully configured.
 
 ## 🚀 Setup
 
 The setup process will:
 
-* Download the dotfiles on your computer
-  (by default it will suggest `~/.dotfiles`).
+* Download the dotfiles on your computer (by default it will suggest `~/.dotfiles`).
 * Create custom [directories][directories]
-* Install applications / command-line tools for
-  [macOS][install macos] / [Ubuntu][install ubuntu] /
-  [Fedora][install fedora].
-* [Symlink][symlink] the installation applications and
-  packages related files.
+* Install applications / command-line tools for [macOS][install macos] / [Ubuntu][install ubuntu] / [Fedora][install fedora].
+* [Symlink][symlink] the installation applications and packages related files.
 * Install of programming and terminal fonts
-* Set custom [macOS][preferences macos] /
-  [Ubuntu][preferences ubuntu] /
-  [Fedora][preferences fedora] preferences.
+* Set custom [macOS][preferences macos] / [Ubuntu][preferences ubuntu] / [Fedora][preferences fedora] preferences.
 
 ### Run
 
 To set up the dotfiles run the appropriate snippet in the terminal:
 
 > [!CAUTION]
-> **DO NOT** run the setup script if you do not fully understand
-> [what it does][setup]. Seriously, **DON'T**!
+> **DO NOT** run the setup script if you do not fully understand [what it does][setup]. Seriously, **DON'T**!
 
 Using **wget**:
 
@@ -61,19 +53,34 @@ bash <(curl -LsS https://raw.github.com/diego-gv/dotfiles/main/scripts/setup.sh)
 That's it! ✨
 
 > [!NOTE]
-> To update the system, an alias has been created called `up` to run the update
-> script.
+> To update the system, an alias has been created called `up` to run the update script.
+
+### Customize
+
+#### Local settings
+
+##### `~/.gitconfig.local`
+
+The `~/.gitconfig.personal` and `~/.gitconfig.workspace` files will be automatically included after the configurations from `~/.gitconfig`, thus, allowing its content to overwrite or add to the existing Git configurations.
+
+> [!NOTE]
+> Use this files to store sensitive information such as the Git user credentials
+
+For example:
+
+> ```gitconfig
+> [user]
+>     name = Your Name
+>     email = account@example.com
+> ```
 
 ## 🧪 Testing
 
 ### Virtual environment
 
-For testing in virtualized environments via GUI, tools such as
-[VirtualBox][virtualbox link] or [Qemu][qemu link] can be used. Regarding the latter,
-a very useful, lightweight and fast wrapper is [Quickemu][quickemu link].
+For testing in virtualized environments via GUI, tools such as [VirtualBox][virtualbox link] or [Qemu][qemu link] can be used. Regarding the latter, a very useful, lightweight and fast wrapper is [Quickemu][quickemu link].
 
-Once in the virtual machine, you can simulate the installation described in the
-[Setup](#setup) section.
+Once in the virtual machine, you can simulate the installation described in the [Setup](#-setup) section.
 
 ### Docker
 
@@ -84,15 +91,11 @@ make test fedora
 ```
 
 > [!NOTE]
-> **Currently testing on macOS through Docker is not possible**, it requires extra
-> documentation. Some promising docs are a [blog post][sickcodes-post] and a
-> [repository][sickcodes-repo] of sickcodes.
+> **Currently testing on macOS through Docker is not possible**, it requires extra documentation. Some promising docs are a [blog post][sickcodes-post] and a [repository][sickcodes-repo] of sickcodes.
 
 ## 👏 Credits
 
-These dotfiles are based on the dotfiles of [Cătălin's][alrra-credit] and
-[frankroeder's][frankroeder-credit]. Therefore, this repository contains code
-snippets and ideas from these, which have served as guidance and inspiration.
+These dotfiles are based on the dotfiles of [Cătălin's][alrra-credit] and [frankroeder's][frankroeder-credit]. Therefore, this repository contains code snippets and ideas from these, which have served as guidance and inspiration.
 
 ## ⚖️ License
 

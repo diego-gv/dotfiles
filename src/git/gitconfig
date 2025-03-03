@@ -17,7 +17,7 @@
 	ff = false
 
 [include]
-  	path = ~/.gitconfig-personal
+  	path = ~/.gitconfig.personal
 
 [includeIf "gitdir:~/workspace/"]
-  	path = ~/.gitconfig-workspace
+  	path = ~/.gitconfig.workspace
