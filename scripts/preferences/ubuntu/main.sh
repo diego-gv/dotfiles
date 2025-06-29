@@ -8,3 +8,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 ./extensions.sh
 ./keybindings.sh
 ./terminal.sh
+./disable_wayland.sh

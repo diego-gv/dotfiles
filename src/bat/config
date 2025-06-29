@@ -5,6 +5,6 @@
 --color=always
 --italic-text=always
 --map-syntax ".ignore:Git Ignore"
---paging=never
---style="numbers,changes,header"
---theme="base16"
+--paging=auto
+--style="numbers,changes"
+--theme="OneHalfDark"

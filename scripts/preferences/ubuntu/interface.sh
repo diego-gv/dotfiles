@@ -19,17 +19,17 @@ declare -a DOCK_APPS=(
 
 print_in_purple "\n   Interface\n\n"
 
-# execute "gsettings set org.gnome.desktop.interface show-battery-percentage true" \
-#     "Show Battery Percentage"
+execute "gsettings set org.gnome.desktop.interface show-battery-percentage true" \
+    "Show Battery Percentage"
 
 execute "gsettings set org.gnome.shell favorite-apps \"[$(IFS=', '; echo "${DOCK_APPS[*]}")]\"" \
     "Configure dock applications"
 
-execute "gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'" \
-    "Set dock location (BOTTOM)"
+# execute "gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'" \
+#     "Set dock location (BOTTOM)"
 
-execute "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 24" \
-    "Set dock icon size (24)"
+execute "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40" \
+    "Set dock icon size (40)"
 
 execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts true" \
     "Hide mounts in dock"
@@ -43,5 +43,5 @@ execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-netwo
 execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-trash true" \
     "Show trash in dock"
 
-execute "gsettings set org.gnome.desktop.background picture-uri 'file://$HOME/.dotfiles/src/backgrounds/ubuntu.jpg'" \
-    "Set background"
+# execute "gsettings set org.gnome.desktop.background picture-uri 'file://$HOME/.dotfiles/src/backgrounds/ubuntu.jpg'" \
+#     "Set background"

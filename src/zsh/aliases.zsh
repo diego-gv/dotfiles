@@ -8,10 +8,7 @@ function cmd_path () {
     fi
 }
 
-###########
-# ALIAS
-###########
-# LSD
+# LSD configuration highlights
 if cmd_path lsd; then
     LS_OPTS="--color=always --long --group-dirs first"
     alias ls="lsd ${LS_OPTS}"
@@ -23,7 +20,11 @@ else
     alias lt="ls -ltrh"
     alias la="ls -A"
 fi
-alias ll='ls'
+
+###########
+# ALIASES
+###########
+alias ll='ls -larht'
 
 # Bat
 alias cat='batcat'
@@ -37,20 +38,8 @@ alias grepi="grep -i"
 # Update
 alias up="${HOME}/.dotfiles/scripts/update.sh"
 
-# Work Aliases
-alias dps="docker ps"
-alias dsp!="docker system prune -a -f --volumes"
-alias dpsi="docker images"
-
-###########
-# UNALIAS
-###########
-# z with fzf
-unalias z 2> /dev/null
-z() {
-  [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')" || return
-}
-
+# Clear RAM cache
+alias clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
+alias clear-ram="sudo sysctl -w vm.drop_caches=3"
 
 # TODO: añadir función para configurar un repositorio en especifico (user e email)

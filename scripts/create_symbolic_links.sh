@@ -13,6 +13,7 @@ create_symlinks() {
 
     declare -rA FILES_TO_SYMLINK=(
         ["zsh/aliases.zsh"]="${ZSH_CUSTOM}/aliases.zsh"
+        ["zsh/aliases.zsh"]="${ZSH_CUSTOM}/styles.zsh"
         ["zsh/zshenv"]="${HOME}/.zshenv"
         ["zsh/zshopt"]="${HOME}/.zshopt"
         ["zsh/zshrc"]="${HOME}/.zshrc"
@@ -20,7 +21,7 @@ create_symlinks() {
         ["git/gitconfig.personal"]="${HOME}/.gitconfig.personal"
         ["git/gitconfig.workspace"]="${HOME}/.gitconfig.workspace"
         ["starship/starship.toml"]="${XDG_CONFIG_HOME}/starship/starship.toml"
-        ["fzf/fzf.zsh"]="${XDG_CONFIG_HOME}/fzf/fzf.zsh"
+        ["fzf/fzf-preview.zsh"]="${XDG_CONFIG_HOME}/fzf/fzf-preview.sh"
         ["bat/config"]="${XDG_CONFIG_HOME}/bat/config"
     )
 

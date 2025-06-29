@@ -1,10 +1,18 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Insert a blank line between shell prompts
+add_newline = true
+
+# Increase the default command timeout to 2 seconds
+command_timeout = 2000
+
 # Prompt format
 # ----------------------------
 format = """
 [](#9A348E)\
-$shell\ 
+$shell\
 $os\
-$username\
 [](fg:#9A348E bg:green)\
 $battery\
 [](fg:green bg:#DA627D)\
@@ -25,6 +33,13 @@ $time\
 $container\
 [ ](fg:#384d54)\
 """
+# "" (U+E0B6): esquina izquierda
+# "" (U+E0B4): esquina derecha
+# "" (U+E0B0): separador derecho
+# "" (U+E0B2): separador izquierdo
+
+# Set color palette
+# palette = ''
 
 # Battery alarm
 # ----------------------------
@@ -68,7 +83,7 @@ format = "[ $path$read_only ]($style)"
 read_only = " "
 truncation_length = 4
 truncation_symbol = "…/"
-truncate_to_repo = false
+truncate_to_repo = true
 
 [directory.substitutions]
 "Documents" = "󰈙"
@@ -116,7 +131,7 @@ format = '[\($state( $progress_current/$progress_total)\) ]($style)'
 [python]
 symbol = "󰌠 "
 style = "bg:#30C391"
-format = "[ $symbol($version) ]($style)"
+format = "[ $symbol($version \\($virtualenv\\)) ]($style)"
 python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
 detect_files = []
 detect_extensions = []

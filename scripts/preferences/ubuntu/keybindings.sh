@@ -30,6 +30,7 @@ execute "create_keybindings 0 Flameshot Print 'sh -c \"flameshot gui\"'" \
 
 
 # Remove old keybindings
+# To find the keybindings, install dconf-editor: `sudo aptitude install dconf-editor`
 
 execute "gsettings set org.gnome.shell.keybindings screenshot '@as []'" \
     "Remove screenshot keybinding"

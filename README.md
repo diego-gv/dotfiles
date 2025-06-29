@@ -93,6 +93,19 @@ make test fedora
 > [!NOTE]
 > **Currently testing on macOS through Docker is not possible**, it requires extra documentation. Some promising docs are a [blog post][sickcodes-post] and a [repository][sickcodes-repo] of sickcodes.
 
+## 📝 TODO
+
+* Expand the README with recommended extensions or set up automatic installation.
+* Add configuration steps for GNOME extensions using `gsettings`.
+* Add a git command to set `user.email` and `user.name` at the local level.
+* Add a git command to set `user.email` and `user.name` globally, for both work and personal profiles.
+* Fix the gitconfig to correctly detect and use the user information.
+* Install the [Monaspace](https://github.com/githubnext/monaspace) font.
+* Add installation instructions for Google Chrome.
+* Add installation instructions for Snap applications: `teams-for-linux`, `slack`, `spotify`, `outlook-for-linux`, and `obsidian`.
+* Add installation instructions for AutoFirma and GNOME Tweaks.
+* Add steps to configure the default terminal size and other similar settings using `gsettings`.
+
 ## 👏 Credits
 
 These dotfiles are based on the dotfiles of [Cătălin's][alrra-credit] and [frankroeder's][frankroeder-credit]. Therefore, this repository contains code snippets and ideas from these, which have served as guidance and inspiration.

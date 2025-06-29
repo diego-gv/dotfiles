@@ -20,4 +20,4 @@ create_symlink() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_package "BAT" "bat"
-# create_symlink
+create_symlink

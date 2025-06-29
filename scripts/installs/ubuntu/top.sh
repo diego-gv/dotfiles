@@ -6,9 +6,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./bat.sh
-./fzf.sh
-./lsd.sh
-./top.sh
-./starship.sh
-./../ohmyzsh.sh
+install_package "Install" "bashtop"

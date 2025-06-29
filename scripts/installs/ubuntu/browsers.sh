@@ -19,6 +19,6 @@ add_repository() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Install Docker
-execute "add_repository" "Add repository"
-install_package "Brave" "brave-browser"
+# Install Brave
+# execute "add_repository" "Add repository"
+# install_package "Brave" "brave-browser"

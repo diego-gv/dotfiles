@@ -12,10 +12,12 @@ declare -rA ZSH_PLUGINS=(
     # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
     ["plugins/F-Sy-H"]="https://github.com/z-shell/F-Sy-H"
     ["plugins/fzf-tab"]="https://github.com/Aloxaf/fzf-tab"
-    ["plugins/you-should-use"]="https://github.com/MichaelAquilina/zsh-you-should-use"
     ["plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
-    ["plugins/zsh-completions"]="https://github.com/zsh-users/zsh-completions"
-    ["plugins/zsh-direnv"]="https://github.com/ptavares/zsh-direnv"
+	# ["plugins/zsh-bat"]="https://github.com/fdellwing/zsh-bat"  # Pending to test
+    # Remove useless or broken
+    # ["plugins/you-should-use"]="https://github.com/MichaelAquilina/zsh-you-should-use"
+    # ["plugins/zsh-completions"]="https://github.com/zsh-users/zsh-completions"
+    # ["plugins/zsh-direnv"]="https://github.com/ptavares/zsh-direnv"
 )
     
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -24,4 +24,4 @@ install_plugin() {
 # Install VSCode
 execute "add_repository" "Add repository"
 install_package "Install" "code"
-# install_package "Install (insiders)" "code-insiders"
+install_package "Install (insiders)" "code-insiders"
