@@ -1,0 +1,15 @@
+# Personal GitHub
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github
+  IdentitiesOnly yes
+  UpdateHostKeys yes
+
+# Work GitHub
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_mapfre
+  IdentitiesOnly yes
+  UpdateHostKeys yes
