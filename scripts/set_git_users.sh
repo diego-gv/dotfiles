@@ -7,14 +7,18 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 update_gitconfig() {
     local file="$HOME/.dotfiles/src/git/gitconfig.$1"
+    local name email
 
-    ask "Enter git username for $1 configuration: "
-    username=$(get_answer)
-    ask "Enter git email for $1 configuration: "
-    email=$(get_answer)
+    name=$(grep '^\s*name = ' "$file" | awk -F'= ' '{print $2}')
+    email=$(grep '^\s*email = ' "$file" | awk -F'= ' '{print $2}')
 
-    sed -i "s/name = .*/name = $username/" "$file"
-    sed -i "s/email = .*/email = $email/" "$file"
+    ask "Enter git username for $1 configuration [$name]: "
+    new_name=$(get_answer)
+    ask "Enter git email for $1 configuration [$email]: "
+    new_email=$(get_answer)
+
+    sed -i "s/^\s*name = .*/	name = ${new_name:-$name}/" "$file"
+    sed -i "s/^\s*email = .*/	email = ${new_email:-$email}/" "$file"
 }
 
 ignore_gitconfig_changes() {
@@ -26,9 +30,20 @@ ignore_gitconfig_changes() {
 
 main() {
     print_in_purple "\n • Setup Git users\n\n"
-    update_gitconfig "personal"
-    update_gitconfig "workspace"
+
+    # Remove/ignore tracking changes
     ignore_gitconfig_changes
+
+    ask_for_confirmation "Do you want to configure git users?"
+
+    if answer_is_yes; then
+
+        update_gitconfig "personal"
+        update_gitconfig "workspace"
+
+    fi
+
+
 }
 
 main
