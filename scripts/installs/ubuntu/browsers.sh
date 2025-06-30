@@ -19,4 +19,4 @@ download_package() {
 
 # Install Brave
 execute "download_package" "Download package"
-install_package "Google Chrome" "/tmp/google-chrome.deb"
+install_package "Google Chrome" "google-chrome-stable" "/tmp/google-chrome.deb"

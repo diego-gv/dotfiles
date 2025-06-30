@@ -11,9 +11,11 @@ create_symlink() {
 
     # Create symlink required in apt installation
 
-    execute \
-        "ln -s /usr/bin/batcat ~/.local/bin/bat" \
-        "Create symlink for apt installation"
+    if ! file_exists "${HOME}/.local/bin/bat"; then
+        execute \
+            "ln -s /usr/bin/batcat ${HOME}/.local/bin/bat" \
+            "BAT (symlink)"
+    fi
 
 }
 

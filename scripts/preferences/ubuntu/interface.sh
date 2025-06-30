@@ -6,6 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare -a DOCK_APPS=(
+    "'google-chrome.desktop'"
     "'org.gnome.Nautilus.desktop'"
     "'org.gnome.Terminal.desktop'"
     "'code.desktop'"
@@ -43,6 +44,12 @@ execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-netwo
 
 execute "gsettings set org.gnome.shell.extensions.dash-to-dock show-trash true" \
     "Show trash in dock"
+
+execute "gsettings set org.gnome.desktop.interface clock-show-seconds true" \
+    "Show seconds in clock"
+
+execute "gsettings set org.gnome.desktop.interface clock-show-weekday true" \
+    "Show weekday in clock"
 
 # execute "gsettings set org.gnome.desktop.background picture-uri 'file://$HOME/.dotfiles/src/backgrounds/ubuntu.jpg'" \
 #     "Set background"

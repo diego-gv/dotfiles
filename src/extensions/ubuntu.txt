@@ -1,0 +1,7 @@
+Bluetooth-Battery-Meter@maniacx.github.com
+blur-my-shell@aunetx
+caffeine@patapon.info
+impatience@gfxmonk.net
+mediacontrols@cliffniff.github.com
+Resource_Monitor@Ory0n
+tilingshell@ferrarodomenico.com

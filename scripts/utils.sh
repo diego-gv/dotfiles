@@ -40,6 +40,10 @@ cmd_exists() {
     command -v "$1" &> /dev/null
 }
 
+file_exists() {
+    test -e "$1" &> /dev/null
+}
+
 dir_exists() {
     test -d "$1" &> /dev/null
 }

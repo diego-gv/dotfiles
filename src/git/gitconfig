@@ -19,5 +19,5 @@
 [include]
   	path = ~/.gitconfig.personal
 
-[includeIf "gitdir:~/workspace/"]
+[includeIf "gitdir:~/workspace/**/"]
   	path = ~/.gitconfig.workspace

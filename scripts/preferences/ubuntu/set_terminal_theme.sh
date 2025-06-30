@@ -14,8 +14,7 @@ cd "$tmpDir"
 export TERMINAL=gnome-terminal
 
 # Run script to install theme
-./installs/website.sh
-# ./installs/tokyo-night-storm.sh
+./installs/$(echo ${1:-Website} | tr '[:upper:]' '[:lower:]' | tr ' ' '-').sh
 
 # Clean up.
 rm -rf "$tmpDir"

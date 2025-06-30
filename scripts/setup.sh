@@ -276,6 +276,10 @@ main() {
 
     ./create_symbolic_links.sh "$@"
 
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    ./set_git_users.sh
+
     # # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     ./preferences/main.sh

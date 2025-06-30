@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    print_in_purple "\n   Spotify\n\n"
+    print_in_purple "\n   Others\n\n"
 
     "./$(get_os)/spotify.sh"
 
