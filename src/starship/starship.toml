@@ -9,37 +9,37 @@ command_timeout = 2000
 
 # Prompt format
 # ----------------------------
+# "" (U+E0B6): esquina izquierda
+# "" (U+E0B4): esquina derecha
+# "" (U+E0B0): separador derecho
+# "" (U+E0B2): separador izquierdo
 format = """
-[](#9A348E)\
+[](frost3)\
 $shell\
 $os\
-[](fg:#9A348E bg:green)\
+[](fg:frost3 bg:aurora_green)\
 $battery\
-[](fg:green bg:#DA627D)\
+[](fg:aurora_green bg:aurora_purple)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:aurora_purple bg:aurora_yellow)\
 $git_branch\
 $git_commit\
 $git_status\
 $git_metrics\
 $git_state\
-[](fg:#FCA17D bg:#30C391)\
+[](fg:aurora_yellow bg:aurora_green)\
 $python\
-[](fg:#30C391 bg:#33658A)\
+[](fg:aurora_green bg:polar_night3)\
 $cmd_duration\
 $jobs\
 $time\
-[](fg:#33658A bg:#384d54)\
+[](fg:polar_night3 bg:polar_night1)\
 $container\
-[ ](fg:#384d54)\
+[ ](fg:polar_night1)\
 """
-# "" (U+E0B6): esquina izquierda
-# "" (U+E0B4): esquina derecha
-# "" (U+E0B0): separador derecho
-# "" (U+E0B2): separador izquierdo
 
 # Set color palette
-# palette = ''
+palette = 'nord'
 
 # Battery alarm
 # ----------------------------
@@ -48,11 +48,11 @@ format = '[( $symbol$percentage )]($style)'
 
 [[battery.display]]
 threshold = 10
-style = 'fg:bold bg:green'
+style = 'fg:aurora_red bg:aurora_green bold'
 
 [[battery.display]]
 threshold = 90
-style = 'bg:green'
+style = 'fg:polar_night0 bg:aurora_green'
 
 # Generic configuration
 # ----------------------------
@@ -60,25 +60,25 @@ style = 'bg:green'
 zsh_indicator = ""
 powershell_indicator = ""
 cmd_indicator = ""
-style = "bg:#9A348E"
+style = "fg:polar_night0 bg:frost3"
 format = '[$indicator ]($style)'
 disabled = false
 
 [os]
 symbols.Ubuntu = ""
 symbols.Windows = ""
-style = "bg:#9A348E"
+style = "fg:polar_night0 bg:frost3"
 format = '[$symbol ]($style)'
 disabled = false
 
 [username]
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
+style_user = "fg:polar_night0 bg:frost3"
+style_root = "fg:polar_night0 bg:aurora_red"
 format = '[$user ]($style)'
 show_always = true
 
 [directory]
-style = "bg:#DA627D"
+style = "fg:polar_night0 bg:aurora_purple"
 format = "[ $path$read_only ]($style)"
 read_only = " "
 truncation_length = 4
@@ -95,42 +95,41 @@ truncate_to_repo = true
 
 [container]
 symbol = ""
-style = "bg:#384d54 bold"
+style = "bg:polar_night1 bold"
 format = '[ $symbol $name ]($style)'
 disabled = false
-
 
 # Git configuration
 # ----------------------------
 [git_branch] # show branch name
 symbol = " "
-style = "bg:#FCA17D bold"
+style = "fg:polar_night0 bg:aurora_yellow bold"
 format = '[ $symbol$branch ]($style)'
 
 [git_commit] # show commit hash
-style = "bg:#FCA17D"
+style = "fg:polar_night0 bg:aurora_yellow"
 format = '[\($hash$tag\) ]($style)'
 only_detached = false
 
 [git_status] # symbols about state of repo in local
-style = "bg:#FCA17D bold"
+style = "fg:polar_night0 bg:aurora_yellow bold"
 format = '[($all_status$ahead_behind )]($style)'
 
 [git_metrics] # number of changes
-added_style = "fg:#30C391 bg:#FCA17D"
-deleted_style = "fg:red bg:#FCA17D"
-format = '[(([+$added]($added_style))/([-$deleted]($deleted_style)) )](bg:#FCA17D)'
+added_style = "fg:green_dark bg:aurora_yellow"
+deleted_style = "fg:red_dark bg:aurora_yellow"
+format = '[(([+$added]($added_style))/([-$deleted]($deleted_style)) )](fg:polar_night0 bg:aurora_yellow)'
 disabled = false
 
 [git_state] # show if REBASING|MERGIN|etc....
-style = "bg:#FCA17D"
+style = "fg:polar_night0 bg:aurora_yellow"
 format = '[\($state( $progress_current/$progress_total)\) ]($style)'
 
 # Programming languages
 # ----------------------------
 [python]
 symbol = "󰌠 "
-style = "bg:#30C391"
+style = "fg:polar_night0 bg:aurora_green"
 format = "[ $symbol($version \\($virtualenv\\)) ]($style)"
 python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
 detect_files = []
@@ -140,21 +139,43 @@ detect_extensions = []
 # ----------------------------
 [jobs]
 symbol = ""
-style = "bg:#33658A"
+style = "bg:polar_night3"
 format = "[ $symbol ]($style)"
 number_threshold = 1
 
 # CMD configuration
 # ----------------------------
 [cmd_duration]
-style = "bg:#33658A"
+style = "bg:polar_night3"
 format = "[ $duration ]($style)"
 show_milliseconds = true
 
 # Time configuration
 # ----------------------------
 [time]
-style = "bg:#33658A"
+style = "bg:polar_night3"
 format = '[ $time ]($style)'
 time_range = '08:00:00-17:30:00'
 disabled = false
+
+# Palettes configuration
+# ----------------------------
+[palettes.nord]
+polar_night0 = "#2E3440"
+polar_night1 = "#3B4252"
+polar_night2 = "#434C5E"
+polar_night3 = "#4C566A"
+snow_storm0 = "#D8DEE9"
+snow_storm1 = "#E5E9F0"
+snow_storm2 = "#ECEFF4"
+frost0 = "#8FBCBB"
+frost1 = "#88C0D0"
+frost2 = "#81A1C1"
+frost3 = "#5E81AC"
+aurora_red = "#BF616A"
+aurora_orange = "#D08770"
+aurora_yellow = "#EBCB8B"
+aurora_green = "#A3BE8C"
+aurora_purple = "#B48EAD"
+green_dark = "#145C33"
+red_dark = "#70323F"
