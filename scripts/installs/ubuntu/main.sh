@@ -30,6 +30,6 @@ upgrade
 
 ./extensions.sh
 
-./others.sh
+./../others.sh
 
 ./cleanup.sh
