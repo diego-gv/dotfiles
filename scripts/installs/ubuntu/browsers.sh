@@ -6,19 +6,17 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-add_repository() {
+download_package() {
 
-    if ! package_is_installed "brave-browser"; then
-        # add_key "https://download.docker.com/linux/ubuntu/gpg"
-        sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-        echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    if ! package_is_installed "google-chrome-stable"; then
+        wget -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         update
     fi
-    
+
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Install Brave
-# execute "add_repository" "Add repository"
-# install_package "Brave" "brave-browser"
+execute "download_package" "Download package"
+install_package "Google Chrome" "/tmp/google-chrome.deb"

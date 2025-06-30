@@ -6,12 +6,16 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare -a DOCK_APPS=(
-    "'brave-browser.desktop'"
     "'org.gnome.Nautilus.desktop'"
     "'org.gnome.Terminal.desktop'"
     "'code.desktop'"
+    "'teams-for-linux_teams-for-linux.desktop'"
+    "'outlook-for-linux_outlook-for-linux.desktop'"
+    "'slack_slack.desktop'"
     "'postman.desktop'"
     "'dbeaver-ce.desktop'"
+    "'spotify_spotify.desktop'"
+    "'obsidian_obsidian.desktop'"
     "'org.gnome.Settings.desktop'"
 )
 
@@ -24,9 +28,6 @@ execute "gsettings set org.gnome.desktop.interface show-battery-percentage true"
 
 execute "gsettings set org.gnome.shell favorite-apps \"[$(IFS=', '; echo "${DOCK_APPS[*]}")]\"" \
     "Configure dock applications"
-
-# execute "gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'" \
-#     "Set dock location (BOTTOM)"
 
 execute "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40" \
     "Set dock icon size (40)"
