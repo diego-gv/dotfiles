@@ -95,16 +95,12 @@ make test fedora
 
 ## 📝 TODO
 
-* Expand the README with recommended extensions or set up automatic installation.
+* Add installation instructions for **AutoFirma**.
+* Add startup applications in **GNOME Tweaks**.
+* Replace `snap` installation with `aptitude` installation for the following apps: `teams-for-linux`, `slack`, `spotify`, `outlook-for-linux`, and `obsidian`.
+* Hotfix installation instructions for **Google Chrome** (_currently broken_).
 * Add configuration steps for GNOME extensions using `gsettings`.
-* Add a git command to set `user.email` and `user.name` at the local level.
-* Add a git command to set `user.email` and `user.name` globally, for both work and personal profiles.
-* Fix the gitconfig to correctly detect and use the user information.
-* Install the [Monaspace](https://github.com/githubnext/monaspace) font.
-* Add installation instructions for Google Chrome.
-* Add installation instructions for Snap applications: `teams-for-linux`, `slack`, `spotify`, `outlook-for-linux`, and `obsidian`.
-* Add installation instructions for AutoFirma and GNOME Tweaks.
-* Add steps to configure the default terminal size and other similar settings using `gsettings`.
+
 
 ## 👏 Credits
 
