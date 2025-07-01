@@ -5,11 +5,13 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Find apps in /usr/share/applications/ or <snap_app_name>_<snap_app_name>.desktop
 declare -a DOCK_APPS=(
     "'google-chrome.desktop'"
     "'org.gnome.Nautilus.desktop'"
     "'org.gnome.Terminal.desktop'"
     "'code.desktop'"
+    "'code-insiders.desktop'"
     "'teams-for-linux_teams-for-linux.desktop'"
     "'outlook-for-linux_outlook-for-linux.desktop'"
     "'slack_slack.desktop'"
