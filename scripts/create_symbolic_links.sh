@@ -47,6 +47,7 @@ create_symlinks() {
         if [ ! -e $targetDir ] ; then
 
             mkdir -p $targetDir
+
         fi
 
         if [ ! -e "$targetFile" ] || $skipQuestions; then

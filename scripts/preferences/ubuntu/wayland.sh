@@ -23,5 +23,4 @@ disable_wayland() {
 
 print_in_purple "\n   Wayland\n\n"
 
-disable_wayland
 execute "disable_wayland" "Disable"
