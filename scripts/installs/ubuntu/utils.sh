@@ -60,10 +60,6 @@ package_is_installed() {
     dpkg -s "$1" &> /dev/null
 }
 
-is_snap_installed() {
-    snap list "$1" &> /dev/null
-}
-
 install_aptitude() {
 
     # Install aptitude package manager
@@ -112,18 +108,5 @@ refresh() {
         "sudo rm -rf ${dest} && sudo cp -f ${HOME}/.config/monitors.xml ${dest}" \
         "Refresh ${dest}"
 
-
-}
-
-easy_install_application() {
-
-    declare -r APPLICATION="$1"
-    declare -r APPLICATION_READABLE_NAME="$2"
-
-    if package_is_installed "$APPLICATION" || is_snap_installed "$APPLICATION"; then
-        print_success "$APPLICATION_READABLE_NAME"
-    else
-        execute "sudo snap install $APPLICATION" "$APPLICATION_READABLE_NAME"
-    fi
 
 }

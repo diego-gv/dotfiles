@@ -12,13 +12,8 @@ declare -a DOCK_APPS=(
     "'org.gnome.Terminal.desktop'"
     "'code.desktop'"
     "'code-insiders.desktop'"
-    "'teams-for-linux_teams-for-linux.desktop'"
-    "'outlook-for-linux_outlook-for-linux.desktop'"
-    "'slack_slack.desktop'"
     "'postman.desktop'"
     "'dbeaver-ce.desktop'"
-    "'spotify_spotify.desktop'"
-    "'obsidian_obsidian.desktop'"
     "'org.gnome.Settings.desktop'"
 )
 
