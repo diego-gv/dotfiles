@@ -96,7 +96,6 @@ make test fedora
 ## 📝 TODO
 
 * Add installation instructions for **AutoFirma**.
-* Add startup applications in **GNOME Tweaks**.
 * Replace `snap` installation with `aptitude` installation for the following apps: `teams-for-linux`, `slack`, `spotify`, `outlook-for-linux`, and `obsidian`.
 * Hotfix installation instructions for **Google Chrome** (_currently broken_).
 * Hotfix installation instructions for **VScode** and **VScode Insiders** (_currently broken_).
