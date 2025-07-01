@@ -99,6 +99,22 @@ upgrade() {
 
 }
 
+refresh() {
+
+    # Update snap packages
+    execute \
+        "sudo snap refresh --list" \
+        "SNAP (refresh)"
+
+    # Update monitors configuration for login screen
+    local dest="/var/lib/gdm3/.config/monitors.xml"
+    execute \
+        "sudo rm -rf ${dest} && sudo cp -f ${HOME}/.config/monitors.xml ${dest}" \
+        "Refresh ${dest}"
+
+
+}
+
 easy_install_application() {
 
     declare -r APPLICATION="$1"

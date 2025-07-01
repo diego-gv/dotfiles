@@ -38,6 +38,17 @@ alias grepi="grep -i"
 # Update
 alias up="${HOME}/.dotfiles/scripts/update.sh"
 
+# Dotfiles
+alias dotfiles='
+    if command -v code-insiders &>/dev/null; then
+        code-insiders ~/.dotfiles
+    elif command -v code &>/dev/null; then
+        code ~/.dotfiles
+    else
+        echo -e "\033[0;31mYou need to have code-insiders or code installed to use this alias.\033[0m"
+    fi
+'
+
 # Clear RAM cache
 alias clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
 alias clear-ram="sudo sysctl -w vm.drop_caches=3"

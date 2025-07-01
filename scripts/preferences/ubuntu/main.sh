@@ -9,4 +9,3 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 ./keybindings.sh
 ./terminal.sh
 ./wayland.sh
-./monitors.sh
