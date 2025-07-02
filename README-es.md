@@ -75,10 +75,6 @@ make install
 > [!NOTE]
 > Para actualizar el sistema, se ha creado un alias llamado `up` que ejecuta el script de actualización.
 
-### Uso
-
-Para actualizar el sistema, usa el alias `up`.
-
 ### Aplicaciones y herramientas recomendadas
 
 #### Aplicaciones GUI vía Snap
