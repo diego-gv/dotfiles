@@ -82,14 +82,25 @@ To update the system, use the `up` alias.
 
 #### GUI applications via Snap
 
-Some applications such as **Postman**, **Microsoft Teams**, **Spotify**, **Obsidian**, and others can be easily installed using [Snap][snap]. For example:
+Some applications such as **Postman**, **Spotify**, **Obsidian**, and others can be easily installed using [Snap][snap]. For example:
 
 ```sh
 snap install postman
-snap install teams-for-linux
 snap install spotify
 snap install obsidian --classic
 ```
+
+#### Productivity applications: recommended use of the web version
+
+Some productivity applications such as **Microsoft Teams**, **Slack**, **Outlook**, **Zoom**, and others often present compatibility or stability issues on Linux environments, especially on distributions like Ubuntu or Fedora. For this reason, it is recommended to use their official web versions through your browser for a better experience and support.
+
+- [Microsoft Teams Web][teams-web]
+- [Slack Web][slack-web]
+- [Outlook Web][outlook-web]
+- [Zoom Web][zoom-web]
+
+> [!TIP]
+> Using the web versions ensures access to the latest features and greater stability, avoiding common issues found in the
 
 #### Additional CLI assistants and tools
 
@@ -168,6 +179,10 @@ The code is available under the [MIT license][license].
 [azure-cli-link]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 [forticlient-link]: https://www.fortinet.com/support/product-downloads
 [snap]: https://snapcraft.io/
+[teams-web]: https://teams.microsoft.com/
+[slack-web]: https://slack.com/signin
+[outlook-web]: https://outlook.office.com/
+[zoom-web]: https://zoom.us/signin
 [virtualbox link]: https://www.virtualbox.org/
 [qemu link]: https://www.qemu.org/
 [quickemu link]: https://github.com/quickemu-project/quickemu
