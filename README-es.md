@@ -15,7 +15,7 @@
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-2496ED.svg?style=flat&logo=docker&logoColor=white" alt="docker"/></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-750014.svg?style=flat" alt="license"/></a>
 </p>
-<p align="center"><a href="https://github.com/diego-gv/dotfiles/README.md">🇬🇧 Prefer to read this in English?</a></p>
+<p align="center"><a href="https://github.com/diego-gv/dotfiles/blob/main/README.md">🇬🇧 Prefer to read this in English?</a></p>
 
 Estos son los dotfiles base que utilizo al configurar un nuevo entorno (para necesidades locales más específicas uso los archivos [`*.local`](#local-settings)).
 
