@@ -1,0 +1,10 @@
+# Clave personal por defecto
+Host github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_personal
+
+# Clave de trabajo solo para la carpeta del trabajo
+Match exec "pwd | grep $HOME/workspace"
+    Host github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_work
