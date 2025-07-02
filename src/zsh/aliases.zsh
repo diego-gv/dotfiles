@@ -39,7 +39,7 @@ alias grepi="grep -i"
 alias up="${HOME}/.dotfiles/scripts/update.sh"
 
 # Dotfiles
-alias dotfiles='
+dot_files() {
     if command -v code-insiders &>/dev/null; then
         code-insiders ~/.dotfiles
     elif command -v code &>/dev/null; then
@@ -47,10 +47,21 @@ alias dotfiles='
     else
         echo -e "\033[0;31mYou need to have code-insiders or code installed to use this alias.\033[0m"
     fi
-'
+}
+
+alias dotfiles='dot_files'
 
 # Clear RAM cache
 alias clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
 alias clear-ram="sudo sysctl -w vm.drop_caches=3"
 
-# TODO: añadir función para configurar un repositorio en especifico (user e email)
+# Git clone alias
+git_clone() {
+    url="$1"
+    if echo "$url" | grep -iE "git@github.com:(mapfre-tech|mapfre-lab)/" >/dev/null; then
+        url="${url/git@github.com:/git@github.com-mapfre:}"
+    fi
+    git clone "$url"
+}
+
+alias gitclone='git_clone'

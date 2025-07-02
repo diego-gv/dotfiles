@@ -15,6 +15,7 @@
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-2496ED.svg?style=flat&logo=docker&logoColor=white" alt="docker"/></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-750014.svg?style=flat" alt="license"/></a>
 </p>
+<p align="center"><a href="https://github.com/diego-gv/dotfiles/README.md">🇪🇸 ¿Prefieres leer esto en español?</a></p>
 
 These are the base dotfiles that I start with when I set up a new environment (for more specific local needs I use the [`*.local`](#local-settings) files).
 
@@ -128,6 +129,57 @@ For example:
 >     name = Your Name
 >     email = account@example.com
 > ```
+
+#### Git configuration and SSH keys
+
+This repository is designed to work with multiple Git identities (personal and work) using SSH keys and a custom SSH configuration. Below is a summary of the setup:
+
+##### Git configuration
+
+- The main Git configuration is in `src/git/gitconfig`.
+- Personal user information is included from `src/git/gitconfig.personal`.
+- If you work in a directory under `~/workspace`, the configuration in `src/git/gitconfig.workspace` is also included, allowing you to use a different user/email for work repositories.
+
+Example of `~/.gitconfig.personal`:
+
+```ini
+[user]
+    name = diego-gv
+    email = diegosalvador.gv@gmail.com
+```
+
+##### SSH keys and SSH config
+
+To manage different SSH keys for personal and work repositories, the SSH configuration file (`src/ssh/config`) is used. Example:
+
+```ssh
+Host github.com
+  User git
+  IdentityFile ~/.ssh/github_personal
+
+Host github.com-<company>
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_work
+```
+
+- The `github.com` host uses your personal SSH key (`~/.ssh/github_personal`).
+- The `github.com-<company>` host uses your work SSH key (`~/.ssh/github_work`).
+
+##### How it works
+
+- For personal repositories, use the standard SSH URL: `git@github.com:diego-gv/your-repo.git`. This will use your personal key.
+- For work repositories, use the following SSH URL: `git@github.com-<company>:<company-user>/your-repo.git`. This will use your work key.
+- There is a helper function/alias (`gitclone`) that automatically rewrites the SSH URL for work repositories so you don't have to do it manually.
+
+##### Why this setup?
+
+- It allows you to keep your personal and work Git identities and SSH keys completely separate.
+- You avoid authentication errors and accidental commits with the wrong identity.
+- The SSH config ensures the correct key is used for each repository, and the Git config ensures the correct user/email is set.
+
+> [!TIP]
+> If you need to add a new SSH key, generate it with `ssh-keygen`, add the public key to your GitHub account, and update
 
 ## 🧪 Testing
 
