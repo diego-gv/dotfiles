@@ -22,8 +22,10 @@ update_gitconfig() {
 }
 
 ignore_gitconfig_changes() {
+
     git update-index --assume-unchanged $HOME/.dotfiles/src/git/gitconfig.personal
     git update-index --assume-unchanged $HOME/.dotfiles/src/git/gitconfig.workspace
+
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
