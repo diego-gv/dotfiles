@@ -24,7 +24,7 @@ fi
 ###########
 # ALIASES
 ###########
-alias ll='ls -larht'
+alias ll='ls -laht'
 
 # Bat
 alias cat='batcat'
