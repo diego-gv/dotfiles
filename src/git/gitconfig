@@ -3,6 +3,7 @@
 
 [core]
 	editor = vim
+	sshcommand=ssh -i ~/.ssh/github
 
 [init]
 	defaultBranch = main
@@ -15,6 +16,12 @@
 
 [merge]
 	ff = false
+
+[gpg]
+      format = ssh
+	  
+[commit]
+      gpgsign = true
 
 [include]
   	path = ~/.gitconfig.personal
