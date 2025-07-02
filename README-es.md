@@ -3,7 +3,7 @@
     <img src=".github/logo.png" alt="dotfiles" width="128"/>
 </div>
 <div align="center">
-  <h1><a href="https://github.com/diego-gv">dotfiles de diego-gv ⚡</a></h1>
+  <h1>dotfiles ⚡ de <a href="https://github.com/diego-gv">diego-gv</a></h1>
   <strong>Dotfiles personales para 🍎 Apple (macOS) y 🐧 Linux (Ubuntu/Fedora)</strong>
 </div>
 <br>
