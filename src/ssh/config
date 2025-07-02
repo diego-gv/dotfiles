@@ -1,0 +1,8 @@
+Host github.com
+    User git
+    IdentityFile ~/.ssh/github_personal
+
+Match exec "pwd | grep $HOME/workspace"
+    Host github.com
+    User git
+    IdentityFile ~/.ssh/github_mapfre
