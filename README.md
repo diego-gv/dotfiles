@@ -75,10 +75,6 @@ That's it! ✨
 > [!NOTE]
 > To update the system, an alias has been created called `up` to run the update script.
 
-### Usage
-
-To update the system, use the `up` alias.
-
 ### Recommended applications and CLI tools
 
 #### GUI applications via Snap
