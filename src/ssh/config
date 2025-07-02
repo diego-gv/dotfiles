@@ -1,0 +1,8 @@
+Host github.com
+  User git
+  IdentityFile ~/.ssh/github_personal
+
+Host github.com-mapfre
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_work
