@@ -3,7 +3,7 @@
 
 [core]
 	editor = vim
-	sshcommand=ssh -i ~/.ssh/github
+	sshCommand = ssh -o IdentitiesOnly=yes -i ~/.ssh/github
 
 [init]
 	defaultBranch = main
@@ -19,7 +19,7 @@
 
 [gpg]
       format = ssh
-	  
+
 [commit]
       gpgsign = true
 
