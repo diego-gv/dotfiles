@@ -82,10 +82,9 @@ To update the system, use the `up` alias.
 
 #### GUI applications via Snap
 
-Some applications such as **Postman**, **Spotify**, **Obsidian**, and others can be easily installed using [Snap][snap]. For example:
+Some applications such as **Spotify**, **Obsidian**, and others can be easily installed using [Snap][snap]. For example:
 
 ```sh
-snap install postman
 snap install spotify
 snap install obsidian --classic
 ```
