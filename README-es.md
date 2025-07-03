@@ -203,6 +203,7 @@ make test fedora
 - Corregir instrucciones de instalación para **VScode** y **VScode Insiders** (_actualmente roto_).
 - Añadir pasos de configuración para extensiones GNOME usando `gsettings`.
 - Añadir configuración, scripts y preferencias para **macOS** o **Fedora**.
+- Añadir `alias` para cambiar la fecha de un _commit_
 
 ## 👏 Créditos
 
