@@ -55,7 +55,7 @@ alias dotfiles='dot_files'
 alias clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
 alias clear-ram="sudo sysctl -w vm.drop_caches=3"
 
-# Git clone alias
+# Git aliases
 git_clone() {
     url="$1"
     if echo "$url" | grep -iE "git@github.com:(mapfre-tech|mapfre-lab)/" >/dev/null; then
@@ -65,3 +65,11 @@ git_clone() {
 }
 
 alias gitclone='git_clone'
+
+git_date() {
+    # Pasándole cantidad de horas?/días/semanas/meses cambia la fecha del commit referenciado
+    # Rollo: -1H, -8H, -1D, -3D, -2W, -1M
+    echo "Implement me!"
+}
+
+alias gitdate='git_date'
