@@ -202,8 +202,12 @@ make test fedora
 - Corregir instrucciones de instalación para **Google Chrome** (_actualmente roto_).
 - Corregir instrucciones de instalación para **VScode** y **VScode Insiders** (_actualmente roto_).
 - Añadir pasos de configuración para extensiones GNOME usando `gsettings`.
+- Añadir `DEBIAN_FRONTEND=noninteractive` en `aptitude` para evitar el bloqueo en instalaciones como _Google Chrome_ o _VSCode_.
+- Instalar [gnome-extensions-cli](https://github.com/essembeh/gnome-extensions-cli).
+- Actualizar el `alias` de `gitclone` para preguntar de qué host se está descargando el repositorio.
+- Añadir `alias` para crear un nuevo host (con su clave ssh) y preguntar si se necesita un nuevo perfil de usuario (crearlo también).
+- Añadir `alias` para cambiar la fecha de `commit`.
 - Añadir configuración, scripts y preferencias para **macOS** o **Fedora**.
-- Añadir `alias` para cambiar la fecha de un _commit_
 
 ## 👏 Créditos
 
