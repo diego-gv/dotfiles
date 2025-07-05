@@ -202,8 +202,11 @@ make test fedora
 - Hotfix installation instructions for **Google Chrome** (_currently broken_).
 - Hotfix installation instructions for **VScode** and **VScode Insiders** (_currently broken_).
 - Add configuration steps for GNOME extensions using `gsettings`.
+- Install [gnome-extensions-cli](https://github.com/essembeh/gnome-extensions-cli).
+- Update the `gitclone` `alias` to ask which host the repository is being downloaded from.
+- Add `alias` to create new host (with its ssh key) and ask if new user profile is needed (create it too).
+- Add `alias` to change date of `commit`.
 - Add configuration, scripts, and preferences for **macOS** o **Fedora**.
-- Add `alias` to change date of `commit`
 
 ## 👏 Credits
 
