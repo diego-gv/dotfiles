@@ -47,9 +47,11 @@ install_package() {
     declare -r PACKAGE_READABLE_NAME="$1"
 
     if ! package_is_installed "$PACKAGE"; then
-        execute "sudo aptitude install -yq $EXTRA_ARGUMENTS $PACKAGE" "$PACKAGE_READABLE_NAME"
-        #        assume "yes" as the answer ─┘│
-        #                   suppress output ──┘
+        execute  \
+            "export DEBIAN_FRONTEND=\"noninteractive\" \
+                && sudo aptitude install -yq $EXTRA_ARGUMENTS $PACKAGE" "$PACKAGE_READABLE_NAME"
+        #           assume "yes" as the answer ─┘│
+        #                      suppress output ──┘
     else
         print_success "$PACKAGE_READABLE_NAME"
     fi
@@ -79,7 +81,8 @@ update() {
     # Resynchronize the package index files from their sources.
 
     execute \
-        "sudo aptitude update -yq" \
+        "export DEBIAN_FRONTEND=\"noninteractive\" \
+            && sudo aptitude update -yq" \
         "Aptitude (update)"
 
 }
