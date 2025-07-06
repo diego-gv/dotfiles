@@ -6,17 +6,24 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-download_package() {
+install_binary() {
 
     if ! package_is_installed "google-chrome-stable"; then
-        wget -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        update
+
+        local -r TMP_FILE="$(mktemp /tmp/XXXX.deb)"
+        local -r PACKAGE_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+
+        wget \
+            -O $TMP_FILE \
+            $PACKAGE_URL
+
+        sudo dpkg -i "${TMP_FILE}" &> /dev/null
     fi
 
 }
 
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Install Brave
-execute "download_package" "Download package"
-install_package "Google Chrome" "google-chrome-stable" "/tmp/google-chrome.deb"
+# Install Google Chrome
+execute install_binary "Google Chrome"
