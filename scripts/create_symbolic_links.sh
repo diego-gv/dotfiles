@@ -13,7 +13,7 @@ create_symlinks() {
 
     declare -rA FILES_TO_SYMLINK=(
         ["zsh/aliases.zsh"]="${ZSH_CUSTOM}/aliases.zsh"
-        ["zsh/aliases.zsh"]="${ZSH_CUSTOM}/styles.zsh"
+        ["zsh/styles.zsh"]="${ZSH_CUSTOM}/styles.zsh"
         ["zsh/zshenv"]="${HOME}/.zshenv"
         ["zsh/zshopt"]="${HOME}/.zshopt"
         ["zsh/zshrc"]="${HOME}/.zshrc"
