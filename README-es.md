@@ -120,11 +120,11 @@ Los archivos `~/.gitconfig.personal` y `~/.gitconfig.workspace` se incluirán au
 
 Por ejemplo:
 
-> ```gitconfig
-> [user]
->     name = Tu Nombre
->     email = cuenta@ejemplo.com
-> ```
+```ini
+[user]
+    name = Tu Nombre
+    email = cuenta@ejemplo.com
+```
 
 #### Configuración de Git y claves SSH
 

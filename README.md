@@ -120,11 +120,11 @@ The `~/.gitconfig.personal` and `~/.gitconfig.workspace` files will be automatic
 
 For example:
 
-> ```gitconfig
-> [user]
->     name = Your Name
->     email = account@example.com
-> ```
+```ini
+[user]
+    name = Your Name
+    email = account@example.com
+```
 
 #### Git configuration and SSH keys
 
