@@ -14,9 +14,6 @@ install_package "Build Essential" "build-essential"
 # GnuPG archive keys of the Debian archive.
 install_package "GnuPG archive keys" "debian-archive-keyring"
 
-# Install pip
-install_package "PIP3" "python3-pip"
-
 # Install tool for download files
 install_package "cURL" "curl"
 

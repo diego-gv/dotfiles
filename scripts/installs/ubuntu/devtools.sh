@@ -11,7 +11,7 @@ install_postman() {
     if ! dir_exists "/opt/Postman"; then
         tar -C /tmp/ -xzf <(curl -L https://dl.pstmn.io/download/latest/linux64) && sudo mv /tmp/Postman /opt/
     fi
-    
+
 }
 
 create_postman_desktop_file() {
@@ -32,7 +32,7 @@ add_dbeaver_repository() {
     if ! package_is_installed "dbeaver-ce"; then
         add_ppa "serge-rider/dbeaver-ce"
     fi
-    
+
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -19,6 +19,9 @@ upgrade
 ./../git.sh
 ./../terminal.sh
 
+./../node.sh
+./../python.sh
+
 ./misc.sh
 
 ./../docker.sh
