@@ -27,6 +27,15 @@ source $ZSH_CUSTOM/aliases.zsh
 # Apply styles configuration
 source $ZSH_CUSTOM/styles.zsh
 
+# Apply AZ wrapper functions
+source $ZSH_CUSTOM/zsh-az-wrapper.zsh
+
+# Apply GIT wrapper functions
+source $ZSH_CUSTOM/zsh-git-wrapper.zsh
+
+# Apply utils functions
+source $ZSH_CUSTOM/zsh-utils.zsh
+
 # Initialize starship in zsh
 eval "$(starship init zsh)"
 

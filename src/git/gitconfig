@@ -16,6 +16,10 @@
 [merge]
 	ff = false
 
+[alias]
+    prune-gone = "!git fetch -p && git branch -vv | awk '/\\[origin\\/.*: gone\\]/{print $1}' | xargs -r git branch -D"
+    list-gone = "!git fetch -p && git branch -vv | awk '/\\[origin\\/.*: gone\\]/{print $1}'"
+
 [include]
   	path = ~/.gitconfig.personal
 

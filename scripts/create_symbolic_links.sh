@@ -14,6 +14,9 @@ create_symlinks() {
     declare -rA FILES_TO_SYMLINK=(
         ["zsh/aliases.zsh"]="${ZSH_CUSTOM}/aliases.zsh"
         ["zsh/styles.zsh"]="${ZSH_CUSTOM}/styles.zsh"
+        ["zsh/zsh-az-wrapper.zsh"]="${ZSH_CUSTOM}/zsh-az-wrapper.zsh"
+        ["zsh/zsh-git-wrapper.zsh"]="${ZSH_CUSTOM}/zsh-git-wrapper.zsh"
+        ["zsh/zsh-utils.zsh"]="${ZSH_CUSTOM}/zsh-utils.zsh"
         ["zsh/zshenv"]="${HOME}/.zshenv"
         ["zsh/zshopt"]="${HOME}/.zshopt"
         ["zsh/zshrc"]="${HOME}/.zshrc"

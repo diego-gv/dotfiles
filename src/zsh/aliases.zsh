@@ -38,45 +38,7 @@ alias grepi="grep -i"
 # Update
 alias up="${HOME}/.dotfiles/scripts/update.sh"
 
-# Dotfiles
-_dotfiles() {
-    if command -v code-insiders &>/dev/null; then
-        code-insiders ~/.dotfiles
-    elif command -v code &>/dev/null; then
-        code ~/.dotfiles
-    else
-        echo -e "\033[0;31mYou need to have code-insiders or code installed to use this alias.\033[0m"
-    fi
-}
-
-alias dotfiles='_dotfiles'
-
 # Clear RAM cache
 alias clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
 alias clear-ram="sudo sysctl -w vm.drop_caches=3"
 
-# AZ Login
-_azlogin() {
-    yes | az login ; az acr login -n $1
-}
-
-alias azlogin='_azlogin'
-
-# Git aliases
-_gitclone() {
-    url="$1"
-    if echo "$url" | grep -iE "git@github.com:(mapfre-tech|mapfre-lab)/" >/dev/null; then
-        url="${url/git@github.com:/git@github.com-mapfre:}"
-    fi
-    git clone "$url"
-}
-
-alias gitclone='_gitclone'
-
-_gitdate() {
-    # Pasándole cantidad de horas?/días/semanas/meses cambia la fecha del commit referenciado
-    # Rollo: -1H, -8H, -1D, -3D, -2W, -1M
-    echo "Implement me!"
-}
-
-alias gitdate='_gitdate'
