@@ -109,7 +109,16 @@ refresh() {
     local dest="/var/lib/gdm3/.config/monitors.xml"
     execute \
         "sudo rm -rf ${dest} && sudo cp -f ${HOME}/.config/monitors.xml ${dest}" \
-        "Refresh ${dest}"
+        "Monitors config (refresh)"
 
 
+}
+
+cleanup() {
+
+    # Clean up system
+    execute \
+        "rm -rf $HOME/.zcompdump*" \
+        "Compinit results (clear)"
+    autoremove
 }

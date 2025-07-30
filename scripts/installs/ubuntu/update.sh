@@ -8,3 +8,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 update
 upgrade
 refresh
+cleanup

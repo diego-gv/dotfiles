@@ -6,5 +6,5 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 print_in_purple "\n   Cleanup\n\n"
-autoremove
-rm -rf "$HOME/.zcompdump"*  # Clear compinit results in $HOME
+
+cleanup
