@@ -198,12 +198,25 @@ make test fedora
 
 ## 📝 TODO
 
-- Add configuration steps for GNOME extensions using `gsettings`.
-- Install [gnome-extensions-cli](https://github.com/essembeh/gnome-extensions-cli).
-- Update the `gitclone` `alias` to ask which host the repository is being downloaded from.
-- Add `alias` to create new host (with its ssh key) and ask if new user profile is needed (create it too).
-- Add `alias` to change date of `commit`.
-- Add configuration, scripts, and preferences for **macOS** o **Fedora**.
+**GNOME Extensions**
+
+- Document the steps required to configure GNOME extensions using [`gsettings`](https://wiki.gnome.org/dconf).
+- Include the installation of [`gnome-extensions-cli`](https://github.com/essembeh/gnome-extensions-cli).
+
+**Custom Git Configuration**
+
+- Add a command to generate a new SSH key in `~/.ssh/`.
+- Manually manage the `~/.ssh/config` file:
+  - Include default entries for **GitHub**, **GitLab**, and **Bitbucket**.
+  - Manually specify the `IdentityFile` path for each host.
+- Improve the `git clone` workflow:
+  - Prompt the user to select a `.gitconfig-<scope>` file.
+  - Automatically apply the appropriate `user.name` and `user.email` based on the selected _scope_.
+  - Creating new _scopes_ must be done manually (e.g., `personal`, `work`, etc.).
+
+**Cross-Platform Support**
+
+- Add configuration, scripts, and preferences specific to **macOS** and **Fedora**.
 
 ## 👏 Credits
 
