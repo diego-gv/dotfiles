@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
-    
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare -r ZSH="${HOME}/.oh-my-zsh"
@@ -19,13 +19,13 @@ declare -rA ZSH_PLUGINS=(
     # ["plugins/zsh-completions"]="https://github.com/zsh-users/zsh-completions"
     # ["plugins/zsh-direnv"]="https://github.com/ptavares/zsh-direnv"
 )
-    
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 install() {
-    
-    if ! dir_exists $ZSH ; then
+
+    if ! dir_exists "$ZSH" ; then
         ask_for_sudo
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &> /dev/null
     fi

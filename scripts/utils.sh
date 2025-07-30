@@ -41,7 +41,7 @@ cmd_exists() {
 }
 
 dir_exists() {
-    test -d "$1" &> /dev/null
+    test -d "$1"
 }
 
 kill_all_subprocesses() {

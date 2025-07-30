@@ -14,7 +14,8 @@ cd "$tmpDir"
 export TERMINAL=gnome-terminal
 
 # Run script to install theme
-./installs/$(echo ${1:-Website} | tr '[:upper:]' '[:lower:]' | tr ' ' '-').sh
+script_path="./installs/$(echo "${1:-Website}" | tr '[:upper:]' '[:lower:]' | tr ' ' '-').sh"
+bash "$script_path"
 
 # Clean up.
 rm -rf "$tmpDir"

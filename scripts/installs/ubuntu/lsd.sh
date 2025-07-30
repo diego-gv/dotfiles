@@ -16,7 +16,7 @@ install_binary() {
     if [[ ! "$(lsd --version 2>/dev/null)" == *"${LSD_VERSION}"* ]]; then
 
         local -r TMP_FILE="$(mktemp /tmp/XXXX.deb)"
-    
+
         curl \
             --location \
             --silent \
@@ -24,7 +24,7 @@ install_binary() {
             --output "$TMP_FILE" \
             "$LSD_PACKAGE_URL" \
                 &> /dev/null
-                
+
         sudo dpkg -i "${TMP_FILE}" &> /dev/null
 
     fi
@@ -36,5 +36,5 @@ install_binary() {
 if is_supported_version "$os_version" "$MINIMUM_UBUNTU_VERSION"; then
     install_package "LSD" "lsd"
 else
-    execute install_binary "LSD" 
+    execute install_binary "LSD"
 fi

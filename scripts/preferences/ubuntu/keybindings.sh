@@ -15,9 +15,9 @@ create_keybindings() {
     command=$4
 
     gsettings set $BASE_SCHEMA custom-keybindings "['${BASE_RESOURCE_PATH}/${n}/']"
-    gsettings set $BASE_SCHEMA.custom-keybinding:$BASE_RESOURCE_PATH/$n/ name "${name}"
-    gsettings set $BASE_SCHEMA.custom-keybinding:$BASE_RESOURCE_PATH/$n/ binding "${binding}"
-    gsettings set $BASE_SCHEMA.custom-keybinding:$BASE_RESOURCE_PATH/$n/ command "${command}"
+    gsettings set "$BASE_SCHEMA.custom-keybinding:$BASE_RESOURCE_PATH/$n/" name "${name}"
+    gsettings set "$BASE_SCHEMA.custom-keybinding:$BASE_RESOURCE_PATH/$n/" binding "${binding}"
+    gsettings set "$BASE_SCHEMA.custom-keybinding:$BASE_RESOURCE_PATH/$n/" command "${command}"
 
 }
 

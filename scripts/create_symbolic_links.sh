@@ -45,11 +45,11 @@ create_symlinks() {
 
         sourceFile="$(cd .. && pwd)/src/$i"
 		targetFile=${FILES_TO_SYMLINK[$i]}
-        targetDir=$(dirname $targetFile)
+        targetDir=$(dirname "$targetFile")
 
-        if [ ! -e $targetDir ] ; then
+        if [ ! -e "$targetDir" ] ; then
 
-            mkdir -p $targetDir
+            mkdir -p "$targetDir"
 
         fi
 

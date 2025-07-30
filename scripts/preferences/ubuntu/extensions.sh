@@ -20,4 +20,3 @@ execute "gsettings set org.gnome.shell disable-user-extensions false" \
 
 execute "gsettings set org.gnome.shell enabled-extensions \"[$(IFS=', '; echo "${EXTENSIONS[*]}")]\"" \
     "Enable extensions"
-

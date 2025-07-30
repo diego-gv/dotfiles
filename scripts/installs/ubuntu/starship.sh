@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh"
-    
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
@@ -12,7 +12,6 @@ install() {
         sh -c "$(curl -sS https://starship.rs/install.sh)" "" --yes &> /dev/null
     fi
 
-    
 }
 
 

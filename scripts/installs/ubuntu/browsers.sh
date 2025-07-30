@@ -14,7 +14,7 @@ install_binary() {
         local -r PACKAGE_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
         wget \
-            -O $TMP_FILE \
+            -O "$TMP_FILE" \
             $PACKAGE_URL
 
         sudo dpkg -i "${TMP_FILE}" &> /dev/null

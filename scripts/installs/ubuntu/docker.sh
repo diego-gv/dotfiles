@@ -14,7 +14,7 @@ add_repository() {
         add_repo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
         add_cache policy docker-ce
     fi
-    
+
 }
 
 

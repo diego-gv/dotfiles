@@ -11,7 +11,7 @@ declare -rA NERD_FONTS_TO_INSTALL=(
 )
 
 font_is_installed() {
-    test $(fc-list | grep -i "$1" | wc -l) -ne 0 &> /dev/null
+    test "$(fc-list | grep -ic -- "$1")" -ne 0
 }
 
 install_nerd_fonts() {
@@ -33,16 +33,16 @@ install_nerd_fonts() {
     fi
 
     # Clone the repo only if it does not exist
-    if [ ! -d "$repo_dir" ]; then
-        git clone --quiet --filter=blob:none --sparse "https://github.com/ryanoasis/nerd-fonts.git" "$repo_dir"
+    if [ ! -d "$tmpDir" ]; then
+        git clone --quiet --filter=blob:none --sparse "https://github.com/ryanoasis/nerd-fonts.git" "$tmpDir"
     fi
 
-    cd "${tmpDir}"
+    cd "${tmpDir}" || exit 1
     for i in "${!NERD_FONTS_TO_INSTALL[@]}"; do
 		name=${NERD_FONTS_TO_INSTALL[$i]}
 
         if ! font_is_installed "$i"; then
-            git sparse-checkout add patched-fonts/${name}
+            git sparse-checkout add "patched-fonts/${name}"
             find . -type f -name '*.ttf' ! -name '*Windows*' -exec cp "{}" "${FONTS_DIR}" \;
         fi
 
@@ -58,7 +58,7 @@ install_fira_code_iscript() {
 
     if ! font_is_installed "$i"; then
         git clone --quiet "https://github.com/kencrocken/FiraCodeiScript.git" "$tmpDir"
-        cd "${tmpDir}"
+        cd "${tmpDir}" || exit 1
         find . -type f -name '*.ttf' ! -name '*Windows*' -exec cp "{}" "${FONTS_DIR}" \;
     fi
 
@@ -71,7 +71,7 @@ install_monaspace_fonts() {
 
     if ! font_is_installed "$i"; then
         git clone --quiet "https://github.com/githubnext/monaspace.git" "$tmpDir"
-        cd "${tmpDir}"
+        cd "${tmpDir}" || exit 1
         find . -type f -name '*.ttf' ! -name '*Windows*' -exec cp "{}" "${FONTS_DIR}" \;
     fi
 
