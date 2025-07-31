@@ -20,12 +20,12 @@
     prune-gone = "!git fetch -p && git branch -vv | awk '/\\[origin\\/.*: gone\\]/{print $1}' | xargs -r git branch -D"
     list-gone = "!git fetch -p && git branch -vv | awk '/\\[origin\\/.*: gone\\]/{print $1}'"
 
-[url "https://github.com/"]
-    insteadOf = git@github.com:
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 
-[url "https://gitlab.com/"]
-    insteadOf = git@gitlab.com:
+[url "git@gitlab.com:"]
+    insteadOf = https://gitlab.com/
 
-[url "https://bitbucket.org/"]
-    insteadOf = git@bitbucket.org:
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
 
