@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+# vim: set filetype=zsh
 # F-Sy-H plugin
 #############################
 # Don't have configurations

@@ -6,19 +6,21 @@ repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v5.0.0
       hooks:
-          - id: check-executables-have-shebangs
-          - id: check-merge-conflict
-          - id: end-of-file-fixer
           - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
+          - id: check-merge-conflict
+          - id: check-executables-have-shebangs
+          - id: check-added-large-files
+            args: ["--maxkb=500"]
 
-    - repo: local
+    - repo: https://github.com/adrienverge/yamllint/
+      rev: v1.37.1
+      hooks:
+          - id: yamllint
+
+    - repo: https://github.com/shellcheck-py/shellcheck-py
+      rev: v0.10.0.1
       hooks:
           - id: shellcheck
-            name: shellcheck
-            description: Test shell scripts with shellcheck
-            entry: shellcheck
-            language: python
-            types: [shell]
-            require_serial: true # shellcheck can detect sourcing this way
-            args: ["-x", "--exclude=SC1090,SC1091,SC2155"]
-            exclude: \.zsh$
+            args: ["-x", "--exclude=SC1071,SC1090,SC1091,SC2155"]
