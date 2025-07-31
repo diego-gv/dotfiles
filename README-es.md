@@ -4,7 +4,7 @@
 </div>
 <div align="center">
   <h1>dotfiles ⚡ de <a href="https://github.com/diego-gv">diego-gv</a></h1>
-  <strong>Dotfiles personales para 🍎 Apple (macOS) y 🐧 Linux (Ubuntu/Fedora)</strong>
+  <strong>Dotfiles personales para 🍏 Apple (macOS) y 🐧 Linux (🍊 Ubuntu/🎩 Fedora)</strong>
 </div>
 <br>
 <p align="center">
@@ -28,8 +28,8 @@ Estos son los dotfiles base que utilizo al configurar un nuevo entorno (para nec
 
 ## 🧩 Compatibilidad
 
-- 🐧 **Ubuntu:** Soportado y probado (última: 24.04 LTS)
-- 🍎 **macOS:** Soporte en progreso, se aceptan contribuciones
+- 🍊 **Ubuntu:** Soportado y probado (última: 24.04 LTS)
+- 🍏 **macOS:** Soporte en progreso, se aceptan contribuciones
 - 🎩 **Fedora:** Soporte en progreso, se aceptan contribuciones
 - 🐳 **Docker:** Usado solo para entornos de prueba
 
@@ -44,11 +44,13 @@ El proceso de instalación:
 - Instala fuentes de programación y terminal.
 - Aplica preferencias personalizadas para [macOS][preferences macos] / [Ubuntu][preferences ubuntu] / [Fedora][preferences fedora].
 
+---
+
 ### Ejecución
 
 Para instalar los dotfiles, puedes usar uno de los siguientes métodos en tu terminal:
 
-**Opción 1: One-liner (recomendado para instalación rápida)**
+#### Opción 1: One-liner (recomendado para instalación rápida)
 
 Usando **wget**:
 
@@ -62,7 +64,7 @@ O usando **cURL**:
 bash <(curl -LsS https://raw.github.com/diego-gv/dotfiles/main/scripts/setup.sh)
 ```
 
-**Opción 2: Clonar e instalar manualmente**
+#### Opción 2: Clonar e instalar manualmente
 
 ```sh
 git clone https://github.com/diego-gv/dotfiles.git ~/.dotfiles
@@ -74,6 +76,8 @@ make install
 
 > [!NOTE]
 > Para actualizar el sistema, se ha creado un alias llamado `up` que ejecuta el script de actualización.
+
+---
 
 ### Aplicaciones y herramientas recomendadas
 
@@ -110,72 +114,94 @@ Si necesitas alguna de estas herramientas, consulta su documentación oficial pa
 > [!NOTE]
 > La instalación de estas aplicaciones y herramientas no está automatizada en este repositorio, ya que su necesidad depende de tu flujo de trabajo y stack. Usa Snap o la documentación oficial para instalarlas.
 
-### Personalización
+---
 
-#### Configuración local
+### Configuración local
 
-##### `~/.gitconfig.local`
+#### Alias de Git
 
-Los archivos `~/.gitconfig.personal` y `~/.gitconfig.workspace` se incluirán automáticamente después de las configuraciones de `~/.gitconfig`, permitiendo que su contenido sobrescriba o añada configuraciones de Git existentes.
+- `git list-gone`: Lista las ramas locales cuyo origen remoto ha desaparecido (es decir, están marcadas como **gone**).
+- `git prune-gone`: Elimina las ramas locales que están marcadas como **gone** porque su rama remota ya no existe.
 
-Por ejemplo:
+#### Gestión de usuarios de Git (`~/.gitusers`)
 
-```ini
-[user]
-    name = Tu Nombre
-    email = cuenta@ejemplo.com
+El archivo `~/.gitusers` contiene los perfiles disponibles en el siguiente formato:
+
+```bash
+nombre:email@ejemplo.com
 ```
 
-#### Configuración de Git y claves SSH
+> [!NOTE]
+> Este archivo se gestiona automáticamente mediante los comandos `git user` y `git clone`.
 
-Este repositorio está preparado para trabajar con múltiples identidades de Git (personal y trabajo) usando claves SSH y una configuración SSH personalizada. A continuación, un resumen de la configuración:
+#### Funciones personalizadas de Git
 
-##### Configuración de Git
+Algunos comandos de Git se han extendido para facilitar la gestión de identidades de usuario en entornos con múltiples configuraciones.
 
-- La configuración principal de Git está en `src/git/gitconfig`.
-- La información personal del usuario se incluye desde `src/git/gitconfig.personal`.
-- Si trabajas en un directorio bajo `~/workspace`, también se incluye la configuración de `src/git/gitconfig.workspace`, permitiendo usar un usuario/email diferente para los repositorios de trabajo.
+##### `git clone`
 
-Ejemplo de `~/.gitconfig.personal`:
+Clona un repositorio y permite seleccionar o crear un perfil de usuario desde `~/.gitusers`:
 
-```ini
-[user]
-    name = diego-gv
-    email = diegosalvador.gv@gmail.com
+```sh
+git clone git@github.com:usuario/repositorio.git
 ```
 
-##### Claves SSH y configuración SSH
+Al finalizar, se configurará automáticamente el `user.name` y `user.email` en el repositorio clonado.
 
-Para gestionar diferentes claves SSH para repositorios personales y de trabajo, se usa el archivo de configuración SSH (`src/ssh/config`). Ejemplo:
+##### `git user`
+
+Dentro de un repositorio Git, permite cambiar el usuario configurado:
+
+```sh
+git user
+```
+
+También es posible listar los perfiles existentes e indicar cuál está actualmente activo en el repositorio:
+
+```sh
+git user --list
+```
+
+Ejemplo de salida:
+
+```bash
+📋 Available Git user profiles:
+  1 - Diego <diego-personal@gmail.com>
+  2 - Diego (Work) <diego-work@company.com> (current)
+```
+
+#### Configuración SSH para múltiples identidades
+
+##### Paso 1: Generar las claves
+
+```sh
+ssh-keygen -t ed25519 -f ~/.ssh/github_personal -C "diego-personal@gmail.com"
+ssh-keygen -t ed25519 -f ~/.ssh/github_work -C "diego-work@company.com"
+```
+
+##### Paso 2: Actualizar `~/.ssh/config`
 
 ```ssh
 Host github.com
   User git
-  IdentityFile ~/.ssh/github_personal
-
-Host github.com-<company>
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/github_work
+  # IdentityFile ~/.ssh/github_personal
+  # IdentityFile ~/.ssh/github_work
+  IdentitiesOnly yes
 ```
 
-- El host `github.com` usa tu clave SSH personal (`~/.ssh/github_personal`).
-- El host `github.com-<company>` usa tu clave SSH de trabajo (`~/.ssh/github_work`).
+##### Paso 3: Seleccionar manualmente la clave adecuada
 
-##### ¿Cómo funciona?
+> [!IMPORTANT]
+> Para usar la clave correcta en cada momento, deberás comentar o descomentar el `IdentityFile` adecuado en el archivo `~/.ssh/config`.
 
-- Para repositorios personales, usa la URL SSH estándar: `git@github.com:diego-gv/tu-repo.git`. Esto usará tu clave personal.
-- Para repositorios de trabajo, usa la siguiente URL SSH: `git@github.com-<company>:<company-user>/tu-repo.git`. Esto usará tu clave de trabajo.
-- Hay una función/alias (`gitclone`) que reescribe automáticamente la URL SSH para los repositorios de trabajo, así no tienes que hacerlo manualmente.
+Si no seleccionas correctamente la clave, y el repositorio es privado o tiene ramas protegidas, verás un error como este:
 
-> [!TIP]
-> Sustituye `<company>` por el nombre real de tu empresa u organización tanto en la configuración SSH como en las URLs de los repositorios.
+```bash
+ERROR: Permission to diego-gv/dotfiles.git denied to diego-work.
+fatal: Could not read from remote repository.
+```
 
-##### ¿Por qué esta configuración?
-
-- Permite mantener completamente separadas tus identidades y claves SSH personales y de trabajo.
-- Evita errores de autenticación y commits accidentales con la identidad equivocada.
-- El archivo de configuración SSH asegura que se use la clave correcta para cada repositorio, y la configuración de Git asegura que se use el usuario/email correcto.
+En ese caso, edita el archivo `~/.ssh/config` y asegúrate de que sólo está activa la clave deseada.
 
 ## 🧪 Pruebas
 
@@ -184,6 +210,8 @@ Host github.com-<company>
 Para probar en entornos virtualizados con GUI, puedes usar herramientas como [VirtualBox][virtualbox link] o [Qemu][qemu link]. Para este último, un wrapper muy útil, ligero y rápido es [Quickemu][quickemu link].
 
 Una vez en la máquina virtual, puedes simular la instalación descrita en la sección [Instalación](#-instalación).
+
+---
 
 ### Docker
 
@@ -198,23 +226,12 @@ make test fedora
 
 ## 📝 TODO
 
-**Extensiones de GNOME**
+### Extensiones de GNOME
 
 - Documentar los pasos necesarios para configurar extensiones de GNOME usando [`gsettings`](https://wiki.gnome.org/dconf).
 - Incluir la instalación de [`gnome-extensions-cli`](https://github.com/essembeh/gnome-extensions-cli).
 
-**Configuración personalizada de Git**
-
-- Añadir un comando para generar una nueva clave SSH en `~/.ssh/`.
-- Gestionar manualmente el archivo `~/.ssh/config`:
-  - Incluir por defecto los hosts **GitHub**, **GitLab** y **Bitbucket**.
-  - Añadir manualmente la ruta al `IdentityFile` de cada host.
-- Mejorar el flujo de trabajo al usar `git clone`:
-  - Solicitar al usuario seleccionar un archivo `.gitconfig-<scope>`.
-  - Aplicar automáticamente la configuración `user.name` y `user.email` en base al _scope_ elegido.
-  - La creación de nuevos _scopes_ debe hacerse manualmente (por ejemplo: `personal`, `trabajo`, etc.).
-
-**Compatibilidad multiplataforma**
+### Compatibilidad multiplataforma
 
 - Añadir configuraciones, scripts y preferencias específicas para **macOS** y **Fedora**.
 
