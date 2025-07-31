@@ -20,8 +20,12 @@
     prune-gone = "!git fetch -p && git branch -vv | awk '/\\[origin\\/.*: gone\\]/{print $1}' | xargs -r git branch -D"
     list-gone = "!git fetch -p && git branch -vv | awk '/\\[origin\\/.*: gone\\]/{print $1}'"
 
-[include]
-  	path = ~/.gitconfig.personal
+[url "https://github.com/"]
+    insteadOf = git@github.com:
 
-[includeIf "gitdir:~/workspace/**/"]
-  	path = ~/.gitconfig.workspace
+[url "https://gitlab.com/"]
+    insteadOf = git@gitlab.com:
+
+[url "https://bitbucket.org/"]
+    insteadOf = git@bitbucket.org:
+

@@ -21,8 +21,6 @@ create_symlinks() {
         ["zsh/zshopt"]="${HOME}/.zshopt"
         ["zsh/zshrc"]="${HOME}/.zshrc"
         ["git/gitconfig"]="${HOME}/.gitconfig"
-        ["git/gitconfig.personal"]="${HOME}/.gitconfig.personal"
-        ["git/gitconfig.workspace"]="${HOME}/.gitconfig.workspace"
         ["starship/starship.toml"]="${XDG_CONFIG_HOME}/starship/starship.toml"
         ["fzf/fzf-preview.zsh"]="${XDG_CONFIG_HOME}/fzf/fzf-preview.sh"
         ["bat/config"]="${XDG_CONFIG_HOME}/bat/config"
