@@ -16,6 +16,7 @@ create_symlinks() {
         ["zsh/styles.zsh"]="${ZSH_CUSTOM}/styles.zsh"
         ["zsh/zsh-az-wrapper.zsh"]="${ZSH_CUSTOM}/zsh-az-wrapper.zsh"
         ["zsh/zsh-git-wrapper.zsh"]="${ZSH_CUSTOM}/zsh-git-wrapper.zsh"
+        ["zsh/zsh-docker-wrapper.zsh"]="${ZSH_CUSTOM}/zsh-docker-wrapper.zsh"
         ["zsh/zsh-utils.zsh"]="${ZSH_CUSTOM}/zsh-utils.zsh"
         ["zsh/zshenv"]="${HOME}/.zshenv"
         ["zsh/zshopt"]="${HOME}/.zshopt"

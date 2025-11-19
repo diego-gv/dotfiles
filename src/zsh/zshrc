@@ -33,6 +33,9 @@ source $ZSH_CUSTOM/zsh-az-wrapper.zsh
 # Apply GIT wrapper functions
 source $ZSH_CUSTOM/zsh-git-wrapper.zsh
 
+# Apply DOCKER wrapper functions
+source $ZSH_CUSTOM/zsh-docker-wrapper.zsh
+
 # Apply utils functions
 source $ZSH_CUSTOM/zsh-utils.zsh
 
