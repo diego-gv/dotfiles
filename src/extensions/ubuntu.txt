@@ -1,7 +1,12 @@
 Bluetooth-Battery-Meter@maniacx.github.com
 blur-my-shell@aunetx
 caffeine@patapon.info
+HeadsetControl@lauinger-clan.de
 impatience@gfxmonk.net
 mediacontrols@cliffniff.github.com
+notification-configurator@exposedcat
+ping@prasanthc41m.github.com
 Resource_Monitor@Ory0n
+smart-auto-move@khimaros.com
 tilingshell@ferrarodomenico.com
+quick-settings-avatar@d-go
