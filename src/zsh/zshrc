@@ -20,6 +20,9 @@ source "${ZSH}/oh-my-zsh.sh"
 # Apply sensisble zsh settings
 source $HOME/.zshopt
 
+# Load secrets
+source $HOME/.secrets/common
+
 # Source files {{{2
 # Load aliases
 source $ZSH_CUSTOM/aliases.zsh

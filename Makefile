@@ -14,6 +14,7 @@ install: ## Run install and configure system
 .PHONY: test
 test: --build ## Test dotfiles with docker
 	@docker run -e SKIP_QUESTIONS=true -it --rm -v ${PWD}:/home/garvi/.dotfiles --name test dotfiles/test /bin/bash -c "make install ; zsh"
+	@rm -rf ./src/ssh/config ./src/secrets/common
 
 --build:
 	@RUN_ARGS_EFFECTIVE=$$(echo "$(RUN_ARGS)" | tr -d ' '); \

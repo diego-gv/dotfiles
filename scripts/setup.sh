@@ -276,6 +276,10 @@ main() {
 
     ./create_symbolic_links.sh "$@"
 
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    ./create_templates_and_symlinks.sh "$@"
+
     # # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     ./preferences/main.sh

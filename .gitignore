@@ -1,0 +1,55 @@
+# ------------------------------
+# System and temporary files
+# ------------------------------
+# Ignore macOS system files and Windows thumbnail cache
+.DS_Store
+Thumbs.db
+# Ignore Vim swap files and general temporary files
+*.swp
+*.swo
+*.tmp
+
+# ------------------------------
+# Backup files
+# ------------------------------
+# Ignore editor backup files and old versions
+*~
+*.bak
+*.old
+
+# ------------------------------
+# Keys and secrets
+# ------------------------------
+# Ignore private keys, certificates, and environment files
+*.pem
+*.key
+*.env
+*.secret
+*.crt
+
+# ------------------------------
+# Local application configuration
+# ------------------------------
+# Ignore IDE/editor settings and local-only config
+.vscode/
+.idea/
+*.local
+*.config/private/
+
+# ------------------------------
+# Compiled files and logs
+# ------------------------------
+# Ignore log files, compiled outputs, and Python cache
+*.log
+*.out
+*.o
+*.pyc
+__pycache__/
+
+# ------------------------------
+# Sensitive directories
+# ------------------------------
+# Ignore entire directories that contain sensitive information
+secrets/
+private/
+ssh/
