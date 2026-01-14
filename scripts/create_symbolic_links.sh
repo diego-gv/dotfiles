@@ -25,7 +25,6 @@ create_symlinks() {
         ["starship/starship.toml"]="${XDG_CONFIG_HOME}/starship/starship.toml"
         ["fzf/fzf-preview.zsh"]="${XDG_CONFIG_HOME}/fzf/fzf-preview.sh"
         ["bat/config"]="${XDG_CONFIG_HOME}/bat/config"
-        ["ssh/config"]="${HOME}/.ssh/config"
     )
 
     local i=""
