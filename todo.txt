@@ -1,0 +1,2 @@
+replace bashtop by btop
+replace neofetch by fastfetch
