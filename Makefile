@@ -21,9 +21,8 @@ test: --build ## Test dotfiles with docker
     if [ -z "$$RUN_ARGS_EFFECTIVE" ]; then RUN_ARGS_LOWER=ubuntu; \
     else RUN_ARGS_LOWER=$$(echo "$(RUN_ARGS)" | tr '[:upper:]' '[:lower:]' | tr ' ' '-'); fi; \
 	case "$$RUN_ARGS_LOWER" in \
-		ubuntu|fedora) ;; \
-		macos) echo "It is not possible to test with macOS" && exit 1 ;; \
-		*) echo "Invalid value: '$(RUN_ARGS)'. Only the following values are allowed: ubuntu or fedora" && exit 1 ;; \
+		ubuntu) ;; \
+		*) echo "Invalid value: '$(RUN_ARGS)'. Only the following values are allowed: ubuntu" && exit 1 ;; \
 	esac; \
 	docker $(DOCKER_BUILD_CMD) -t dotfiles/test ${PWD} -f .docker/$$RUN_ARGS_LOWER.Dockerfile > ${DEVNUL}
 

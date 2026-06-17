@@ -4,14 +4,12 @@
 </div>
 <div align="center">
   <h1><i>dotfiles</i> ⚡ by <a href="https://github.com/diego-gv">diego-gv</a></h1>
-  <strong>Personal <i>dotfiles</i> for 🍏 Apple (macOS) and 🐧 Linux (🍊 Ubuntu/🎩 Fedora)</strong>
+  <strong>Personal <i>dotfiles</i> for 🐧 Linux (🍊 Ubuntu)</strong>
 </div>
 <br>
 <p align="center">
     <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/shell-bash-4EAA25?logo=gnu-bash&logoColor=white" alt="shell"/></a>
-    <a href="https://www.apple.com/macos/"><img src="https://img.shields.io/badge/Apple-000000.svg?style=flat&logo=apple&logoColor=white" alt="apple"/></a>
     <a href="https://ubuntu.com/"><img src="https://img.shields.io/badge/Ubuntu-E95420.svg?style=flat&logo=ubuntu&logoColor=white" alt="ubuntu"/></a>
-    <a href="https://getfedora.org/"><img src="https://img.shields.io/badge/Fedora-51A2DA.svg?style=flat&logo=fedora&logoColor=white" alt="fedora"/></a>
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-2496ED.svg?style=flat&logo=docker&logoColor=white" alt="docker"/></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-750014.svg?style=flat&logoColor=white" alt="license"/></a>
 </p>
@@ -29,8 +27,6 @@ This repository contains all the **dotfiles** and scripts I use to set up a new 
 ## 🧩 Compatibility
 
 - 🍊 **Ubuntu:** Supported and tested on `24.04 LTS` (requires `>=22.04`)
-- 🍏 **macOS:** Support in progress; contributions welcome
-- 🎩 **Fedora:** Support in progress; contributions welcome
 - 🐳 **Docker:** Used only for testing environments
 
 ## ✨ _Dotfiles_: what they are and why use them
@@ -43,11 +39,11 @@ The process consists of:
 
 - Downloading the _dotfiles_ to your machine (by default `~/.dotfiles`).
 - Creating [custom directories][directories].
-- Installing applications and CLI tools for [macOS][install macos], [Ubuntu][install ubuntu] or [Fedora][install fedora].
+- Installing applications and CLI tools for [Ubuntu][install ubuntu].
 - Creating [symbolic links][symlink] for configuration files.
 - Generating configuration files from [templates][templates-symlink].
 - Installing system fonts for IDEs and terminal.
-- Applying custom preferences for [macOS][preferences macos] / [Ubuntu][preferences ubuntu] / [Fedora][preferences fedora].
+- Applying custom preferences for [Ubuntu][preferences ubuntu].
 
 ### Option 1: One-liner (quick install)
 
@@ -232,12 +228,7 @@ Once inside the virtual machine, you can simulate the installation described in 
 
 ```sh
 make test ubuntu
-make test fedora
-# make test macos
 ```
-
-> [!NOTE]
-> **It's currently not possible to test macOS via Docker**, additional documentation is required. Some useful resources include a [blog post][sickcodes-post] and a [repository][sickcodes-repo] by sickcodes.
 
 ## 📝 TODO
 
@@ -249,9 +240,6 @@ make test fedora
     - Automatic configuration of GNOME extensions using [`gsettings`](https://wiki.gnome.org/dconf).
     - Document manual GNOME extension configuration.
     - Include installation of [`gnome-extensions-cli`](https://github.com/essembeh/gnome-extensions-cli).
-
-3. **Cross-platform compatibility**
-    - Add specific configurations, scripts and preferences for **macOS** and **Fedora**.
 
 ## 👏 Credits
 
@@ -267,12 +255,8 @@ Code is available under the [MIT license][license].
 [symlink]: scripts/create_symbolic_links.sh
 [templates-symlink]: scripts/create_templates_and_symlinks.sh
 [directories]: scripts/create_directories.sh
-[install macos]: scripts/installs/macos
 [install ubuntu]: scripts/installs/ubuntu
-[install fedora]: scripts/installs/fedora
-[preferences macos]: scripts/preferences/macos
 [preferences ubuntu]: scripts/preferences/ubuntu
-[preferences fedora]: scripts/preferences/fedora
 [aws-cli-link]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 [azure-cli-link]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 [forticlient-link]: https://www.fortinet.com/support/product-downloads
@@ -286,6 +270,4 @@ Code is available under the [MIT license][license].
 [quickemu link]: https://github.com/quickemu-project/quickemu
 [alrra-credit]: https://github.com/alrra/dotfiles
 [frankroeder-credit]: https://github.com/frankroeder/dotfiles
-[sickcodes-post]: https://sick.codes/how-to-install-macos-virtual-machine-on-linux-arch-manjaro-catalina-mojave-or-high-sierra-xcode-working/
-[sickcodes-repo]: https://github.com/sickcodes/Docker-OSX
 [license]: LICENSE

@@ -160,9 +160,9 @@ extract() {
 
 verify_os() {
 
-    declare -r MINIMUM_MACOS_VERSION="10.14"
+    # declare -r MINIMUM_MACOS_VERSION="10.14"
     declare -r MINIMUM_UBUNTU_VERSION="22.04"
-    declare -r MINIMUM_FEDORA_VERSION="41"
+    # declare -r MINIMUM_FEDORA_VERSION="41"
 
     local os_name="$(get_os)"
     local os_version="$(get_os_version)"
@@ -172,20 +172,20 @@ verify_os() {
     # Check if the OS is `macOS` and
     # it's above the required version.
 
-    if [ "$os_name" == "macos" ]; then
+    # if [ "$os_name" == "macos" ]; then
 
-        if is_supported_version "$os_version" "$MINIMUM_MACOS_VERSION"; then
-            return 0
-        else
-            printf "Sorry, this script is intended only for macOS %s+" "$MINIMUM_MACOS_VERSION"
-        fi
+    #     if is_supported_version "$os_version" "$MINIMUM_MACOS_VERSION"; then
+    #         return 0
+    #     else
+    #         printf "Sorry, this script is intended only for macOS %s+" "$MINIMUM_MACOS_VERSION"
+    #     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Check if the OS is `Ubuntu` and
     # it's above the required version.
 
-    elif [ "$os_name" == "ubuntu" ]; then
+    if [ "$os_name" == "ubuntu" ]; then
 
         if is_supported_version "$os_version" "$MINIMUM_UBUNTU_VERSION"; then
             return 0
@@ -198,18 +198,18 @@ verify_os() {
     # Check if the OS is `Fedora` and
     # it's above the required version.
 
-    elif [ "$os_name" == "fedora" ]; then
+    # elif [ "$os_name" == "fedora" ]; then
 
-        if is_supported_version "$os_version" "$MINIMUM_FEDORA_VERSION"; then
-            return 0
-        else
-            printf "Sorry, this script is intended only for Fedora %s+" "$MINIMUM_FEDORA_VERSION"
-        fi
+    #     if is_supported_version "$os_version" "$MINIMUM_FEDORA_VERSION"; then
+    #         return 0
+    #     else
+    #         printf "Sorry, this script is intended only for Fedora %s+" "$MINIMUM_FEDORA_VERSION"
+    #     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     else
-        printf "Sorry, this script is intended only for macOS and Ubuntu and Fedora!"
+        printf "Sorry, this script is intended only for Ubuntu"
     fi
 
     return 1
