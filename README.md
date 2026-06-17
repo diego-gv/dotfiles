@@ -1,273 +1,228 @@
 <!-- markdownlint-disable MD041 -->
 <div align="center">
-    <img src=".github/logo.png" alt="dotfiles" width="128"/>
+  <pre>
+ ____        _    __ _ _
+|  _ \  ___ | |_ / _(_) | ___  ___
+| | | |/ _ \| __| |_| | |/ _ \/ __|
+| |_| | (_) | |_|  _| | |  __/\__ \
+|____/ \___/ \__|_| |_|_|\___||___/
+        N E W   H O P E
+  </pre>
 </div>
-<div align="center">
-  <h1><i>dotfiles</i> ⚡ by <a href="https://github.com/diego-gv">diego-gv</a></h1>
-  <strong>Personal <i>dotfiles</i> for 🐧 Linux (🍊 Ubuntu)</strong>
-</div>
-<br>
-<p align="center">
-    <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/shell-bash-4EAA25?logo=gnu-bash&logoColor=white" alt="shell"/></a>
-    <a href="https://ubuntu.com/"><img src="https://img.shields.io/badge/Ubuntu-E95420.svg?style=flat&logo=ubuntu&logoColor=white" alt="ubuntu"/></a>
-    <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-2496ED.svg?style=flat&logo=docker&logoColor=white" alt="docker"/></a>
-    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-750014.svg?style=flat&logoColor=white" alt="license"/></a>
-</p>
-<p align="center"><a href="https://github.com/diego-gv/dotfiles/blob/main/README-es.md">🇪🇸 Prefer to read this in Spanish?</a></p>
 
-This repository contains all the **dotfiles** and scripts I use to set up a new machine or working environment.
+<div align="center">
+  <h1><i>dotfiles</i> ⚡</h1>
+  <strong>Configuración personal de entorno para 🐧 Linux / Ubuntu</strong>
+</div>
+
+<p align="center">
+  <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/shell-bash-4EAA25?logo=gnu-bash&logoColor=white" alt="shell"/></a>
+  <a href="https://ubuntu.com/"><img src="https://img.shields.io/badge/Ubuntu-E95420.svg?style=flat&logo=ubuntu&logoColor=white" alt="ubuntu"/></a>
+  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-2496ED.svg?style=flat&logo=docker&logoColor=white" alt="docker"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-750014.svg?style=flat&logoColor=white" alt="license"/></a>
+</p>
+
+Este repositorio contiene la base de configuración personal para un entorno de desarrollo reproducible en Linux/Ubuntu. Está pensado para instalar, enlazar y mantener la shell, los dotfiles y las herramientas más habituales de trabajo con una estructura modular, segura e idempotente.
 
 > [!IMPORTANT]
-> **Please read carefully before installing:**
->
-> - This repository is a work in progress and may contain bugs or incomplete configurations.
-> - **DO NOT** run the install script unless you fully understand [what it does][setup]. **Seriously, DO NOT.**
-> - **DO NOT** store sensitive or personal configuration (for example, Git credentials) in the repository.
+> Este proyecto está pensado para automatizar la configuración de tu entorno personal y no debe ejecutarse sin entender el flujo que se va a desplegar. La instalación sigue un modelo claro de bootstrap + scripts + symlinks + plantillas locales.
 
-## 🧩 Compatibility
+## 🧩 Compatibilidad
 
-- 🍊 **Ubuntu:** Supported and tested on `24.04 LTS` (requires `>=22.04`)
-- 🐳 **Docker:** Used only for testing environments
+- 🍊 Ubuntu: compatible con entornos Ubuntu/Linux de trabajo.
+- 🐚 zsh: configuración principal de shell.
+- 🐳 Docker: soporte para uso de contenedores dentro del flujo y validación.
+- 🧰 Bash: base del scripting y ejecución del instalador.
 
-## ✨ _Dotfiles_: what they are and why use them
+## 🚀 Instalación
 
-_Dotfiles_ are hidden files (usually their names begin with a dot `.`) that store configurations controlling how your programs and development environment behave (terminal, shell, editor, etc.). Keeping them organized lets you **customize your setup** and **carry your environment to any machine** quickly and consistently.
+### Clonar el repositorio
 
-## 🚀 Installation
-
-The process consists of:
-
-- Downloading the _dotfiles_ to your machine (by default `~/.dotfiles`).
-- Creating [custom directories][directories].
-- Installing applications and CLI tools for [Ubuntu][install ubuntu].
-- Creating [symbolic links][symlink] for configuration files.
-- Generating configuration files from [templates][templates-symlink].
-- Installing system fonts for IDEs and terminal.
-- Applying custom preferences for [Ubuntu][preferences ubuntu].
-
-### Option 1: One-liner (quick install)
-
-With **wget**:
-
-```sh
-bash <(wget -qO - https://raw.github.com/diego-gv/dotfiles/main/scripts/setup.sh)
-```
-
-With **cURL**:
-
-```sh
-bash <(curl -LsS https://raw.github.com/diego-gv/dotfiles/main/scripts/setup.sh)
-```
-
-### Option 2: Clone and install manually
-
-```sh
+```bash
 git clone https://github.com/diego-gv/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-make install
 ```
 
-That's it! ✨
+### Ejecutar la instalación
 
-> [!NOTE]
-> To update the system, an alias `up` is provided that runs a unified update script (`apt`, `snap`, etc.).
+Desde la raíz del repositorio:
 
-## 📦 Recommended applications and tools
-
-### GUI apps via Snap
-
-Some applications such as **Spotify** or **Obsidian** can be installed easily using [Snap][snap]. For example:
-
-```sh
-snap install spotify
-snap install obsidian --classic
+```bash
+bash ./bootstrap.sh
 ```
 
-### Web app recommendations
+### Qué hace la instalación
 
-Some desktop apps may have compatibility or stability issues on Linux. For that reason, it is recommended to use their official web versions in the browser for a better experience and support.
+El flujo principal de `bootstrap.sh` realiza una secuencia ordenada:
 
-- [Microsoft Teams Web][teams-web]
-- [Slack Web][slack-web]
-- [Outlook Web][outlook-web]
-- [Zoom Web][zoom-web]
+- detecta la plataforma y distro;
+- prepara la estructura general del entorno;
+- instala paquetes base y herramientas clave;
+- configura shell y prompt;
+- aplica enlaces de dotfiles desde `src/`;
+- genera o prepara archivos locales a partir de templates.
 
-### CLI tools
+## ✨ Características instaladas y configuradas
 
-Some command-line tools like **AWS CLI**, **Azure CLI** or **FortiClient** are installed manually following their official documentation:
+### Shell y terminal
 
-- [AWS CLI][aws-cli-link]
-- [Azure CLI][azure-cli-link]
-- [FortiClient][forticlient-link]
+- `zsh` como shell principal.
+- archivos de configuración bajo `src/zsh/`.
+- `starship` como prompt moderno.
+- `lsd` para una mejor visualización de archivos.
+- `fzf`, `bat`, `btop` y `fastfetch` para productividad y observabilidad.
 
-> [!NOTE]
-> Installation of these applications and tools is not automated in this repository because their usage depends on your workflow and stack.
+### Herramientas de desarrollo
 
-## 🛠️ Local configuration
+- Docker y CLI asociada.
+- VS Code.
+- Postman.
+- Google Chrome y Brave.
+- Flameshot.
 
-### Using templates
+### Sistema de configuración
 
-During installation, and to protect sensitive information, some _dotfiles_ are generated from `.template` files — neutral versions that are safe to place in the repository.
+- estructura modular por capas: `core/`, `scripts/`, `src/`, `templates/`.
+- idempotencia en la ejecución de scripts.
+- detección de plataforma centralizada en `core/platform.sh`.
+- gestión de symlinks y enlaces de configuración.
+- skills de agente compartidas en `src/agents/skills/`, expuestas como `~/.claude/skills` y `~/.agents/skills`.
 
-Currently available templates are:
+### Git y entorno local
 
-- `src/ssh/config.template`: SSH configuration (→ `~/.ssh/config`)
-- `src/secrets/common.template`: secrets and environment variables (→ `~/.secrets/common`)
+- configuración de Git desde `src/git/gitconfig`.
+- organización de usuarios y perfiles locales a partir de plantillas.
+- preparación segura de rutas y archivos recomendados por el sistema.
 
-These files are copied to their final locations (in `HOME`) and then symlinks are created in the repository so they can be easily accessed and edited.
+## 🧩 Ficheros de configuración local mediante templates
+
+El proyecto usa `templates/` como base para crear archivos locales sin comprometer secretos reales.
+
+Los templates principales son:
+
+- `templates/common.template`
+- `templates/config.template`
+- `templates/git-users.template`
+
+Durante la ejecución del flujo, se preparan archivos del usuario como:
+
+- `~/.secrets/common`
+- `~/.ssh/config`
+- `~/.config/git/users`
 
 > [!WARNING]
-> Generated files and their symlinks **must NOT** be added to the repository. All sensitive configuration should remain **local**.
+> Nunca se debe versionar información sensible. Los templates deben permanecer neutros y seguros, con placeholders claros y sin tokens, claves ni secretos reales.
 
-### Useful aliases and functions
+## 🔧 Alias y comandos útiles
 
-- `up`: runs unified update script.
-- `clear-cache` / `clear-ram`: improve performance when caches or RAM are overloaded.
-- `azlogin <name>`: simplified Azure login.
-- `git list-gone` / `git prune-gone`: manage local branches without a remote.
-- `docker ps`: styled output.
+La configuración añade algunos aliases y comandos de utilidad para facilitar la gestión del entorno.
 
-### Git users management (`~/.gitusers`)
-
-The file `~/.gitusers` contains available Git profiles on the system. Each entry is stored in the following format:
+Algunos de los disponibles en la configuración de zsh son:
 
 ```bash
-name:email@example.com
+ll='ls -laht'
+ls='lsd --color=always --long --group-dirs first'
+la='ls -a'
+lt='ls -t --reverse'
+cat='batcat'
+top='btop'
+system='fastfetch'
+grepi='grep -i'
+up="${HOME}/.dotfiles/scripts/update.sh"
+clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
+clear-ram="sudo sysctl -w vm.drop_caches=3"
 ```
 
-> [!NOTE]
-> This file is managed by the `git user` command.
+Estos aliases ayudan a simplificar tareas habituales de listado, inspección, actualización del sistema y limpieza de caché.
 
-### Adding secrets or environment variables
+## 🧪 Pruebas y validación
 
-- To define **secrets** or **sensitive variables**, edit `~/.secrets/common`.
-- To add **non-sensitive generic variables** (for example `EDITOR="nvim"` or local paths) add them in `~/.zshenv` or `~/.zshrc`.
-
-### SSH configuration for multiple identities
-
-If you use different Git accounts or servers (for example personal and work) from the same machine, you will need multiple SSH keys so Git uses the correct identity for each repository.
-
-#### Step 1: Generate the keys
-
-```sh
-ssh-keygen -t ed25519 -f ~/.ssh/github_personal -C "diego-personal@gmail.com"
-ssh-keygen -t ed25519 -f ~/.ssh/github_work -C "diego-work@company.com"
-```
-
-#### Step 2: Update `~/.ssh/config`
-
-```ssh
-Host github.com
-  User git
-  # IdentityFile ~/.ssh/github_personal
-  # IdentityFile ~/.ssh/github_work
-  IdentitiesOnly yes
-```
-
-#### Step 3: Manually select the correct key
-
-If the key is not configured correctly and the repository is private or has protected branches, you will see an error like:
+El repositorio define dos comandos públicos en `Makefile` para validar y probar el instalador en un entorno aislado:
 
 ```bash
-ERROR: Permission to diego-gv/dotfiles.git denied to diego-work.
-fatal: Could not read from remote repository.
+make test
 ```
 
-> [!IMPORTANT]
-> To use the correct key at any given time, edit `~/.ssh/config` and enable (uncomment) the desired `IdentityFile`.
+`make test`:
 
-## ✨ Additional features
+- construye (si hace falta) una imagen Docker local de pruebas;
+- ejecuta `shellcheck` sobre `bootstrap.sh`, `scripts/*.sh` y `core/*.sh`;
+- ejecuta `bash ./bootstrap.sh` dentro del contenedor.
 
-### Custom Git helpers
+Todo ocurre dentro de la imagen/contenedor, sin montar el directorio del host, por lo que no se aplican cambios fuera de Docker.
 
-Some Git commands have been extended to help manage **multiple user identities**, which is useful when combining personal and work accounts on the same machine.
-
-These helpers let you select, switch and view the active user quickly within a repository to avoid misconfiguration.
-
-#### `git clone`
-
-Clones a repository and allows selecting or creating a user profile from `~/.gitusers`:
-
-```sh
-git clone git@github.com:user/repo.git
-```
-
-At the end of the process, the cloned repository will have `user.name` and `user.email` configured automatically.
-
-#### `git user`
-
-Inside a Git repository, lets you change the configured user:
-
-```sh
-git user
-```
-
-You can also list available profiles and show which one is currently active:
-
-```sh
-git user --list
-```
-
-Example output:
+Para abrir una terminal interactiva en ese mismo entorno y lanzar comandos manuales (por ejemplo, volver a ejecutar bootstrap o probar scripts puntuales):
 
 ```bash
-📋 Available Git user profiles:
-  1 - Diego <diego-personal@gmail.com>
-  2 - Diego (Work) <diego-work@company.com> (current)
+make run
 ```
 
-## 🧪 Testing
+`make run` levanta un contenedor efímero con una shell Bash interactiva y totalmente aislada del sistema anfitrión.
 
-### Virtual environments
+### Notas sobre la imagen Docker
 
-To test in virtualized GUI environments, you can use tools like [VirtualBox][virtualbox link] or [Qemu][qemu link]. For Qemu, a lightweight wrapper that's very useful is [Quickemu][quickemu link].
+El `Makefile` incluye targets internos para la construcción de la imagen y su reutilización. De esta manera no es necesario reconstruirla en cada ejecución:
 
-Once inside the virtual machine, you can simulate the installation described in the [Installation](#-installation) section.
-
-### Docker
-
-```sh
-make test ubuntu
+```bash
+make _docker-build-force
 ```
 
-## 📝 TODO
+Ese target es interno (no forma parte de la interfaz pública), pero puede usarse cuando quieras forzar un rebuild manual.
 
-1. **Additional features**
-    - Multi-host support in `~/.gitusers`.
-    - Improve wrapper system in `~/.wrappers`.
+## 🏗️ Estructura del repositorio
 
-2. **GNOME extensions**
-    - Automatic configuration of GNOME extensions using [`gsettings`](https://wiki.gnome.org/dconf).
-    - Document manual GNOME extension configuration.
-    - Include installation of [`gnome-extensions-cli`](https://github.com/essembeh/gnome-extensions-cli).
+```text
+.
+├── AGENTS.md
+├── LICENSE
+├── Makefile
+├── README.md
+├── bootstrap.sh
+├── core/
+│   ├── config.sh
+│   ├── output.sh
+│   ├── plan.sh
+│   ├── platform.sh
+│   ├── runner.sh
+│   └── symlink.sh
+├── scripts/
+│   ├── install-brave-origin.sh
+│   ├── install-chrome.sh
+│   ├── install-docker.sh
+│   ├── install-flameshot.sh
+│   ├── install-lsd.sh
+│   ├── install-packages.sh
+│   ├── install-postman.sh
+│   ├── install-starship.sh
+│   ├── install-vscode.sh
+│   ├── install-zsh.sh
+│   ├── create-directories.sh
+│   ├── link-dotfiles.sh
+│   └── init-templates.sh
+├── src/
+│   ├── agents/
+│   ├── bat/
+│   ├── btop/
+│   ├── fzf/
+│   ├── git/
+│   ├── starship/
+│   └── zsh/
+├── templates/
+│   ├── common.template
+│   ├── config.template
+│   └── git-users.template
+└── .gitignore
+```
 
-## 👏 Credits
+## 📘 Documentación y mantenimiento
 
-This repository is inspired by the _dotfiles_ of [Cătălin][alrra-credit] and [frankroeder][frankroeder-credit].
+Este repositorio considera dos niveles de documentación:
 
-## ⚖️ License
+- [AGENTS.md](AGENTS.md): documentación técnica para comprender el repositorio, la arquitectura, las convenciones, los protocolos y cómo deben trabajar usuarios o agentes con el proyecto.
+- [README.md](README.md): documentación orientada a usuarios y desarrolladores, centrada en cuán instalar, qué configura, qué herramientas añade y cómo validarlo.
 
-Code is available under the [MIT license][license].
+Ambos archivos deben mantenerse actualizados conforme evoluciona el repositorio y se incorporan nuevas funcionalidades o cambios en el procedimiento de instalación.
 
-<!-- Link tags: -->
+## ⚖️ Licencia
 
-[setup]: scripts/setup.sh
-[symlink]: scripts/create_symbolic_links.sh
-[templates-symlink]: scripts/create_templates_and_symlinks.sh
-[directories]: scripts/create_directories.sh
-[install ubuntu]: scripts/installs/ubuntu
-[preferences ubuntu]: scripts/preferences/ubuntu
-[aws-cli-link]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-[azure-cli-link]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
-[forticlient-link]: https://www.fortinet.com/support/product-downloads
-[snap]: https://snapcraft.io/
-[teams-web]: https://teams.microsoft.com/
-[slack-web]: https://slack.com/signin
-[outlook-web]: https://outlook.office.com/
-[zoom-web]: https://zoom.us/signin
-[virtualbox link]: https://www.virtualbox.org/
-[qemu link]: https://www.qemu.org/
-[quickemu link]: https://github.com/quickemu-project/quickemu
-[alrra-credit]: https://github.com/alrra/dotfiles
-[frankroeder-credit]: https://github.com/frankroeder/dotfiles
-[license]: LICENSE
+El código de este repositorio se distribuye bajo la licencia MIT. Consulta [LICENSE](LICENSE).

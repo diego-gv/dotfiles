@@ -8,6 +8,10 @@
 export DISABLE_MAGIC_FUNCTIONS=true
 # Set XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="${HOME}/.config"
+
+# Oh My Zsh paths (XDG-based)
+export ZSH="${XDG_CONFIG_HOME}/oh-my-zsh"
+export ZSH_CUSTOM="${ZSH}/custom"
 # Set the GPG_TTY to the current TTY
 # export GPG_TTY=${TTY}
 # Use case-sensitive completion
@@ -27,3 +31,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 # Starship configuration
 #############################
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
+
+# NVM base directory
+export NVM_DIR="$HOME/.nvm"

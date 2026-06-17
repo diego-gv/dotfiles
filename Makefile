@@ -1,29 +1,18 @@
-DEFAULT_GOAL := help
-MAKEFLAGS += --no-print-directory
+IMAGE_NAME ?= dotfiles-new-hope
+IMAGE_TAG ?= ubuntu-24.04
+DOCKER_IMAGE := $(IMAGE_NAME):$(IMAGE_TAG)
+DOCKERFILE := .docker/ubuntu.Dockerfile
 
-.PHONY: help
-help: ## Display this help message
-	@awk 'BEGIN {FS = ":.*##"; printf "${BNC}Usage${NC}: make ${CYAN}<target>${NC}\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  ${CYAN}%-20s${NC} %s\n", $$1, $$2 } /^##@/ { printf "\n${BYELLOW}%s${NC}\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+.PHONY: test run _docker-build _docker-build-force
 
-##@ Commands
-.PHONY: install
-install: ## Run install and configure system
-	@./scripts/setup.sh -y
+test: _docker-build
+	docker run --rm --pull=never -e TERM=xterm-256color $(DOCKER_IMAGE) bash -lc "set -euo pipefail; shellcheck bootstrap.sh scripts/*.sh core/*.sh; bash ./bootstrap.sh"
 
-##@ Testing
-.PHONY: test
-test: --build ## Test dotfiles with docker
-	@docker run -e SKIP_QUESTIONS=true -it --rm -v ${PWD}:/home/garvi/.dotfiles --name test dotfiles/test /bin/bash -c "make install ; zsh"
-	@rm -rf ./src/ssh/config ./src/secrets/common
+run: _docker-build
+	docker run --rm -it --pull=never $(DOCKER_IMAGE)
 
---build:
-	@RUN_ARGS_EFFECTIVE=$$(echo "$(RUN_ARGS)" | tr -d ' '); \
-    if [ -z "$$RUN_ARGS_EFFECTIVE" ]; then RUN_ARGS_LOWER=ubuntu; \
-    else RUN_ARGS_LOWER=$$(echo "$(RUN_ARGS)" | tr '[:upper:]' '[:lower:]' | tr ' ' '-'); fi; \
-	case "$$RUN_ARGS_LOWER" in \
-		ubuntu) ;; \
-		*) echo "Invalid value: '$(RUN_ARGS)'. Only the following values are allowed: ubuntu" && exit 1 ;; \
-	esac; \
-	docker $(DOCKER_BUILD_CMD) -t dotfiles/test ${PWD} -f .docker/$$RUN_ARGS_LOWER.Dockerfile > ${DEVNUL}
+_docker-build:
+	@docker image inspect $(DOCKER_IMAGE) >/dev/null 2>&1 || $(MAKE) _docker-build-force
 
-include utils.mk
+_docker-build-force:
+	docker build -t $(DOCKER_IMAGE) -f $(DOCKERFILE) .

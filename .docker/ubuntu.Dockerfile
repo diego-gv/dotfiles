@@ -2,8 +2,18 @@ ARG UBUNTU_VERSION=24.04
 
 FROM ubuntu:${UBUNTU_VERSION}
 
-RUN apt-get -y update
-RUN apt-get install -y make cmake sudo software-properties-common apt-transport-https wget
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
+    cmake \
+    make \
+    shellcheck \
+    software-properties-common \
+    sudo \
+    wget && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash garvi && \
     echo "garvi ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/garvi && \

@@ -29,8 +29,11 @@ alias ll='ls -laht'
 # Bat
 alias cat='batcat'
 
-# Bashtop
-alias top='bashtop'
+# Btop
+alias top='btop'
+
+# Fastfetch
+alias system='fastfetch'
 
 # Grep
 alias grepi="grep -i"
