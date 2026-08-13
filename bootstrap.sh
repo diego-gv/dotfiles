@@ -20,6 +20,8 @@ plan_reset
 
 plan_start_stage "🛠️  Bootstrap / System"
 plan_add_step "Provisionar" "Paquetes base del sistema" "$ROOT_DIR/scripts/install-packages.sh"
+plan_add_step "Preparar" "Directorios de configuracion" "$ROOT_DIR/scripts/create-directories.sh"
+plan_add_step "Instalar" "Fuentes y tipografías" "$ROOT_DIR/scripts/install-fonts.sh"
 
 plan_start_stage "🐚 Terminal tools"
 plan_add_step "Configurar" "Shell zsh" "$ROOT_DIR/scripts/install-zsh.sh"
@@ -39,7 +41,6 @@ plan_start_stage "🧩 Desktop"
 plan_add_step "Instalar" "Flameshot" "$ROOT_DIR/scripts/install-flameshot.sh"
 
 plan_start_stage "✨ Final Touches"
-plan_add_step "Preparar" "Directorios de configuracion" "$ROOT_DIR/scripts/create-directories.sh"
 plan_add_step "Enlazar" "Dotfiles y configuracion de agentes" "$ROOT_DIR/scripts/link-dotfiles.sh"
 plan_add_step "Inicializar" "Plantillas locales" "$ROOT_DIR/scripts/init-templates.sh"
 

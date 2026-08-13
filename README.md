@@ -1,20 +1,12 @@
 <!-- markdownlint-disable MD041 -->
 <div align="center">
-  <pre>
- ____        _    __ _ _
-|  _ \  ___ | |_ / _(_) | ___  ___
-| | | |/ _ \| __| |_| | |/ _ \/ __|
-| |_| | (_) | |_|  _| | |  __/\__ \
-|____/ \___/ \__|_| |_|_|\___||___/
-        N E W   H O P E
-  </pre>
+    <img src=".github/images/logo.png" alt="dotfiles" width="128"/>
 </div>
-
 <div align="center">
-  <h1><i>dotfiles</i> ⚡</h1>
-  <strong>Configuración personal de entorno para 🐧 Linux / Ubuntu</strong>
+  <h1><i>dotfiles</i> ⚡ by <a href="https://github.com/diego-gv">diego-gv</a></h1>
+  <strong>Configuración personalizada para 🐧 Linux (Ubuntu)</strong>
 </div>
-
+<br>
 <p align="center">
   <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/shell-bash-4EAA25?logo=gnu-bash&logoColor=white" alt="shell"/></a>
   <a href="https://ubuntu.com/"><img src="https://img.shields.io/badge/Ubuntu-E95420.svg?style=flat&logo=ubuntu&logoColor=white" alt="ubuntu"/></a>
@@ -128,12 +120,14 @@ cat='batcat'
 top='btop'
 system='fastfetch'
 grepi='grep -i'
-up="${HOME}/.dotfiles/scripts/update.sh"
+up="bash ${HOME}/.dotfiles/update.sh"
 clear-cache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
 clear-ram="sudo sysctl -w vm.drop_caches=3"
 ```
 
 Estos aliases ayudan a simplificar tareas habituales de listado, inspección, actualización del sistema y limpieza de caché.
+
+`up` intenta primero hacer un `git pull --ff-only` del repositorio, luego actualiza el sistema, refresca herramientas clave cuando procede y, al final, relanza `bootstrap.sh` para consolidar los cambios.
 
 ## 🧪 Pruebas y validación
 

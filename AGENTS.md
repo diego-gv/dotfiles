@@ -225,6 +225,7 @@ Los templates deben contener placeholders bien identificados en lugar de valores
 3. Mantener el cambio pequeño y enfocado en el problema.
 4. Evitar refactors colaterales no necesarios.
 5. Verificar que el resultado sigue siendo idempotente y seguro.
+6. Si se completa una tarea relevante del backlog o se cambia el estado del proyecto, actualizar `TODO.md` con la información nueva y eliminar o reordenar los puntos que ya estén resueltos.
 
 ## Criterio de validación
 
