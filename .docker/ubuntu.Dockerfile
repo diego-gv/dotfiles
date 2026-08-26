@@ -18,10 +18,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN useradd -ms /bin/bash garvi && \
     echo "garvi ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/garvi && \
     chmod 0440 /etc/sudoers.d/garvi && \
-    mkdir -p /home/garvi/.dotfiles && \
     chown -R garvi:garvi /home/garvi
 
 USER garvi:garvi
-WORKDIR /home/garvi/.dotfiles
+WORKDIR /home/garvi
 
 CMD ["/bin/bash"]

@@ -11,17 +11,15 @@ La referencia antigua está en [.old/README.md](.old/README.md) y [.old/README-e
 
 Ordenado por prioridad práctica y por valor para bootstrap:
 
-1. Crear un script `install.sh` para descargar el repositorio con `curl`/`wget`, ejecutar `bootstrap.sh` e inicializar el repositorio apuntando al `origin`, sin depender de `git` para la instalación inicial.
-2. Adoptar `aptitude` como gestor principal de paquetes en la base del sistema y añadir los alias necesarios para que `apt` use `aptitude` en la shell, dejando `apt-get` como fallback o vía alternativa.
-3. Instalar Oh My Zsh si no está ya presente y preparar extensiones/plugins iniciales para la terminal.
-4. Portar la gestión inicial de repositorios Git desde [.old/scripts/initialize_git_repository.sh](.old/scripts/initialize_git_repository.sh).
-5. Portar la creación y selección de claves SSH desde [.old/scripts/set_github_ssh_key.sh](.old/scripts/set_github_ssh_key.sh).
-6. Portar la configuración de terminal GNOME desde [.old/scripts/preferences/ubuntu/terminal.sh](.old/scripts/preferences/ubuntu/terminal.sh).
-7. Portar la configuración visual de GNOME desde [.old/scripts/preferences/ubuntu/interface.sh](.old/scripts/preferences/ubuntu/interface.sh).
-8. Portar la activación y ajuste de extensiones GNOME desde [.old/scripts/preferences/ubuntu/extensions.sh](.old/scripts/preferences/ubuntu/extensions.sh).
-9. Portar la instalación de GNOME Extensions CLI desde [.old/scripts/installs/ubuntu/extensions.sh](.old/scripts/installs/ubuntu/extensions.sh).
-10. Portar el ajuste de Wayland desde [.old/scripts/preferences/ubuntu/wayland.sh](.old/scripts/preferences/ubuntu/wayland.sh).
-11. Separar la instalación Ubuntu antigua en piezas equivalentes: [.old/scripts/installs/ubuntu/build-essentials.sh](.old/scripts/installs/ubuntu/build-essentials.sh), [.old/scripts/installs/ubuntu/devtools.sh](.old/scripts/installs/ubuntu/devtools.sh), [.old/scripts/installs/ubuntu/python.sh](.old/scripts/installs/ubuntu/python.sh), [.old/scripts/installs/ubuntu/node.sh](.old/scripts/installs/ubuntu/node.sh), [.old/scripts/installs/ubuntu/misc.sh](.old/scripts/installs/ubuntu/misc.sh), [.old/scripts/installs/ubuntu/cleanup.sh](.old/scripts/installs/ubuntu/cleanup.sh) y [.old/scripts/installs/ubuntu/utils.sh](.old/scripts/installs/ubuntu/utils.sh).
+1. Instalar Oh My Zsh si no está ya presente y preparar extensiones/plugins iniciales para la terminal.
+2. Portar la gestión inicial de repositorios Git desde [.old/scripts/initialize_git_repository.sh](.old/scripts/initialize_git_repository.sh).
+3. Portar la creación y selección de claves SSH desde [.old/scripts/set_github_ssh_key.sh](.old/scripts/set_github_ssh_key.sh).
+4. Portar la configuración de terminal GNOME desde [.old/scripts/preferences/ubuntu/terminal.sh](.old/scripts/preferences/ubuntu/terminal.sh).
+5. Portar la configuración visual de GNOME desde [.old/scripts/preferences/ubuntu/interface.sh](.old/scripts/preferences/ubuntu/interface.sh).
+6. Portar la activación y ajuste de extensiones GNOME desde [.old/scripts/preferences/ubuntu/extensions.sh](.old/scripts/preferences/ubuntu/extensions.sh).
+7. Portar la instalación de GNOME Extensions CLI desde [.old/scripts/installs/ubuntu/extensions.sh](.old/scripts/installs/ubuntu/extensions.sh).
+8. Portar el ajuste de Wayland desde [.old/scripts/preferences/ubuntu/wayland.sh](.old/scripts/preferences/ubuntu/wayland.sh).
+9. Separar la instalación Ubuntu antigua en piezas equivalentes: [.old/scripts/installs/ubuntu/build-essentials.sh](.old/scripts/installs/ubuntu/build-essentials.sh), [.old/scripts/installs/ubuntu/devtools.sh](.old/scripts/installs/ubuntu/devtools.sh), [.old/scripts/installs/ubuntu/python.sh](.old/scripts/installs/ubuntu/python.sh), [.old/scripts/installs/ubuntu/node.sh](.old/scripts/installs/ubuntu/node.sh), [.old/scripts/installs/ubuntu/misc.sh](.old/scripts/installs/ubuntu/misc.sh), [.old/scripts/installs/ubuntu/cleanup.sh](.old/scripts/installs/ubuntu/cleanup.sh) y [.old/scripts/installs/ubuntu/utils.sh](.old/scripts/installs/ubuntu/utils.sh).
 
 ## Falta portar
 

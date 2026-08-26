@@ -63,6 +63,26 @@ format_duration() {
     fi
 }
 
+print_step_status() {
+    local tag="$1"
+    local label="$2"
+    local icon="$3"
+    local detail="${4:-}"
+    local color="$DOTFILES_COLOR_SUCCESS"
+
+    if [[ "$icon" == "✗" ]]; then
+        color="$DOTFILES_COLOR_ERROR"
+    elif [[ "$icon" == "!" ]]; then
+        color="$DOTFILES_COLOR_WARNING"
+    fi
+
+    printf "%b[%s]%b %b%s%b %b%s%b\n" "$DOTFILES_COLOR_STEP" "$tag" "$DOTFILES_COLOR_RESET" "$DOTFILES_COLOR_TITLE" "$label" "$DOTFILES_COLOR_RESET" "$color" "$icon" "$DOTFILES_COLOR_RESET"
+
+    if [[ -n "$detail" ]]; then
+        printf "%b    %s%b\n" "$DOTFILES_COLOR_PREVIEW" "$detail" "$DOTFILES_COLOR_RESET"
+    fi
+}
+
 with_pending() {
     printf "%s %s" "$1" "$DOTFILES_SYM_PENDING"
 }

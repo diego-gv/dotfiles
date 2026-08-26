@@ -28,18 +28,25 @@ Este repositorio contiene la base de configuración personal para un entorno de 
 
 ## 🚀 Instalación
 
-### Clonar el repositorio
+### Opción 1: instalación rápida (one-liner)
+
+Con **wget**:
+
+```bash
+bash <(wget -qO - https://raw.github.com/diego-gv/dotfiles/main/bootstrap.sh)
+```
+
+Con **curl**:
+
+```bash
+bash <(curl -fsSL https://raw.github.com/diego-gv/dotfiles/main/bootstrap.sh)
+```
+
+### Opción 2: clonar y ejecutar manualmente
 
 ```bash
 git clone https://github.com/diego-gv/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-```
-
-### Ejecutar la instalación
-
-Desde la raíz del repositorio:
-
-```bash
 bash ./bootstrap.sh
 ```
 
@@ -47,12 +54,14 @@ bash ./bootstrap.sh
 
 El flujo principal de `bootstrap.sh` realiza una secuencia ordenada:
 
+- descarga una copia temporal y la instala en `~/.dotfiles` (opción 1);
 - detecta la plataforma y distro;
 - prepara la estructura general del entorno;
 - instala paquetes base y herramientas clave;
 - configura shell y prompt;
 - aplica enlaces de dotfiles desde `src/`;
-- genera o prepara archivos locales a partir de templates.
+- genera o prepara archivos locales a partir de templates;
+- inicializa `git` y configura `origin` de ser necesario.
 
 ## ✨ Características instaladas y configuradas
 
