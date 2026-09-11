@@ -1,0 +1,12 @@
+# =============================================================================
+# Ubuntu 26.04 validation image
+#
+# Purpose: provide the stable base image and validation entrypoint.
+# Dependencies: the official ubuntu:26.04 image and entrypoint.sh.
+# Side effects: none at build time; the checkout is mounted at runtime.
+# =============================================================================
+FROM ubuntu:26.04
+
+COPY entrypoint.sh /usr/local/bin/dotfiles-validation
+
+ENTRYPOINT ["bash", "/usr/local/bin/dotfiles-validation"]

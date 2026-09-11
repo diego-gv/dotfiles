@@ -18,18 +18,26 @@ Este documento es el índice funcional del repositorio. La política de
 mantener coherentes los documentos, la implementación y las decisiones futuras.
 La lista curada de componentes está en
 [CURATED-SYSTEM-BASELINE.md](CURATED-SYSTEM-BASELINE.md), y las convenciones de
-automatización en [SCRIPT-CONVENTIONS.md](SCRIPT-CONVENTIONS.md).
+automatización en [SCRIPT-CONVENTIONS.md](SCRIPT-CONVENTIONS.md). La guía de
+uso y validación del estado implementado está en el [README](../README.md).
 
 ## Instalación
 
-El punto de entrada público es `install.sh`, en la raíz del repositorio.
+**Actual:** `install.sh` es el único punto de entrada público. Su primer
+contrato implementado es `--non-interactive --profile base --yes`: actualiza
+los índices de APT e instala `curl` y `wget` cuando falten. El perfil no crea
+ficheros de usuario ni configura esas herramientas.
+
+**Planificado:** menú interactivo, perfiles adicionales, `--all`,
+desinstalación, actualización del clon y el resto del contrato de línea de
+comandos.
 
 El modo mediante clon es la vía auditable de instalación:
 
 ```bash
 git clone https://github.com/diego-gv/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-bash install.sh
+bash install.sh --non-interactive --profile base --yes
 ```
 
 También se proporcionará un *one-liner* para sistemas nuevos, antes de disponer de Git. Descargará un bootstrap de release versionado y verificado mediante SHA-256, que clonará el repositorio oficial en `~/.dotfiles`. El clon conservará `origin` y seguirá la rama `main`, protegida contra reescritura. La verificación del bootstrap protege la descarga inicial; las actualizaciones posteriores confían en el repositorio oficial y en la protección de su rama.
@@ -42,7 +50,7 @@ El menú no preselecciona ningún perfil: el usuario elige uno o varios perfiles
 
 | Perfil | Componentes que pueden incluirse | Dependencia propuesta |
 | --- | --- | --- |
-| `base` | Git, curl, certificados, directorios de trabajo, Timeshift, shell y dotfiles comunes | Ninguna |
+| `base` | **Actual:** curl y wget. **Planificado:** Git, certificados, directorios de trabajo, Timeshift, shell y dotfiles comunes | Ninguna |
 | `developer` | Mise, herramientas de terminal, configuración Git de desarrollo, VS Code y Postman | `base` |
 | `desktop` | Fuentes, tema, dock, navegadores, Spotify y configuraciones de escritorio | `base` |
 | `agents` | Configuración no sensible, instrucciones y skills de Claude, Codex y Copilot | `base` |
@@ -146,7 +154,19 @@ Las validaciones se ejecutarán mediante objetivos de `make`.
 - Docker validará scripts, instalación de paquetes y configuraciones no gráficas de forma no interactiva y repetible.
 - Incus validará aplicaciones de escritorio, configuraciones de interfaz y otros comportamientos que requieran un entorno de sistema más completo.
 
-El primer hito de validación será un script pequeño que instale paquetes básicos —por ejemplo, Git y curl— en Docker. Las validaciones de escritorio se añadirán de forma independiente en Incus.
+**Actual:** `.docker/Dockerfile.ubuntu` define la imagen estable de validación
+y `.docker/entrypoint.sh` la comprobación. `make validate` ejecuta `docker
+build` con `.docker/` como único contexto, por lo que Docker reutiliza sus capas
+si esos archivos no cambian. Después monta el checkout actual en solo lectura
+como `/root/.dotfiles` dentro de un contenedor efímero. El *entrypoint* invoca
+exclusivamente `install.sh` dos veces con el perfil `base` y comprueba que
+`curl` y `wget` están disponibles. `make lint` ejecuta ShellCheck y `bash -n`
+sobre los scripts implicados. `make shell` abre una terminal manual en esa
+misma imagen, con el checkout montado en solo lectura como `/root/.dotfiles`.
+
+**Planificado:** se ampliará esta primera validación a curl y el resto de
+componentes no gráficos. Las validaciones de escritorio se añadirán de forma
+independiente en Incus.
 
 ## Organización del repositorio
 
@@ -174,6 +194,9 @@ scripts/
     oh-my-zsh.sh
   validation/
     *.sh
+.docker/
+  Dockerfile.ubuntu
+  entrypoint.sh
 config/
   zsh/
     zshrc

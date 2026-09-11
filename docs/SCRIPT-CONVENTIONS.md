@@ -19,13 +19,16 @@ La última regla evita copiar lógica crítica y, a la vez, abstracciones especu
 
 ```text
 install.sh                         # interfaz pública y orquestación
+.docker/
+  Dockerfile.ubuntu                # imagen Ubuntu estable para validación
+  entrypoint.sh                    # comprobación ejecutada en el contenedor
 core/
   common.sh                        # contratos, errores, rutas y utilidades puras
   system.sh                        # plataforma, comandos y privilegios
   managed-state.sh                 # respaldo y registro de recursos gestionados
 scripts/
   components/
-    git.sh                         # ciclo de vida de un componente
+    base.sh                        # preparación mínima del sistema
     docker.sh
     timeshift.sh
   validation/
@@ -60,6 +63,12 @@ main() {
 main "$@"
 ```
 
+Antes del *shebang*, o inmediatamente después de él si el intérprete lo exige,
+todo script incorpora un encabezado legible que indique su propósito,
+dependencias, efectos secundarios (modificaciones, actualizaciones o ficheros
+que genere) e interfaz o modo de invocación. Los comentarios explican las
+decisiones y efectos operativos; no repiten sintaxis evidente.
+
 La ruta del repositorio se calcula desde `BASH_SOURCE`, nunca desde el directorio de trabajo. Los scripts no usan `source` para ejecutar otros componentes ni cambian el directorio de trabajo global sin restaurarlo. Toda variable global del core se prefija con `CORE_`; las del componente, con su nombre cuando sea necesario. Los argumentos se tratan como datos: se pasan entre comillas y nunca se construyen para `eval`.
 
 `set -Eeuo pipefail` es el valor por defecto de los ejecutables, no de los ficheros importables de `core/`: un fichero importado no cambia las opciones de shell ni instala traps del llamador. Las condiciones que puedan fallar como parte del flujo normal se escriben con `if` o `case`; no se silencian con `|| true` salvo que se documente por qué el fallo es inocuo.
@@ -85,7 +94,7 @@ Un script de `scripts/components/` implementa `install`, `configure`, `verify` y
 | --- | --- | --- | --- |
 | Orquestador | `install.sh` | CLI pública, perfiles, dependencias, plan, confirmación y fallo con componente | Instalar o configurar detalles de componentes |
 | Componente gestionado | `scripts/components/<nombre>.sh` | Acciones y verificaciones específicas; declarar recursos que cambia | Elegir perfiles, interpretar la CLI pública o ejecutar otros componentes |
-| Validación | `scripts/validation/<nombre>.sh` | Preparar comprobación aislada y verificar resultados | Registrar estado, pedir `sudo` o modificar la máquina objetivo, salvo entorno efímero documentado |
+| Validación | `.docker/` y `scripts/validation/<nombre>.sh` cuando aplique | Preparar comprobación aislada y verificar resultados mediante `install.sh` | Registrar estado, pedir `sudo` o modificar la máquina objetivo, salvo entorno efímero documentado |
 | Bootstrap | `bootstrap/install.sh` | Descargar release identificado, verificar SHA-256 y clonar/arrancar el repositorio | Importar `core/`, inexistente antes del clon |
 
 Un script que solo enlaza o adapta un dotfile sigue siendo un componente gestionado; no requiere otro esquema. Instalación y configuración se separan solo si pertenecen a componentes distintos y se pueden seleccionar, verificar y desinstalar independientemente.
@@ -117,4 +126,12 @@ El orquestador pasa un contrato mínimo y explícito: acción, `--repo-dir`, mod
 
 ## Calidad mínima
 
-Los scripts nuevos se validan con ShellCheck y `bash -n`. Las pruebas de Docker ejecutan los componentes no gráficos en modo no interactivo al menos dos veces y comprueban su estado final. Incus cubre por separado los componentes de escritorio. Todo cambio de script debe añadir o actualizar la comprobación que demuestre idempotencia, verificación final y, cuando aplique, desinstalación segura.
+Los scripts nuevos se validan con ShellCheck y `bash -n`. Las pruebas de Docker
+definen sus imágenes y *entrypoints* en `.docker/`; el contexto de construcción
+se limita a ese directorio para reutilizar sus capas cuando no cambien. Montan
+el checkout en solo lectura bajo la ruta de instalación esperada y ejecutan
+exclusivamente `install.sh` en modo no interactivo al menos dos veces.
+Comprueban su estado final y eliminan el contenedor efímero incluso si falla la
+validación. Incus cubre por separado los componentes de escritorio. Todo cambio
+de script debe añadir o actualizar la comprobación que demuestre idempotencia,
+verificación final y, cuando aplique, desinstalación segura.

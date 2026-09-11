@@ -17,8 +17,9 @@ probar actualizaciones futuras de los dotfiles.
 
 | Componente | Tipo | Método de instalación | ¿Configuración? | Descripción |
 | --- | --- | --- | --- | --- |
-| Git | Base | APT de Ubuntu | Sí, mediante dotfiles | Control de versiones y clon del repositorio. |
-| curl | Base | APT de Ubuntu | No | Descarga del bootstrap y de recursos gestionados. |
+| Git | Base | APT de Ubuntu | Sí, mediante dotfiles | Control de versiones y clon del repositorio. **Planificado:** se instalará en una iteración posterior. |
+| curl | Base | APT de Ubuntu | No | Descarga del bootstrap y de recursos gestionados. **Actual:** el perfil `base` de `install.sh` lo instala. |
+| wget | Base | APT de Ubuntu | No | Descarga de recursos cuando un flujo lo requiera. **Actual:** el perfil `base` de `install.sh` lo instala. |
 | Zsh | Shell | APT de Ubuntu | Sí, mediante dotfiles | Shell interactiva predeterminada. |
 | Oh My Zsh | Shell | Instalador oficial con versión fijada | Sí, mediante dotfiles | Marco de carga para la configuración de Zsh. |
 | Starship | Shell | Instalador oficial con versión fijada | Sí, mediante dotfiles | Prompt compartido de terminal. |
@@ -65,7 +66,7 @@ esa trazabilidad.
 | Componente o hallazgo | Situación | Decisión actual |
 | --- | --- | --- |
 | `ca-certificates`, `unzip` y `zip` | Dependencias directas de `ubuntu-desktop` en Ubuntu 24.04 | No gestionarlas explícitamente; comprobar su presencia antes de depender de ellas. |
-| `python3` y `wget` | Pertenecen a `ubuntu-minimal` y `ubuntu-standard`, respectivamente, en Ubuntu 24.04 | No gestionarlos explícitamente; comprobar su presencia antes de depender de ellos. |
+| `python3` | Pertenece a `ubuntu-minimal` en Ubuntu 24.04 | No gestionarlo explícitamente; comprobar su presencia antes de depender de él. |
 | Configuración de GNOME | Tema, dock, atajos, teclado y monitores no están definidos | Configurar progresivamente mediante dotfiles de escritorio cuando se concrete la necesidad. |
 
 ## Límites de seguridad y migración
