@@ -5,6 +5,10 @@ revisión posterior. La auditoría se realizó en Ubuntu 24.04.4 LTS; el proyect
 objetivo es Ubuntu 26.04. Cada método debe validarse en esa versión antes de
 automatizarlo.
 
+El alcance general y el estado de las decisiones se mantienen en
+[OVERVIEW.md](OVERVIEW.md). Las reglas para mantener esta documentación
+consistente están en [DOCUMENTATION-GOVERNANCE.md](DOCUMENTATION-GOVERNANCE.md).
+
 Los perfiles de aplicación previstos son `base`, `developer` y `desktop`. Los
 componentes de validación forman parte de `developer` porque son necesarios para
 probar actualizaciones futuras de los dotfiles.

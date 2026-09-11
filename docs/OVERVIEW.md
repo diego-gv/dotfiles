@@ -11,6 +11,15 @@ Este repositorio almacena los `dotfiles` del usuario y el instalador necesario p
 
 El repositorio público del proyecto es <https://github.com/diego-gv/dotfiles>.
 
+## Documentación
+
+Este documento es el índice funcional del repositorio. La política de
+[gobernanza de la documentación](DOCUMENTATION-GOVERNANCE.md) establece cómo
+mantener coherentes los documentos, la implementación y las decisiones futuras.
+La lista curada de componentes está en
+[CURATED-SYSTEM-BASELINE.md](CURATED-SYSTEM-BASELINE.md), y las convenciones de
+automatización en [SCRIPT-CONVENTIONS.md](SCRIPT-CONVENTIONS.md).
+
 ## Instalación
 
 El punto de entrada público es `install.sh`, en la raíz del repositorio.
@@ -146,23 +155,25 @@ La estructura busca mantener cada script centrado en un componente, sin duplicar
 ```text
 install.sh
 Makefile
+core/
+  common.sh
+  system.sh
+  managed-state.sh
 agents/
   claude/
   codex/
   copilot/
   shared/
 scripts/
-  install-chrome.sh
-  install-brave-origin.sh
-  install-vscode.sh
-  install-postman.sh
-  install-zsh.sh
-  install-oh-my-zsh.sh
-  install-*.sh
-  setup-shortcuts.sh
-  setup-terminal-theme.sh
-  setup-dock.sh
-  setup-*.sh
+  components/
+    chrome.sh
+    brave-origin.sh
+    vscode.sh
+    postman.sh
+    zsh.sh
+    oh-my-zsh.sh
+  validation/
+    *.sh
 config/
   zsh/
     zshrc
@@ -178,7 +189,7 @@ templates/
 
 Los archivos específicos de cada herramienta de agentes vivirán bajo su directorio. Las definiciones portables, como las skills compartidas, vivirán bajo `agents/shared/` y se enlazarán o adaptarán únicamente cuando la herramienta destino lo admita.
 
-Una biblioteca interna pequeña podrá incorporar la lógica repetida de detección de plataforma, privilegios, logs, enlaces, respaldos y manifiesto de instalación cuando se hayan cerrado sus contratos. No se añadirá una capa común antes de que sea necesaria.
+Una capa interna pequeña en `core/` podrá incorporar la lógica repetida de detección de plataforma, privilegios, logs, enlaces, respaldos y manifiesto de instalación cuando se hayan cerrado sus contratos. No se añadirá una capa común antes de que sea necesaria. La estructura, los límites de responsabilidad y los contratos de los scripts se definen en [SCRIPT-CONVENTIONS.md](SCRIPT-CONVENTIONS.md).
 
 ## Guía de estilo
 
