@@ -125,7 +125,7 @@ These files are copied to their final locations (in `HOME`) and then symlinks ar
 - `clear-cache` / `clear-ram`: improve performance when caches or RAM are overloaded.
 - `azlogin <name>`: simplified Azure login.
 - `git list-gone` / `git prune-gone`: manage local branches without a remote.
-- `docker ps`: styled output.
+- `docker ps`: styled output. Use `docker pso` (or `docker ps --original`) for Docker's native output.
 
 ### Git users management (`~/.gitusers`)
 
