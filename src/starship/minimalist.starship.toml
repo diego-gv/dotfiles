@@ -1,0 +1,97 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Contexto útil, sin módulos irrelevantes para el flujo de trabajo habitual.
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$python\
+$cmd_duration\
+$status\
+$line_break\
+$character"""
+
+continuation_prompt = "[›](#B8B8D1) "
+
+[username]
+style_user = "bold #B8B8D1"
+style_root = "bold #F6C1C7"
+format = "[$user]($style)@"
+show_always = false
+
+[hostname]
+ssh_only = true
+style = "#B8B8D1"
+format = "[$hostname]($style) "
+disabled = false
+
+[directory]
+style = "bold #A8D5BA"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true
+
+[directory.substitutions]
+"Documents" = ""
+"Downloads" = ""
+"Music" = "󰝚"
+"Pictures" = ""
+"workspace" = ""
+"personal" = ""
+
+[git_branch]
+symbol = " "
+style = "bold #F4B183"
+format = "on [$symbol$branch]($style) "
+truncation_length = 24
+truncation_symbol = "…"
+
+[git_state]
+style = "#F4B183"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[git_status]
+style = "#F6C1C7"
+format = "[$all_status$ahead_behind]($style) "
+conflicted = "=${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+untracked = "?${count} "
+stashed = "⚑${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+
+[git_metrics]
+added_style = "#A8D5BA"
+deleted_style = "#F6C1C7"
+format = "\\([+$added]($added_style)([/](#B8B8D1)[-$deleted]($deleted_style))\\) "
+disabled = false
+
+[python]
+symbol = "🐍 "
+style = "#7FA9D8"
+format = "via [$symbol$version( \\($virtualenv\\))]($style) "
+
+[cmd_duration]
+min_time = 2_000
+style = "#B8B8D1"
+format = "took [$duration]($style) "
+show_milliseconds = false
+
+[status]
+symbol = "✗ "
+style = "bold #F6C1C7"
+format = "[$symbol$status]($style) "
+disabled = false
+
+[character]
+success_symbol = "[\\$](bold #A8D5BA)"
+error_symbol = "[\\$](bold #F6C1C7)"

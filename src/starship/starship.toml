@@ -1,55 +1,71 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
-# Contexto útil, sin módulos irrelevantes para el flujo de trabajo habitual.
+# Prompt de dos líneas: contexto a la izquierda y estado de la sesión a la derecha.
+add_newline = true
+palette = "pastel"
+
 format = """
-$username\
-$hostname\
+[╭─](pastel_muted)\
+[](pastel_slate)\
+$os\
+[](fg:pastel_slate bg:pastel_blue)\
 $directory\
-$git_branch\
-$git_state\
-$git_status\
-$git_metrics\
-$python\
-$cmd_duration\
-$status\
+[](fg:pastel_blue bg:pastel_green)\
+$git_branch$git_status$git_metrics$git_state\
+[](fg:pastel_green)\
+$fill[╮](pastel_muted)   \
 $line_break\
 $character"""
 
-continuation_prompt = "[›](#B8B8D1) "
+# Se oculta automáticamente si no cabe junto al prompt principal.
+right_format = """
+[](fg:pastel_yellow)\
+$cmd_duration\
+[](fg:pastel_blue bg:pastel_yellow)\
+$python$custom\
+[](fg:pastel_surface bg:pastel_blue)\
+$status\
+[](fg:pastel_surface)"""
 
-[username]
-style_user = "bold #B8B8D1"
-style_root = "bold #F6C1C7"
-format = "[$user]($style)@"
-show_always = false
+continuation_prompt = "[›](pastel_muted) "
 
-[hostname]
-ssh_only = true
-style = "#B8B8D1"
-format = "[$hostname]($style) "
+[fill]
+symbol = "─"
+style = "pastel_muted"
+
+[os]
 disabled = false
+style = "fg:pastel_background bg:pastel_slate"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Ubuntu = ""
 
 [directory]
-style = "bold #A8D5BA"
-format = "[$path]($style)[$read_only]($read_only_style) "
-truncation_length = 3
+style = "bold fg:pastel_text bg:pastel_blue"
+format = "[   $path$read_only ]($style)"
+truncation_length = 0
 truncation_symbol = "…/"
 truncate_to_repo = true
+read_only = " "
+read_only_style = "bold fg:pastel_text bg:pastel_blue"
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = "󰝚"
+"Pictures" = ""
+"workspace" = ""
+"personal" = ""
 
 [git_branch]
 symbol = " "
-style = "bold #F4B183"
-format = "on [$symbol$branch]($style) "
-truncation_length = 24
-truncation_symbol = "…"
-
-[git_state]
-style = "#F4B183"
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold fg:pastel_background bg:pastel_green"
+format = "[ $symbol$branch ]($style)"
 
 [git_status]
-style = "#F6C1C7"
-format = "[$all_status$ahead_behind]($style) "
+style = "bold fg:pastel_background bg:pastel_green"
+format = "[ $all_status$ahead_behind ]($style)"
 conflicted = "=${count} "
 ahead = "⇡${count} "
 behind = "⇣${count} "
@@ -62,28 +78,62 @@ renamed = "»${count} "
 deleted = "✘${count} "
 
 [git_metrics]
-added_style = "#A8D5BA"
-deleted_style = "#F6C1C7"
-format = "\\([+$added]($added_style)([/](#B8B8D1)[-$deleted]($deleted_style))\\) "
+added_style = "bold fg:pastel_added bg:pastel_green"
+deleted_style = "bold fg:pastel_deleted bg:pastel_green"
+# El grupo interior contiene `$deleted`: el separador solo aparece si hay bajas.
+format = "([+$added]($added_style)([/](fg:pastel_muted bg:pastel_green)[-$deleted]($deleted_style))[ ](bg:pastel_green))"
+only_nonzero_diffs = true
 disabled = false
 
-[python]
-symbol = "🐍 "
-style = "#7FA9D8"
-format = "via [$symbol$version( \\($virtualenv\\))]($style) "
-
+[git_state]
+style = "bold fg:pastel_background bg:pastel_green"
+format = "[ $state( $progress_current/$progress_total) ]($style)"
 [cmd_duration]
 min_time = 2_000
-style = "#B8B8D1"
-format = "took [$duration]($style) "
-show_milliseconds = false
+style = "bold fg:pastel_background bg:pastel_yellow"
+format = "[ 󱎫 $duration ]($style)"
+show_milliseconds = true
 
 [status]
-symbol = "✗ "
-style = "bold #F6C1C7"
-format = "[$symbol$status]($style) "
 disabled = false
+success_symbol = "✔"
+symbol = "✘"
+style = "bold fg:pastel_red bg:pastel_surface"
+success_style = "bold fg:pastel_green bg:pastel_surface"
+# El símbolo evita mostrar el código cero tras una ejecución correcta.
+format = "[ $maybe_int$symbol ]($style)"
 
+[python]
+symbol = "󰌠 "
+style = "bold fg:pastel_text bg:pastel_blue"
+format = '[ $symbol$version ]($style)'
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_files = ["pyproject.toml", "requirements.txt", "Pipfile", "setup.py", "tox.ini"]
+detect_extensions = ["py"]
+detect_folders = [".venv", "venv"]
+
+
+[custom.python_env]
+# Cambia `max_length=18` en el comando para ajustar el máximo visible.
+command = '''max_length=30; env_name=${VIRTUAL_ENV##*/}; if (( ${#env_name} > max_length )); then print -- "${env_name[1,$((max_length - 1))]}…"; else print -- "$env_name"; fi'''
+shell = ["zsh"]
+when = '''test -n "$VIRTUAL_ENV"'''
+style = "bold fg:pastel_text bg:pastel_blue"
+format = "[ ($output) ]($style)"
 [character]
-success_symbol = "[\\$](bold #A8D5BA)"
-error_symbol = "[\\$](bold #F6C1C7)"
+success_symbol = "[╰─](pastel_muted) "
+error_symbol = "[╰─](pastel_muted) "
+vimcmd_symbol = "[◼](pastel_yellow) "
+
+[palettes.pastel]
+pastel_background = "#20242D"
+pastel_surface = "#15191F"
+pastel_slate = "#697A91"
+pastel_blue = "#5279C7"
+pastel_green = "#57B889"
+pastel_red = "#E06C75"
+pastel_yellow = "#E5C07B"
+pastel_text = "#F2F5F8"
+pastel_muted = "#8FA6BF"
+pastel_added = "#A8D5BA"
+pastel_deleted = "#F6C1C7"
