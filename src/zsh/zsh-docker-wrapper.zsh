@@ -2,6 +2,12 @@
 # vim: set filetype=zsh
 
 docker() {
+    if [[ "$1" == "pso" ]]; then
+        shift
+        command docker ps "$@"
+        return $?
+    fi
+
     if [[ "$1" == "ps" ]]; then
         shift
 
